@@ -1,18 +1,29 @@
+@font-face {
+  font-family: "Josefin Sans", sans-serif;
+  src: url("../public/fonts/JosefinSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --primary-color: #fde0dd;
+  --main-font: "Josefin Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--main-font);
+  font-size: 16px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
