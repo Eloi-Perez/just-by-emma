@@ -1,4 +1,6 @@
-import s from '../styles/home.module.css'
+import Link from 'next/link'
+
+import s from '../styles/home.module.scss'
 
 export default function Home() {
   return (
@@ -7,7 +9,7 @@ export default function Home() {
         <h1 className={s.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-
+        <Link href="/shop"><a><h2>Shop Page Link</h2></a></Link>
         <p className={s.description}>
           Get started by editing{' '}
           <code className={s.code}>pages/index.js</code>
