@@ -12,10 +12,10 @@ export default function AddProductForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-   
+
     const priorities = Array.from(Array(images.length).keys())
     let imagesMeta = Array.apply(null, Array(images.length))
-    imagesMeta.forEach((e, i, a) => (a[i] = { 
+    imagesMeta.forEach((e, i, a) => (a[i] = {
       priority: priorities[i],
       ext: images[i].name.split(".").pop()
     }))
@@ -48,14 +48,13 @@ export default function AddProductForm() {
           body: formData
         })
         const responseImg = await callImg.json()
-        console.log(responseImg) /////////////////
-
-        // setName('')
-        // setPrice('')
-        // setDescription('')
-        console.log(response)//////////////
+        console.log(responseImg)
+        setName('')
+        setPrice('')
+        setDescription('')
+        console.log(response)
       } else {
-        console.log(response)///////////////
+        console.log(response)
       }
     } catch (error) {
       console.error('An unexpected error happened:', error)
@@ -81,6 +80,16 @@ export default function AddProductForm() {
         <input type="file" accept="image/*" multiple
           onChange={(e) => { setImages(e.target.files) }} required />
         <div>
+          <label htmlFor="description">Description:</label>
+          <textarea
+            id="description"
+            placeholder="write your description here*"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+        </div>
+        <div>
           <label htmlFor="price">Price:</label>
           <input
             id="price"
@@ -88,16 +97,6 @@ export default function AddProductForm() {
             placeholder="price*"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            placeholder="write your description here*"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
