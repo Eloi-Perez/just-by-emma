@@ -12,7 +12,7 @@ import s from '../../styles/admin.module.scss'
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 export default function Admin() {
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_BACKEND}/products/`, fetcher)
+  const { data, error, mutate } = useSWR(`${process.env.NEXT_PUBLIC_BACKEND}/products/`, fetcher)
   const [openAdd, setOpenAdd] = useState(false)
   const [openUpdate, setOpenUpdate] = useState({})
 
@@ -28,6 +28,8 @@ export default function Admin() {
   return (
     <div className={s.container}>
       <main className={s.main}>
+        <button onClick={() => mutate()}>Force Update Data</button>
+        <br />
         <button onClick={() => setOpenAdd(!openAdd)}>Add new product</button>
         {openAdd && <AddProductForm />}
 
@@ -53,7 +55,7 @@ export default function Admin() {
             </div>
             <p>{product.description}</p>
             <h3>Price: £{product.price}</h3>
-              <button onClick={() => toOpen(product._id)}>Update info</button>
+            <button onClick={() => toOpen(product._id)}>Update info</button>
             <DeleteProductForm id={product._id} />
             {openUpdate[product._id] && <UpdateProductForm id={product._id} old={product} />}
 
