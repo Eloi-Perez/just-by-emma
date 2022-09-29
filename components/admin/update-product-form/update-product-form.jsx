@@ -24,7 +24,6 @@ export default function UpdateProductForm({ id, old }) {
       }))
       return meta
     }
-    console.log({ imagesMeta: imagesMeta() })
     let data = {
       ...(name && { name }),
       ...(price && { price }),
