@@ -10,8 +10,6 @@ export default function UpdateProductForm({ id, old }) {
 
   const inputFileRef = useRef(null)
 
-
-  // images && console.log(images.length)
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -31,8 +29,6 @@ export default function UpdateProductForm({ id, old }) {
       ...(images && { imagesMeta: imagesMeta() })
     }
     try {
-
-      // setLoading(true)
       const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/${id}`, {
         method: 'PUT',
         headers: {

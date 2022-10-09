@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-// import ImageForm from '../image-form/image-form'
-
 // import s from '../../styles/admin.module.scss'
 
 export default function AddProductForm() {
@@ -23,7 +21,6 @@ export default function AddProductForm() {
     const data = { name, price, description, imagesMeta }
 
     try {
-      // setLoading(true)
       const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/add`, {
         method: 'POST',
         headers: {
