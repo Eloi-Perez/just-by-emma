@@ -2,12 +2,11 @@ import { useState } from 'react'
 import useSWR from 'swr'
 import Image from 'next/future/image'
 
+import AddProductForm from '../components/admin/add-product-form/add-product-form'
+import UpdateProductForm from '../components/admin/update-product-form/update-product-form'
+import DeleteProductForm from '../components/admin/delete-product-form/delete-product-form'
 
-import AddProductForm from '../../components/admin/add-product-form/add-product-form'
-import UpdateProductForm from '../../components/admin/update-product-form/update-product-form'
-import DeleteProductForm from '../../components/admin/delete-product-form/delete-product-form'
-
-import s from '../../styles/admin.module.scss'
+import s from '../styles/admin.module.scss'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
