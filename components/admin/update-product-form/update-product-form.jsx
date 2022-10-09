@@ -42,7 +42,7 @@ export default function UpdateProductForm({ id, old }) {
         body: JSON.stringify(data)
       })
       const response = await call.json()
-      if (call.ok) {
+      if (call.ok && images) {
         //Upload Image
         let formData = new FormData()
         for (let i = 0; i < images.length; i++) {
