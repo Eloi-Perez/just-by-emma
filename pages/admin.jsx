@@ -17,7 +17,7 @@ export default function Admin() {
 
   const toOpen = (id) => {
     setOpenUpdate({
-      ...openUpdate, // remove to auto close when click on a different item
+      ...openUpdate, // remove this line to auto close when click on a different item
       [id]: !openUpdate[id]
     })
   }
