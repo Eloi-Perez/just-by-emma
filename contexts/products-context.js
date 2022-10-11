@@ -27,10 +27,15 @@ export const ProductsProvider = props => {
   }, [])
 
   const fetchProducts = async () => {
-    const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/`)
-    const newProducts = await call.json()
-    if (call.ok) {
-      dispatch({ type: 'SET_PRODUCTS', payload: newProducts })
+    try {
+      const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/`)
+      const newProducts = await call.json()
+      if (call.ok) {
+        dispatch({ type: 'SET_PRODUCTS', payload: newProducts })
+      }
+      console.log('fetched')
+    } catch (error) {
+      console.error('An unexpected error happened:', error)
     }
   }
 
