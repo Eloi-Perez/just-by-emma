@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import Search from './search'
+
 import s from './navbar.module.scss'
 
 export default function Navbar() {
@@ -12,6 +14,7 @@ export default function Navbar() {
       <Link href="/about"><a>About</a></Link>
       <Link href="/news"><a>News</a></Link>
       <Link href="/contact"><a>Contact</a></Link>
+      <Search />
     </nav>
   )
 }

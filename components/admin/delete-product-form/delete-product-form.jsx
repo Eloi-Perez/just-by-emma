@@ -1,4 +1,9 @@
+import { useContext } from "react"
+
+import { ProductsContext } from '../../../contexts/products-context'
+
 export default function DeleteProductForm({ id }) {
+  const { fetchProducts } = useContext(ProductsContext)
   const apiCall = async () => {
     if (window.confirm('Do you really want to delete?')) {
       try {
@@ -12,6 +17,7 @@ export default function DeleteProductForm({ id }) {
         const response = await call.json()
         if (call.ok) {
           console.log(response)
+          fetchProducts()
         } else {
           console.log(response)
         }

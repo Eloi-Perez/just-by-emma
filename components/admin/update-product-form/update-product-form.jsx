@@ -1,8 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext } from 'react'
 
+import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
 
 export default function UpdateProductForm({ id, old }) {
+  const { fetchProducts } = useContext(ProductsContext)
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [images, setImages] = useState(null)
@@ -13,21 +15,36 @@ export default function UpdateProductForm({ id, old }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const imagesMeta = () => {
+    function resetFetchRevalidate() {
+      //reset values
+      setName('')
+      inputFileRef.current.value = null
+      setImages(null)
+      setPrice('')
+      setDescription('')
+      //fetch updates
+      fetchProducts()
+      //revalidate pages
+      // TODO add revalidate product page & store page
+    }
+
+    const imagesMeta = async () => {
       const priorities = Array.from(Array(images.length).keys())
-      let meta = Array.apply(null, Array(images.length))
-      meta.forEach((e, i, a) => (a[i] = {
+      let meta = await Array.apply(null, Array(images.length))
+      await meta.forEach((e, i, a) => (a[i] = {
         priority: priorities[i],
         ext: images[i].name.split(".").pop()
       }))
-      return meta
+      return await meta
     }
+
     let data = {
       ...(name && { name }),
       ...(price && { price }),
       ...(description && { description }),
-      ...(images && { imagesMeta: imagesMeta() })
+      ...(images && { imagesMeta: await imagesMeta() })
     }
+
     try {
       const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/${id}`, {
         method: 'PUT',
@@ -53,13 +70,12 @@ export default function UpdateProductForm({ id, old }) {
           body: formData
         })
         const responseImg = await callImg.json()
-        console.log(responseImg)
-        setName('')
-        inputFileRef.current.value = null
-        setImages(null)
-        setPrice('')
-        setDescription('')
         console.log(response)
+        console.log(responseImg)
+        resetFetchRevalidate()
+      }else if (call.ok && !images) {
+        console.log(response)
+        resetFetchRevalidate()
       } else {
         console.log(response)
       }
