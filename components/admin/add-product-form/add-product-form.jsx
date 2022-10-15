@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { useState, useRef, useContext } from 'react'
 
+import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
 
 export default function AddProductForm() {
+  const { fetchProducts } = useContext(ProductsContext)
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [images, setImages] = useState(null)
   const [description, setDescription] = useState('')
+
+  const inputFileRef = useRef(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -47,9 +51,11 @@ export default function AddProductForm() {
         const responseImg = await callImg.json()
         console.log(responseImg)
         setName('')
+        inputFileRef.current.value = null
         setPrice('')
         setDescription('')
         console.log(response)
+        fetchProducts()
       } else {
         console.log(response)
       }
@@ -74,7 +80,7 @@ export default function AddProductForm() {
             required
           />
         </div>
-        <input type="file" accept="image/*" multiple
+        <input ref={inputFileRef} type="file" accept="image/*" multiple
           onChange={(e) => { setImages(e.target.files) }} required />
         <div>
           <label htmlFor="description">Description:</label>
