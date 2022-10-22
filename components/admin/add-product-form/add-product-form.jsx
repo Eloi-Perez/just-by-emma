@@ -25,7 +25,7 @@ export default function AddProductForm() {
     const data = { name, price, description, imagesMeta }
 
     try {
-      const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/add`, {
+      const call = await fetch('/backend/products/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export default function AddProductForm() {
         for (let i = 0; i < images.length; i++) {
           formData.append('images', images[i], response._id + '_' + i + '.' + images[i].name.split(".").pop())
         }
-        const callImg = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/img`, {
+        const callImg = await fetch('/backend/products/img', {
           method: 'POST',
           headers: {
             // 'Content-Type': 'multipart/form-data;',

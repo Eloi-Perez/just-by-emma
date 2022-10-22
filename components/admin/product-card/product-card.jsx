@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
       <div className={s.container_flex}>
         {product.images[0] && product.images.map((img) => (
           <div className={s.img_container} key={img._id}>
-            <img src={`${process.env.NEXT_PUBLIC_BACKEND}/img/${img.filename}`}
+            <img src={`/backend/img/${img.filename}`}
               alt=""
               width="100px"
               height="100px"

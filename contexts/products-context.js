@@ -26,7 +26,7 @@ export const ProductsProvider = props => {
 
   const fetchProducts = async () => {
     try {
-      const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/`)
+      const call = await fetch('/backend/products/')
       const newProducts = await call.json()
       if (call.ok) {
         dispatch({ type: 'SET_PRODUCTS', payload: newProducts })

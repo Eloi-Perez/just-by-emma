@@ -1,7 +1,6 @@
 import { useState, useContext, useRef } from 'react'
 
 import { ProductsContext } from '../../contexts/products-context'
-
 import s from './navbar.module.scss'
 
 export default function Search() {

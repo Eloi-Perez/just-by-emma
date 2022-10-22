@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from 'react'
-// import Image from 'next/future/image'
 
 import { ProductsContext } from '../contexts/products-context'
 import AddProductForm from '../components/admin/add-product-form/add-product-form'
@@ -36,14 +35,3 @@ export default function Admin() {
     </div>
   )
 }
-
-
-{/* <Image src={`${process.env.NEXT_PUBLIC_BACKEND}/img/${img.filename}`}
-  alt=""
-  // width={100}
-  // height={100}
-  fill
-  style={{ objectFit: 'cover' }}
-  sizes="20vw"
-  priority
-/> */}

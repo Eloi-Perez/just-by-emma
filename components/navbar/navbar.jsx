@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import Search from './search'
-
 import s from './navbar.module.scss'
 
 export default function Navbar() {
