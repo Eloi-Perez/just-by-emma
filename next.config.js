@@ -2,15 +2,23 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    remotePatterns: [
+  // images: { // No need for remotePatterns if images come from rewrites()
+    // remotePatterns: [
+      // {
+        // protocol: 'http',
+        // hostname: 'localhost',
+        // port: '3001',
+        // pathname: '/img/**',
+      // },
+    // ],
+  // },
+  async rewrites() {
+    return [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3001',
-        pathname: '/img/**',
-      },
-    ],
+        source: '/backend/:path*',
+        destination: `${process.env.BACKEND}/:path*`
+      }
+    ]
   },
 }
 
