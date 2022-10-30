@@ -4,8 +4,7 @@ import s from '../styles/shop.module.scss'
 
 export default function Shop({ arrayProducts }) {
   return (
-    <div className={s.container}>
-      <main className={s.main}>
+    <div className={s.main_container}>
         <h1>Hi</h1>
         {arrayProducts.map((product) => ( //TODO export to component product-card
           <div key={product._id}>
@@ -27,7 +26,6 @@ export default function Shop({ arrayProducts }) {
             <hr />
           </div>
         ))}
-      </main>
     </div>
   )
 }
