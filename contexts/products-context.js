@@ -1,4 +1,4 @@
-import { useReducer, createContext, useEffect } from 'react'
+import { useReducer, createContext } from 'react'
 
 const productsReducer = (state, action) => {
   switch (action.type) {
@@ -18,17 +18,15 @@ const productsReducer = (state, action) => {
 export const ProductsContext = createContext()
 
 export const ProductsProvider = props => {
-  const initialState = []
+  const initialState = {
+    products: []
+  }
 
   const [state, dispatch] = useReducer(productsReducer, initialState)
 
-  useEffect(() => {
-    fetchProducts()
-  }, [])
-
   const fetchProducts = async () => {
     try {
-      const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/`)
+      const call = await fetch('/backend/products/')
       const newProducts = await call.json()
       if (call.ok) {
         dispatch({ type: 'SET_PRODUCTS', payload: newProducts })

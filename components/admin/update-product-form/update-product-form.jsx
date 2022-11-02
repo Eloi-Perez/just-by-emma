@@ -1,8 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext } from 'react'
 
+import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
 
 export default function UpdateProductForm({ id, old }) {
+  const { fetchProducts } = useContext(ProductsContext)
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [images, setImages] = useState(null)
@@ -13,8 +15,22 @@ export default function UpdateProductForm({ id, old }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const imagesMeta = () => {
+    function resetFetchRevalidate() {
+      //reset values
+      setName('')
+      inputFileRef.current.value = null
+      setImages(null)
+      setPrice('')
+      setDescription('')
+      //fetch updates
+      fetchProducts()
+      //revalidate pages
+      // TODO add revalidate product page & store page
+    }
+
+    const imagesMeta = async () => {
       const priorities = Array.from(Array(images.length).keys())
+<<<<<<< HEAD
       let meta = Array.apply(null, Array(images.length))
       meta.forEach(
         (e, i, a) =>
@@ -24,14 +40,29 @@ export default function UpdateProductForm({ id, old }) {
           }),
       )
       return meta
+=======
+      let meta = await Array.apply(null, Array(images.length))
+      await meta.forEach((e, i, a) => (a[i] = {
+        priority: priorities[i],
+        ext: images[i].name.split(".").pop()
+      }))
+      return await meta
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
     }
+
     let data = {
       ...(name && { name }),
       ...(price && { price }),
       ...(description && { description }),
+<<<<<<< HEAD
       ...(images && { imagesMeta: imagesMeta() }),
+=======
+      ...(images && { imagesMeta: await imagesMeta() })
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
     }
+
     try {
+<<<<<<< HEAD
       const call = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND}/products/${id}`,
         {
@@ -41,6 +72,13 @@ export default function UpdateProductForm({ id, old }) {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
           },
           body: JSON.stringify(data),
+=======
+      const call = await fetch(`/backend/products/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
         },
       )
       const response = await call.json()
@@ -54,6 +92,7 @@ export default function UpdateProductForm({ id, old }) {
             response._id + '_' + i + '.' + images[i].name.split('.').pop(),
           )
         }
+<<<<<<< HEAD
         const callImg = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND}/products/img`,
           {
@@ -63,16 +102,22 @@ export default function UpdateProductForm({ id, old }) {
               Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
             },
             body: formData,
+=======
+        const callImg = await fetch(`/backend/products/img`, {
+          method: 'POST',
+          headers: {
+            // 'Content-Type': 'multipart/form-data;',
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
           },
         )
         const responseImg = await callImg.json()
-        console.log(responseImg)
-        setName('')
-        inputFileRef.current.value = null
-        setImages(null)
-        setPrice('')
-        setDescription('')
         console.log(response)
+        console.log(responseImg)
+        resetFetchRevalidate()
+      }else if (call.ok && !images) {
+        console.log(response)
+        resetFetchRevalidate()
       } else {
         console.log(response)
       }

@@ -9,15 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.3.0",
+    "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+<<<<<<< HEAD
     "sass": "^1.54.9",
     "sharp": "0.31.0",
     "swr": "1.3.0"
+=======
+    "sass": "1.55.0",
+    "sharp": "0.31.1"
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
   },
   "devDependencies": {
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.0"
+    "eslint": "8.25.0",
+    "eslint-config-next": "13.0.0"
   }
 }

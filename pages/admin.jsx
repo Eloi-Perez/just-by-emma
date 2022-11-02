@@ -1,41 +1,41 @@
-import { useState } from 'react'
-import useSWR from 'swr'
-import Image from 'next/future/image'
+import { useState, useContext, useEffect } from 'react'
 
+import { ProductsContext } from '../contexts/products-context'
 import AddProductForm from '../components/admin/add-product-form/add-product-form'
-import UpdateProductForm from '../components/admin/update-product-form/update-product-form'
-import DeleteProductForm from '../components/admin/delete-product-form/delete-product-form'
-
+import ProductCard from '../components/admin/product-card/product-card'
 import s from '../styles/admin.module.scss'
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
 export default function Admin() {
+<<<<<<< HEAD
   const { data, error, mutate } = useSWR(
     `${process.env.NEXT_PUBLIC_BACKEND}/products/`,
     fetcher,
   )
+=======
+  const { products, fetchProducts } = useContext(ProductsContext)
+  const [searchInput, setSearchInput] = useState('')
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
   const [openAdd, setOpenAdd] = useState(false)
-  const [openUpdate, setOpenUpdate] = useState({})
 
+<<<<<<< HEAD
   const toOpen = (id) => {
     setOpenUpdate({
       ...openUpdate, // remove this line to auto close when click on a different item
       [id]: !openUpdate[id],
     })
   }
+=======
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
 
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
   return (
-    <div className={s.container}>
-      <main className={s.main}>
-        <button onClick={() => mutate()}>Force Update Data</button>
-        <br />
+    <div className={s.main_container}>
         <button onClick={() => setOpenAdd(!openAdd)}>Add new product</button>
         {openAdd && <AddProductForm />}
-
         <h1>Product list:</h1>
+<<<<<<< HEAD
         {/* TODO add search */}
         {data &&
           data.map((product) => (
@@ -70,6 +70,19 @@ export default function Admin() {
             </div>
           ))}
       </main>
+=======
+        <input
+          type="search"
+          placeholder="Search here"
+          onChange={e => setSearchInput(e.target.value)}
+          value={searchInput} />
+        {products && !searchInput && products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+        {products && searchInput && products.filter(li => li.name.toLowerCase().includes(searchInput.toLowerCase())).map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+>>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
     </div>
   )
 }
