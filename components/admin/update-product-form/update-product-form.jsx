@@ -16,42 +16,55 @@ export default function UpdateProductForm({ id, old }) {
     const imagesMeta = () => {
       const priorities = Array.from(Array(images.length).keys())
       let meta = Array.apply(null, Array(images.length))
-      meta.forEach((e, i, a) => (a[i] = {
-        priority: priorities[i],
-        ext: images[i].name.split(".").pop()
-      }))
+      meta.forEach(
+        (e, i, a) =>
+          (a[i] = {
+            priority: priorities[i],
+            ext: images[i].name.split('.').pop(),
+          }),
+      )
       return meta
     }
     let data = {
       ...(name && { name }),
       ...(price && { price }),
       ...(description && { description }),
-      ...(images && { imagesMeta: imagesMeta() })
+      ...(images && { imagesMeta: imagesMeta() }),
     }
     try {
-      const call = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+      const call = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND}/products/${id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
+          },
+          body: JSON.stringify(data),
         },
-        body: JSON.stringify(data)
-      })
+      )
       const response = await call.json()
       if (call.ok && images) {
         //Upload Image
         let formData = new FormData()
         for (let i = 0; i < images.length; i++) {
-          formData.append('images', images[i], response._id + '_' + i + '.' + images[i].name.split(".").pop())
+          formData.append(
+            'images',
+            images[i],
+            response._id + '_' + i + '.' + images[i].name.split('.').pop(),
+          )
         }
-        const callImg = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/products/img`, {
-          method: 'POST',
-          headers: {
-            // 'Content-Type': 'multipart/form-data;',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+        const callImg = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND}/products/img`,
+          {
+            method: 'POST',
+            headers: {
+              // 'Content-Type': 'multipart/form-data;',
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
+            },
+            body: formData,
           },
-          body: formData
-        })
+        )
         const responseImg = await callImg.json()
         console.log(responseImg)
         setName('')
@@ -68,7 +81,6 @@ export default function UpdateProductForm({ id, old }) {
     }
   }
 
-
   return (
     <>
       <h1>Update Product Form:</h1>
@@ -83,8 +95,15 @@ export default function UpdateProductForm({ id, old }) {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <input ref={inputFileRef} type="file" accept="image/*" multiple
-          onChange={(e) => { setImages(e.target.files) }} />
+        <input
+          ref={inputFileRef}
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) => {
+            setImages(e.target.files)
+          }}
+        />
         <div>
           <label htmlFor="description">Description:</label>
           <textarea
@@ -109,6 +128,5 @@ export default function UpdateProductForm({ id, old }) {
         </div>
       </form>
     </>
-
   )
 }

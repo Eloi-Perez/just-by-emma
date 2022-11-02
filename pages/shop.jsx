@@ -7,7 +7,9 @@ export default function Shop({ arrayProducts }) {
     <div className={s.container}>
       <main className={s.main}>
         <h1>Hi</h1>
-        {arrayProducts.map((product) => ( //TODO export to component product-card
+        {arrayProducts.map((
+          product, //TODO export to component product-card
+        ) => (
           <div key={product._id}>
             <h3>{product.name}</h3>
             <p>{product.description}</p>
@@ -21,7 +23,6 @@ export default function Shop({ arrayProducts }) {
 }
 
 export async function getStaticProps() {
-
   const res = await fetch(`${process.env.BACKEND}/products`)
   const arrayProducts = await res.json()
 

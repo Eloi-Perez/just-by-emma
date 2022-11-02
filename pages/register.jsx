@@ -1,6 +1,5 @@
-import React from 'react'
 import CreateStyle from '../styles/register.module.scss'
-import Link from 'next/link'
+
 
 const CreateAccount = () => {
   return (

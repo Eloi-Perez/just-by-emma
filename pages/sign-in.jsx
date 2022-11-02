@@ -1,6 +1,5 @@
-import React from 'react'
 import signinStyle from '../styles/sign-in.module.scss'
-import Link from 'next/link'
+
 
 const CreateAccount = () => {
   return (
