@@ -2,6 +2,9 @@ import CreateStyle from '../styles/register.module.scss'
 
 
 const CreateAccount = () => {
+
+
+  
   return (
     <div className={CreateStyle.container}>
       <div className={CreateStyle.wrapper}>
