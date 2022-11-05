@@ -5,7 +5,7 @@ const userDataReducer = (state, action) => {
     case 'SET_USER_DATA':
       return {
         ...state,
-        userData: action.payload,
+        userData: action.payload
       }
     default:
       return state
@@ -16,9 +16,7 @@ export const UserDataContext = createContext()
 
 export const UserDataProvider = props => {
   const initialState = {
-    userData: {
-      name: 'Emma'
-    }
+    userData: ''
   }
 
   const [state, dispatch] = useReducer(userDataReducer, initialState)
@@ -32,7 +30,8 @@ export const UserDataProvider = props => {
       value={{
         userData: state.userData,
         setUserData
-      }}>
+      }}
+    >
       {props.children}
     </UserDataContext.Provider>
   )
