@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import Logo from '../UI/logo'
 import Search from './search'
+import Dialog from '../UI/dialog/dialog'
 import s from './navbar.module.scss'
 
 export default function Navbar() {
@@ -11,7 +12,7 @@ export default function Navbar() {
       <Link href="/">Home</Link>
       <Link href="/shop">Shop</Link>
       <Link href="/ingredients">Ingredients</Link>
-      <Link href="/register">Sign up</Link>
+      <Dialog trigger={<a href="javascript:;">Sign Up</a>}>Login here...</Dialog>
       <Link href="/about">About</Link>
       <Link href="/news">News</Link>
       <Link href="/contact">Contact</Link>

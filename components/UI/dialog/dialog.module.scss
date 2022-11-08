@@ -1,0 +1,27 @@
+.overlay {
+  background: rgba(0 0 0 / 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  min-width: 300px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
