@@ -1,8 +1,11 @@
 import Link from 'next/link'
 
-import Logo from '../UI/logo'
 import Search from './search'
 import Dialog from '../UI/dialog/dialog'
+import Logo from '../UI/svg/logo'
+import Share from '../UI/svg/share'
+import Profile from '../UI/svg/profile'
+import Basket from '../UI/svg/basket'
 import s from './navbar.module.scss'
 
 export default function Navbar() {
@@ -12,11 +15,14 @@ export default function Navbar() {
       <Link href="/">Home</Link>
       <Link href="/shop">Shop</Link>
       <Link href="/ingredients">Ingredients</Link>
-      <Dialog trigger={<a href="javascript:;">Sign Up</a>}>Login here...</Dialog>
+      <Dialog trigger={<div>Sign Up</div>}>Login here...</Dialog>
       <Link href="/about">About</Link>
       <Link href="/news">News</Link>
       <Link href="/contact">Contact</Link>
       <Search />
+      <Share />
+      <Profile />
+      <Basket />
     </nav>
   )
 }
