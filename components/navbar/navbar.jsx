@@ -21,7 +21,7 @@ export default function Navbar() {
       <Link href="/contact">Contact</Link>
       <Search />
       <Share />
-      <Profile />
+      <Link href="/profile"><Profile /></Link>
       <Basket />
     </nav>
   )
