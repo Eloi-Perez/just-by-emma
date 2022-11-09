@@ -1,4 +1,5 @@
 import HeaderImage from '../components/UI/header-image/header-image'
+import EmmaImage from '../components/UI/emma-image/emma-image'
 import s from '../styles/home.module.scss'
 
 export default function About() {
@@ -9,7 +10,7 @@ export default function About() {
       <p className={s.description}>
         Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils
       </p>
-      <div style={{ background: 'grey' }}>Emma Image</div>
+      <EmmaImage />
       <div>
         <div>Ingredient 1</div>
         <div>Ingredient 2</div>

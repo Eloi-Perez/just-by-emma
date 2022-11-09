@@ -1,4 +1,5 @@
 import HeaderImage from '../components/UI/header-image/header-image'
+import EmmaImage from '../components/UI/emma-image/emma-image'
 import s from '../styles/home.module.scss'
 
 export default function About() {
@@ -14,6 +15,7 @@ export default function About() {
         Just by Emma also believes in being completely transparent about each ingredient included in each product....<br />
         So you can make informed decisions about what you are putting on your skin. 
       </p>
+      <EmmaImage />
       <h2>MY STORY</h2>
       <p>
         It all started a few years back when I hit the age of 40 and my skin really started to change. Hormonal pimples, dry patches, oily patches... all of those things you thought you'd left behind in your teens...  All the products I used never seemed to help my sensitive skin or it created break-out or other sensitive reactions, I just got so confused about what I was putting on my skin and I never really knew what ingredients were right for my skin type.<br />
