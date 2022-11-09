@@ -1,5 +1,5 @@
 .root {
-  position: fixed;
+  position: relative;
   width: 100%;
   display: flex;
   gap: 10px;
@@ -11,7 +11,7 @@
   z-index: 1;
 }
 
-.logo svg{
+.logo svg {
   width: 156px;
   margin: 1rem;
 }
