@@ -14,7 +14,8 @@ export default function Product({ product }) {
     if (size !== '0') {
       setCart('ADD_QUANTITY', {
         id: product._id,
-        sizeTo: size
+        select: size,
+        product
       })
     } else {
       console.error('error, no size selected')
