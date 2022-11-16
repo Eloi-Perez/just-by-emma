@@ -21,7 +21,7 @@ export default function Navbar() {
         <Search />
         <Share />
         <Link href="/profile"><Profile /></Link>
-        <Basket />
+        <Link href="/cart"><Basket /></Link>
       </div>
       <div className={s.menu}>
         <Link href="/">Home</Link>
