@@ -2,7 +2,7 @@ import { useState, useRef, useContext } from 'react'
 
 import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
-
+//TODO update to new schema
 export default function UpdateProductForm({ id, old }) {
   const { fetchProducts } = useContext(ProductsContext)
   const [name, setName] = useState('')

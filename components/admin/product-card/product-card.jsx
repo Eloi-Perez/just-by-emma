@@ -12,7 +12,6 @@ export default function ProductCard({ product }) {
       [id]: !openUpdate[id]
     })
   }
-
   return (
     <div>
       <h3>{product.name}</h3>
@@ -29,7 +28,12 @@ export default function ProductCard({ product }) {
         ))}
       </div>
       <p>{product.description}</p>
-      <h3>Price: £{product.price}</h3>
+      {product.sizes.map((size, i) => (
+        <div key={i}>
+          <h3>{size.name}<br />
+          Price: £{size.price}</h3>
+        </div>
+      ))}
       <button onClick={() => toOpen(product._id)}>Update info</button>
       <DeleteProductForm id={product._id} />
       {openUpdate[product._id] && <UpdateProductForm id={product._id} old={product} />}

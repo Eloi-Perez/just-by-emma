@@ -36,7 +36,8 @@ export default function Contact() {
       <p>{JSON.stringify(cart)}</p>
       <div>
         {cart && cart.map(item =>
-          Object.keys(item.size).map((size, i) => {
+          // Object.keys(item.size).map((size, i) => {
+          item.quantities.map((variant, i) => {
             return (
               <div key={i}>
                 <Image src={`/backend/img/${item.product.images[0].filename}`}
@@ -49,12 +50,12 @@ export default function Contact() {
                   priority
                 />
                 <h3>{item.product.name}</h3>
-                <p>{size}</p>
-                <button onClick={() => handleSub(item.id, size)}>Subtract</button>
-                <span> {item.size[size]} </span>
-                <button onClick={() => handleAdd(item.id, size)}>Add</button>
+                <p>{variant.size}</p>
+                <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
+                <span> {variant.quantity} </span>
+                <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
                 <div>£20.00</div>
-                <button onClick={() => handleRemove(item.id, size)}>Delete</button>
+                <button onClick={() => handleRemove(item.id, variant.size)}>Delete</button>
                 <hr />
               </div>
             )

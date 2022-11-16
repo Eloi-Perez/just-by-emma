@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import Image from 'next/image'
 
 import { CartContext } from '../../contexts/cart-context'
@@ -8,20 +8,25 @@ import s2 from '../../styles/shop.module.scss'
 
 export default function Product({ product }) {
   const { cart, setCart } = useContext(CartContext)
-  const [size, setSize] = useState('0')
+  const [sizeToSend, setSizeToSend] = useState('0')
+
+  useEffect(() => {
+    if (product.sizes.length === 1) {
+      setSizeToSend(product.sizes[0].name)
+    }
+  }, [])
 
   function handleAdd() {
-    if (size !== '0') {
+    if (sizeToSend !== '0') {
       setCart('ADD_QUANTITY', {
         id: product._id,
-        select: size,
+        select: sizeToSend,
         product
       })
     } else {
       console.error('error, no size selected')
     }
   }
-
   return (
     <div className={s2.root}>
       {/* delete next 2 lines */}
@@ -41,15 +46,16 @@ export default function Product({ product }) {
         />
       ))}
       <p>{product.description}</p>
-      <h3>From: £{product.price}</h3>
-      <div>
+      <h3>From: £{product.sizes[0].price}</h3>
+      {(product.sizes.length > 1) && <div>
         <div>Size</div>
-        <select value={size} onChange={e => setSize(e.target.value)}>
+        <select value={sizeToSend} onChange={e => setSizeToSend(e.target.value)}>
           <option value="0">Select</option>
-          <option value="s50ml">50ml £18.00</option>
-          <option value="s15ml">15ml £ 5.00</option>
+          {product.sizes.map(size =>
+            <option key={size.name} value={size.name}>{size.name} £{size.price}</option>
+          )}
         </select>
-      </div>
+      </div>}
       <br />
       <button onClick={handleAdd}>Add to Cart</button>
       <br /><br />
