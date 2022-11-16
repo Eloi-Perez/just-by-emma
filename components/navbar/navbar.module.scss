@@ -1,7 +1,9 @@
 .root {
   position: fixed;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  grid-template-rows: 1fr 1fr;
   gap: 10px;
   align-items: center;
   justify-content: center;
@@ -9,4 +11,14 @@
   flex-wrap: wrap;
   overflow: visible;
   z-index: 1;
+}
+
+.logo{
+
+}
+.top_elemets{
+
+}
+.menu{
+
 }
