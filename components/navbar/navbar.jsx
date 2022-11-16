@@ -1,7 +1,11 @@
 import Link from 'next/link'
 
-import Logo from '../UI/logo'
 import Search from './search'
+import Dialog from '../UI/dialog/dialog'
+import Logo from '../UI/svg/logo'
+import Share from '../UI/svg/share'
+import Profile from '../UI/svg/profile'
+import Basket from '../UI/svg/basket'
 import s from './navbar.module.scss'
 
 export default function Navbar() {
@@ -15,13 +19,15 @@ export default function Navbar() {
           Just 100% natural and simple skincare
       </div>
         <Search />
-        <div>temporary</div>
+        <Share />
+        <Link href="/profile"><Profile /></Link>
+        <Link href="/cart"><Basket /></Link>
       </div>
       <div className={s.menu}>
         <Link href="/">Home</Link>
         <Link href="/shop">Shop</Link>
         <Link href="/ingredients">Ingredients</Link>
-        <Link href="/register">Sign up</Link>
+        <Dialog trigger="Sign Up">Login/Register here...</Dialog>
         <Link href="/about">About</Link>
         <Link href="/news">News</Link>
         <Link href="/contact">Contact</Link>
