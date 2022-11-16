@@ -1,5 +1,5 @@
 .root {
-  position: fixed;
+  position: relative;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 8fr;
@@ -16,9 +16,11 @@
 .logo{
 
 }
+
 .top_elemets{
 
 }
+
 .menu{
 
 }

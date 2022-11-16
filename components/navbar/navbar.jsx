@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import Logo from '../UI/logo'
 import Search from './search'
 import s from './navbar.module.scss'
 

@@ -1,40 +1,27 @@
-import Image from 'next/image'
-
+import HeaderImage from '../components/UI/header-image/header-image'
+import EmmaImage from '../components/UI/emma-image/emma-image'
+import ProductCard from '../components/product-card/product-card'
 import s from '../styles/shop.module.scss'
 
 export default function Shop({ arrayProducts }) {
   return (
-    <div className={s.main_container}>
-        <h1>Hi</h1>
-        {arrayProducts.map((product) => ( //TODO export to component product-card
-          <div key={product._id}>
-            <h3>{product.name}</h3>
-            {product.images[0] && product.images.map((img) => (
-              <Image src={`/backend/img/${img.filename}`}
-                key={img.filename}
-                alt=""
-                width={100}
-                height={100}
-                // fill
-                style={{ objectFit: 'cover' }}
-                sizes="20vw"
-                // priority
-              />
-            ))}
-            <p>{product.description}</p>
-            <h3>Price: £{product.price}</h3>
-            <hr />
-          </div>
-        ))}
+    <div className={s.root}>
+      <HeaderImage />
+      <h1>THE JUST BY EMMA SHOP</h1>
+      <p>Our ethos is about producing naturally formulated products which focus on keeping your skincare routine natural and simple (with minimal wastage).</p>
+      <p>All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is mainly glass and aluminium which can be fully recycled.
+        Our face oil and face cream do include a pump/dropper, however this is necessary to keep the product fresh and avoid any contamination and for ease of use.</p>
+      <EmmaImage />
+      {arrayProducts.map((product) => ( //TODO export to component product-card
+        <ProductCard key={product._id} product={product} />
+      ))}
     </div>
   )
 }
 
 export async function getStaticProps() {
-
   const res = await fetch(`${process.env.BACKEND}/products`)
   const arrayProducts = await res.json()
-
   return {
     props: {
       arrayProducts,
