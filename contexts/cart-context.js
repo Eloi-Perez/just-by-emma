@@ -29,7 +29,7 @@ const cartReducer = (state, action) => {
     //     }
     //   }
     //   return newState
-    case 'REMOVE_FROM_CART': // NEEDS TESTING
+    case 'REMOVE_FROM_CART':
       // {id, select: 'size'}
       if (match >= 0 && newState.cart[match].quantities[matchSize].quantity) {
         if (newState.cart[match].quantities.length === 1) { // only 1 variant
