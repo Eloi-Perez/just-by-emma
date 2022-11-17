@@ -69,11 +69,11 @@ export default function Cart() {
                 priority
               />
               <h3>{item.product.name}</h3>
-              <p>{variant.size}</p>
+              <p>{variant.size} £{item.product.sizes[item.product.sizes.findIndex(e => e.name === variant.size)].price}</p>
               <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
               <span> {variant.quantity} </span>
               <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
-              <div>£{item.product.sizes[item.product.sizes.findIndex(e => e.name === variant.size)].price}</div>
+              <div>£{item.product.sizes[item.product.sizes.findIndex(e => e.name === variant.size)].price * variant.quantity}</div>
               <button onClick={() => handleRemove(item.id, variant.size)}>Delete</button>
               <hr />
             </div>
