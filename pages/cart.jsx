@@ -5,7 +5,7 @@ import { CartContext } from '../contexts/cart-context'
 
 import s from '../styles/home.module.scss'
 
-export default function Contact() {
+export default function Cart() {
   const { cart, setCart } = useContext(CartContext)
   const [nItems, setNItems] = useState(0)
   const [merchandiseTotal, setMerchandiseTotal] = useState(0)
