@@ -25,7 +25,7 @@ export default function Cart() {
       })
     )
     setMerchandiseTotal(merchandise)
-  }, [{ cart }])
+  }, [JSON.stringify(cart)])
 
 
   function handleAdd(id, size) {
