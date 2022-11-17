@@ -1,13 +1,27 @@
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import { ProductsContext } from '../../contexts/products-context'
 import s from './navbar.module.scss'
 
 export default function Search() {
+  const router = useRouter()
   const initSearch = useRef(false)
   const [searchInput, setSearchInput] = useState('')
   const [errorSearch, setErrorSearch] = useState(false)
   const { products, fetchProducts } = useContext(ProductsContext)
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setSearchInput('')
+      setErrorSearch(false)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [])
 
   function handleChange(e) {
     setSearchInput(e.target.value)
@@ -23,8 +37,6 @@ export default function Search() {
     }
   }
 
-
-  //TODO: links on list and clear search onClick
   return (
     <div className={s.search}>
       <input
@@ -38,7 +50,7 @@ export default function Search() {
           .filter(li => li.name.toLowerCase().includes(searchInput.toLowerCase()))
           .map((item, key) => (
             <li key={key}>
-              {item.name}
+              <Link href={`/shop/${item._id}`}>{item.name}</Link>
             </li>
           ))}
       </ul>}
