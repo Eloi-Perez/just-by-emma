@@ -1,6 +1,7 @@
 import HeadContent from './head-content'
 import Navbar from '../navbar/navbar'
 import Footer from '../footer/footer'
+import SideCart from '../side-cart/side-cart'
 // import s from './layout.module.css'
 
 export default function Layout({ children }) {
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
       <main>
         {children}
       </main>
+      <SideCart />{/* {conditional rendering for Desktop only ?} */}
       <Footer />
     </>
   )

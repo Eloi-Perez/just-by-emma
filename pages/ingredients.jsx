@@ -2,7 +2,7 @@ import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import s from '../styles/home.module.scss'
 
-export default function About() {
+export default function Ingredients() {
   return (
     <div className={s.root}>
       <HeaderImage />

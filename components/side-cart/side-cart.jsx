@@ -1,31 +1,50 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
+import Link from 'next/link'
 
-import { CartContext } from '../contexts/cart-context'
+import { CartContext } from '../../contexts/cart-context'
+import s from './side-cart.module.scss'
 
-import s from '../styles/home.module.scss'
+// TODO include dialog/modal
 
-export default function Cart() {
+export default function SideCart() {
+  const router = useRouter()
   const { cart, setCart } = useContext(CartContext)
-  const [nItems, setNItems] = useState(0)
-  const [merchandiseTotal, setMerchandiseTotal] = useState(0)
+  const [subtotal, setSubtotal] = useState(0)
+  const [show, setShow] = useState(false)
+  const isInitialMount = useRef(true)
 
   useEffect(() => {
-    let items = 0
-    cart.map(item =>
-      item.quantities.map(q => (items += q.quantity))
-    )
-    setNItems(items)
-
-    let merchandise = 0
+    let calcSubTotal = 0
     cart.map(item =>
       item.quantities.map((q, i) => {
         let indexSize = item.product.sizes.findIndex(e => e.name === q.size)
-        merchandise += q.quantity * item.product.sizes[indexSize].price
+        calcSubTotal += q.quantity * item.product.sizes[indexSize].price
       })
     )
-    setMerchandiseTotal(merchandise)
+    setSubtotal(calcSubTotal)
+
+    if (isInitialMount.current) {
+      isInitialMount.current = false
+    } else {
+      if (router.pathname !== '/cart') {
+        setShow(true)
+      }
+    }
   }, [JSON.stringify(cart)])
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      if (router.pathname === '/cart') {
+        setShow(false)
+      }
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [])
 
 
   function handleAdd(id, size) {
@@ -40,23 +59,15 @@ export default function Cart() {
       select: size
     })
   }
-  function handleRemove(id, size) {
-    setCart('REMOVE_FROM_CART', {
-      id: id,
-      select: size
-    })
-  }
 
+  const rootClassName = show ? (`${s.root}`) : (`${s.root} ${s.hidden}`)
 
   return (
-    <div className={s.root}>
-      <h1 className={s.title}>CART</h1>
-      {/* delete next 2 lines */}
-      <h3>Cart Content</h3>
-      <p>{JSON.stringify(cart)}</p>
+    <div className={rootClassName}>
+      <h2 className={s.title}>Cart</h2>
+      <button onClick={() => setShow(false)}>Hide</button>
       <div>
         {cart && cart.map(item =>
-          // Object.keys(item.size).map((size, i) => {
           item.quantities.map((variant, i) => (
             <div key={i}>
               <Image src={`/backend/img/${item.product.images[0].filename}`}
@@ -74,7 +85,6 @@ export default function Cart() {
               <span> {variant.quantity} </span>
               <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
               <div>£{item.product.sizes[item.product.sizes.findIndex(e => e.name === variant.size)].price * variant.quantity}</div>
-              <button onClick={() => handleRemove(item.id, variant.size)}>Delete</button>
               <hr />
             </div>
           )
@@ -83,12 +93,8 @@ export default function Cart() {
       </div>
 
       <div className={s.order}>
-        <h3>Your Order ({nItems} items)</h3>
-        <hr />
-        <div>Merchandise £{merchandiseTotal}</div>
-        <div>Estimated Shipping: £11?</div>
-        <div>Subtotal £{merchandiseTotal + 11}</div>
-        <button>Checkout</button>
+        <div>Subtotal £{subtotal}</div>
+        <Link href="/cart"><button>View Cart</button></Link>
       </div>
     </div>
   )
