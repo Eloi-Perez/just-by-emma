@@ -15,12 +15,10 @@
   flex-direction: column;
   margin-top: 100px;
 }
-.image {
-  width: 160px;
-  height: 160px;
-  background-color: #fde0dd;
-  border-radius: 50%;
-  border: none;
+.logo svg {
+  width: 156px;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
 }
 .description {
   width: 700px;
@@ -44,7 +42,10 @@
   flex-direction: column;
   background-color: #fffcfc;
 }
-
+.hr {
+  width: 386px;
+  border-bottom: 1px solid #000000;
+}
 .input {
   width: 386px;
   border: none;
@@ -55,7 +56,7 @@
   padding: 5px;
   background-color: #fffcfc;
 }
-.buttonContainer{
+.buttonContainer {
   display: flex;
   flex-direction: column;
 }
@@ -63,13 +64,13 @@
   height: 40px;
   width: 262px;
   border-radius: 33px;
-  background-color: #FFFEFE;
+  background-color: #fffefe;
   color: #8f8e8e;
   border: 1px solid #8f8e8e;
   font-size: 18px;
   margin-top: 50px;
   margin-bottom: 10px;
-  box-shadow:0 2px 0 0 #8f8e8e;
+  box-shadow: 0 2px 0 0 #8f8e8e;
 }
 
 .create {
@@ -82,5 +83,4 @@
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }

@@ -5,7 +5,7 @@ const productsReducer = (state, action) => {
     case 'SET_PRODUCTS':
       return {
         ...state,
-        products: action.payload,
+        products: action.payload
       }
     default:
       return state
@@ -42,8 +42,11 @@ export const ProductsProvider = props => {
       value={{
         products: state.products,
         fetchProducts
-      }}>
+      }}
+    >
       {props.children}
     </ProductsContext.Provider>
   )
 }
+
+

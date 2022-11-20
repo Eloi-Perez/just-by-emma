@@ -1,33 +1,34 @@
 import CreateStyle from '../styles/register.module.scss'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
-import { UserDataContext } from '../contexts/user-context'
 import axios from 'axios'
+import Logo from '../components/UI/logo'
+import { UserDataContext } from '../contexts/user-context'
 
 const CreateAccount = () => {
+  const { token, userData } = useContext(UserDataContext)
+  if (token) {
+    console.log(userData, token)
+  }
+
   const [user, setUser] = useState({
-    firsname: '',
-    lastname: '',
+    name: '',
+    surname: '',
     email: '',
     password: '',
   })
 
   const router = useRouter()
 
-  const [{ userData }, dispatch] = useContext(UserDataContext)
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    axios
-      .post('http//localhost:3001/users/register/', user)
+    await axios
+      .post('http://localhost:3000/users/signup/', user)
       .then((response) => {
-        const userData = response.data
+        const data = response.data
         console.log(data)
-
-        dispatch({ type: 'SET_USER_DATA', userData })
-        localStorage.setItem('token', JSON.stringify(userData.token))
-
+        setUser('')
         router.push('/login')
       })
       .catch((error) => {
@@ -44,30 +45,28 @@ const CreateAccount = () => {
   return (
     <div className={CreateStyle.container}>
       <div className={CreateStyle.wrapper}>
-        <img
-          className={CreateStyle.image}
-          src="https://unsplash.com/photos/0XnuFXiMLTk"
-          alt=""
-        />
+        <div className={CreateStyle.logo}>
+          <Logo />
+        </div>
+
         <p className={CreateStyle.description}>
           A natural skincare range. Just simple 100% natural ingredients,
           lovingly handmade. Keeping your skincare routine simple and natural
         </p>
         <p className={CreateStyle.title}>Create Account</p>
         <form className={CreateStyle.form}>
-          <input className={CreateStyle.input} type="text" />
           <input
             className={CreateStyle.input}
             type="text"
             placeholder="First Name"
-            name="firstname"
+            name="name"
             onChange={handleChange}
           />
           <input
             className={CreateStyle.input}
             type="text"
             placeholder="Last Name"
-            name="lastname"
+            name="surname"
             onChange={handleChange}
           />
           <input
@@ -79,7 +78,7 @@ const CreateAccount = () => {
           />
           <input
             className={CreateStyle.input}
-            type="text"
+            type="password"
             placeholder="Password"
             name="password"
             onChange={handleChange}

@@ -30,57 +30,33 @@ export default function UpdateProductForm({ id, old }) {
 
     const imagesMeta = async () => {
       const priorities = Array.from(Array(images.length).keys())
-<<<<<<< HEAD
-      let meta = Array.apply(null, Array(images.length))
-      meta.forEach(
+      let meta = await Array.apply(null, Array(images.length))
+      await meta.forEach(
         (e, i, a) =>
           (a[i] = {
             priority: priorities[i],
             ext: images[i].name.split('.').pop(),
           }),
       )
-      return meta
-=======
-      let meta = await Array.apply(null, Array(images.length))
-      await meta.forEach((e, i, a) => (a[i] = {
-        priority: priorities[i],
-        ext: images[i].name.split(".").pop()
-      }))
       return await meta
->>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
     }
 
     let data = {
       ...(name && { name }),
       ...(price && { price }),
       ...(description && { description }),
-<<<<<<< HEAD
-      ...(images && { imagesMeta: imagesMeta() }),
-=======
-      ...(images && { imagesMeta: await imagesMeta() })
->>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
+      ...(images && { imagesMeta: await imagesMeta() }),
     }
 
     try {
-<<<<<<< HEAD
-      const call = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND}/products/${id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
-          },
-          body: JSON.stringify(data),
-=======
       const call = await fetch(`/backend/products/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
->>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
         },
-      )
+        body: JSON.stringify(data),
+      })
       const response = await call.json()
       if (call.ok && images) {
         //Upload Image
@@ -92,30 +68,19 @@ export default function UpdateProductForm({ id, old }) {
             response._id + '_' + i + '.' + images[i].name.split('.').pop(),
           )
         }
-<<<<<<< HEAD
-        const callImg = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND}/products/img`,
-          {
-            method: 'POST',
-            headers: {
-              // 'Content-Type': 'multipart/form-data;',
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
-            },
-            body: formData,
-=======
         const callImg = await fetch(`/backend/products/img`, {
           method: 'POST',
           headers: {
             // 'Content-Type': 'multipart/form-data;',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
->>>>>>> 72aa3be0e62534b4af5bc3affe3953ba42a7c850
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`,
           },
-        )
+          body: formData,
+        })
         const responseImg = await callImg.json()
         console.log(response)
         console.log(responseImg)
         resetFetchRevalidate()
-      }else if (call.ok && !images) {
+      } else if (call.ok && !images) {
         console.log(response)
         resetFetchRevalidate()
       } else {

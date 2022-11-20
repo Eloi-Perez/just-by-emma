@@ -15,7 +15,7 @@ export default function Navbar() {
       <Link href="/about">About</Link>
       <Link href="/news">News</Link>
       <Link href="/contact">Contact</Link>
-      <Search />
+      {/* <Search /> */}
     </nav>
   )
 }

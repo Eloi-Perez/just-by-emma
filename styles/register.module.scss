@@ -15,12 +15,10 @@
   flex-direction: column;
   margin-top: 100px;
 }
-.image {
-  width: 160px;
-  height: 160px;
-  background-color: #fde0dd;
-  border-radius: 50%;
-  
+.logo svg{
+  width: 156px;
+  margin-top: 5rem;
+  margin-bottom:3rem;
 }
 .description {
   width: 700px;
