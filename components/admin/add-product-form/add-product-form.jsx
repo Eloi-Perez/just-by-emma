@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect } from 'react'
+import { useState, useRef, useContext } from 'react'
 
 import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
@@ -8,9 +8,7 @@ export default function AddProductForm() {
   const [name, setName] = useState('')
   const [images, setImages] = useState(null)
   const [description, setDescription] = useState('')
-  const [sizes, setSizes] = useState([{}])
-  const [nSizes, setNSizes] = useState(1)
-
+  const [sizes, setSizes] = useState([{ name: '', price: '' }])
   const inputFileRef = useRef(null)
 
   const handleSubmit = async (e) => {
@@ -52,9 +50,8 @@ export default function AddProductForm() {
         const responseImg = await callImg.json()
         console.log(responseImg)
         setName('')
-        inputFileRef.current.value = null
-        setSizes([{}])
-        setNSizes(1)
+        inputFileRef.current.value = null // clean images
+        setSizes([{ name: '', price: '' }])
         setDescription('')
         console.log(response)
         fetchProducts()
@@ -66,15 +63,15 @@ export default function AddProductForm() {
     }
   }
 
-  useEffect(() => { // resize array sizes to avoid errors
-    // del? & change nSizes for sizes.length _> ...Array(sizes.length)
-    if (nSizes > sizes.length) {
-      setSizes(sizes.concat([{}]))
-    } else if (nSizes < sizes.length) {
-      setSizes(sizes.slice(0, -1))
+  function handleNSizes(action) {
+    switch (action) {
+      case 'add':
+        setSizes(s => s.concat([{ name: '', price: '' }]))
+        break
+      case 'remove':
+        setSizes(s => s.slice(0, -1))
     }
-  }, [nSizes])
-
+  }
 
   function handleSetSizes(value, key, formIndex) {
     const setter = sizes.map((size, i) => {
@@ -117,7 +114,7 @@ export default function AddProductForm() {
         </div>
         <br />
         <div>
-          {(nSizes === sizes.length) && [...Array(nSizes)].map((e, i) => (
+          {[...Array(sizes.length)].map((e, i) => (
             <div key={i}>
               <div>
                 <label htmlFor={'sizeName' + i}>Size Name:</label>
@@ -163,10 +160,8 @@ export default function AddProductForm() {
           <button type="submit">Send</button>
         </div>
       </form>
-      {/* buttons outside form to avoid trigger onSubmit*/}
-      <button onClick={() => setNSizes(nSizes + 1)}>Add Sizes</button>
-      {(nSizes > 1) && <button onClick={() => setNSizes(nSizes - 1)}>Remove Sizes</button>}
-      <hr />
+      <button onClick={() => handleNSizes('add')}>Add Sizes</button>
+      {(sizes.length > 1) && <button onClick={() => handleNSizes('remove')}>Remove Sizes</button>}
     </>
 
   )
