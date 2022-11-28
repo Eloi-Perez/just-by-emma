@@ -1,7 +1,27 @@
 .root {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  gap: 10px;
+  gap: 70px;
   margin-top: auto;
+  line-height: 1.1rem;
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+}
+
+.discover {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.category_name {
+  padding-bottom: 40px;
 }
