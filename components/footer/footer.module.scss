@@ -3,7 +3,7 @@
   align-items: start;
   justify-content: center;
   gap: 70px;
-  margin-top: auto;
+  margin: 100px 0;
   line-height: 1.1rem;
 }
 
@@ -24,4 +24,21 @@
 
 .category_name {
   padding-bottom: 40px;
+}
+
+.social {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.social svg {
+  margin: 10px;
+}
+
+.copyright {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin: 30px 0;
 }
