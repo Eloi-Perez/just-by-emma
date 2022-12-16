@@ -16,6 +16,15 @@
   z-index: 1;
 }
 
+.root svg {
+  display: block;
+}
+
+.logo svg {
+  width: 156px;
+  margin: 1rem;
+}
+
 .logo {
   grid-row: 1 / 3;
 }

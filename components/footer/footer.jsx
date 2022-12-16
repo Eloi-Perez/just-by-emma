@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import Facebook from '../UI/svg/facebook'
+import Instagram from '../UI/svg/instagram'
 import s from './footer.module.scss'
 
 export default function Footer() {
@@ -40,7 +42,6 @@ export default function Footer() {
 
 </div>
 <div className={s.copyright}>2021 by Just by Emma</div>
-
 
     </footer>
   )

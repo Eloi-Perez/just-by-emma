@@ -5,14 +5,7 @@ import DeleteProductForm from '../delete-product-form/delete-product-form'
 import s from '../../../styles/admin.module.scss'
 
 export default function ProductCard({ product }) {
-  const [openUpdate, setOpenUpdate] = useState({})
-  const toOpen = (id) => {
-    setOpenUpdate({
-      ...openUpdate, // remove this line to auto close when click on a different item
-      [id]: !openUpdate[id]
-    })
-  }
-
+  const [openUpdate, setOpenUpdate] = useState(false)
   return (
     <div>
       <h3>{product.name}</h3>
@@ -29,10 +22,17 @@ export default function ProductCard({ product }) {
         ))}
       </div>
       <p>{product.description}</p>
-      <h3>Price: £{product.price}</h3>
-      <button onClick={() => toOpen(product._id)}>Update info</button>
+      {product.sizes.map((size, i) => (
+        <div key={i}>
+          <h3>
+            {size.name}<br />
+            Price: £{size.price}
+          </h3>
+        </div>
+      ))}
       <DeleteProductForm id={product._id} />
-      {openUpdate[product._id] && <UpdateProductForm id={product._id} old={product} />}
+      {!openUpdate && <button onClick={() => setOpenUpdate(true)}>Update info</button>}
+      {openUpdate && <UpdateProductForm id={product._id} old={product} />}
       <hr />
     </div>
   )

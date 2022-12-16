@@ -21,7 +21,7 @@ export default function ProductCard({ product }) {
           />
         ))}
         <p>{product.description}</p>
-        <h3>Price: £{product.price}</h3>
+        <h3>Cost From £{product.sizes[0].price}</h3>
       </Link>
       <hr />
     </div>
