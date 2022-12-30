@@ -36,8 +36,12 @@ export default function Footer() {
         </div>
       </div>
       <div className={s.social}>
-        <Facebook />
-        <Instagram />
+        <a href="https://www.facebook.com/people/justbyemma/100069221673666" target="_blank">
+          <Facebook />
+        </a>
+        <a href="https://www.instagram.com/just.by.emma" target="_blank">
+          <Instagram />
+        </a>
       </div>
       <div className={s.copyright}>©{year} by Just by Emma</div>
     </footer>
