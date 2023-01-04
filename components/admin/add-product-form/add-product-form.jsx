@@ -9,6 +9,7 @@ export default function AddProductForm() {
   const [images, setImages] = useState(null)
   const [description, setDescription] = useState('')
   const [sizes, setSizes] = useState([{ name: '', price: '' }])
+  const [alert, setAlert] = useState('')
   const inputFileRef = useRef(null)
 
   const handleSubmit = async (e) => {
@@ -54,9 +55,11 @@ export default function AddProductForm() {
         setSizes([{ name: '', price: '' }])
         setDescription('')
         console.log(response)
+        setAlert('Created!')
         fetchProducts()
       } else {
         console.log(response)
+        setAlert(response.message)
       }
     } catch (error) {
       console.error('An unexpected error happened:', error)
@@ -159,6 +162,7 @@ export default function AddProductForm() {
         <div>
           <button type="submit">Send</button>
         </div>
+        <h3>{alert}</h3>
       </form>
       <button onClick={() => handleNSizes('add')}>Add Sizes</button>
       {(sizes.length > 1) && <button onClick={() => handleNSizes('remove')}>Remove Sizes</button>}

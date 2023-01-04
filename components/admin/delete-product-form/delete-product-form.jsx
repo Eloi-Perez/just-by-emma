@@ -1,9 +1,10 @@
-import { useContext } from "react"
+import { useState, useContext } from 'react'
 
 import { ProductsContext } from '../../../contexts/products-context'
 
 export default function DeleteProductForm({ id }) {
   const { fetchProducts } = useContext(ProductsContext)
+  const [alert, setAlert] = useState('')
   const apiCall = async () => {
     if (window.confirm('Do you really want to delete?')) {
       try {
@@ -20,6 +21,7 @@ export default function DeleteProductForm({ id }) {
           fetchProducts()
         } else {
           console.log(response)
+          setAlert(response.message)
         }
       } catch (error) {
         console.error('An unexpected error happened:', error)
@@ -27,6 +29,9 @@ export default function DeleteProductForm({ id }) {
     }
   }
   return (
-    <button onClick={() => apiCall()}>Delete</button>
+    <>
+      <h3>{alert}</h3>
+      <button onClick={() => apiCall()}>Delete</button>
+    </>
   )
 }

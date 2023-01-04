@@ -9,6 +9,7 @@ export default function UpdateProductForm({ id, old }) {
   const [price, setPrice] = useState('')
   const [images, setImages] = useState(null)
   const [description, setDescription] = useState('')
+  const [alert, setAlert] = useState('')
 
   const inputFileRef = useRef(null)
 
@@ -72,12 +73,15 @@ export default function UpdateProductForm({ id, old }) {
         const responseImg = await callImg.json()
         console.log(response)
         console.log(responseImg)
+        setAlert('Updated!')
         resetFetchRevalidate()
       }else if (call.ok && !images) {
         console.log(response)
+        setAlert('Updated!')
         resetFetchRevalidate()
       } else {
         console.log(response)
+        setAlert(response.message)
       }
     } catch (error) {
       console.error('An unexpected error happened:', error)
@@ -123,6 +127,7 @@ export default function UpdateProductForm({ id, old }) {
         <div>
           <button type="submit">Send</button>
         </div>
+        <h3>{alert}</h3>
       </form>
     </>
 
