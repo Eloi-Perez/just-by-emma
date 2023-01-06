@@ -5,8 +5,6 @@ import { ProductsContext } from '../../../contexts/products-context'
 
 //TODO update to new schema (being able to update sizes)
 
-const credentials = localStorage.getItem('credentials')
-
 export default function UpdateProductForm({ id, old }) {
   const { fetchProducts } = useContext(ProductsContext)
   const [name, setName] = useState('')
@@ -16,6 +14,8 @@ export default function UpdateProductForm({ id, old }) {
   const [alert, setAlert] = useState('')
 
   const inputFileRef = useRef(null)
+
+  const credentials = localStorage.getItem('credentials')
 
   const handleSubmit = async (e) => {
     e.preventDefault()

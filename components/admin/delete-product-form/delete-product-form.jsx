@@ -2,11 +2,12 @@ import { useState, useContext } from 'react'
 
 import { ProductsContext } from '../../../contexts/products-context'
 
-const credentials = localStorage.getItem('credentials')
-
 export default function DeleteProductForm({ id }) {
   const { fetchProducts } = useContext(ProductsContext)
   const [alert, setAlert] = useState('')
+
+  const credentials = localStorage.getItem('credentials')
+
   const apiCall = async () => {
     if (window.confirm('Do you really want to delete?')) {
       try {
