@@ -1,6 +1,7 @@
 import { useState } from 'react'
+
 import Logo from '../UI/svg/logo'
-import s from './login.module.scss'
+import s from './login-register.module.scss'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -31,6 +32,7 @@ export default function Login() {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <input
               className={s.input}
@@ -39,16 +41,14 @@ export default function Login() {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
+            <div className={s.buttonContainer}>
+              <button type="submit" className={s.login}>
+                Login
+              </button>
+            </div>
           </form>
-          <div className={s.buttonContainer}>
-            <button type="submit" className={s.login}>
-              Login
-            </button>
-            {/* <button className={s.create}>Create Account</button> */}
-          </div>
-
-          <p>Guest Option</p>
         </div>
       </div>
     </div>

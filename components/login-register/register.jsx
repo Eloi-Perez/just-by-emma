@@ -1,6 +1,7 @@
 import { useState } from 'react'
+
 import Logo from '../UI/svg/logo'
-import s from './register.module.scss'
+import s from './login-register.module.scss'
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -32,6 +33,7 @@ export default function Register() {
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
             <input
               className={s.input}
@@ -40,14 +42,16 @@ export default function Register() {
               name="surname"
               value={surname}
               onChange={(e) => setSurname(e.target.value)}
+              required
             />
             <input
               className={s.input}
-              type="text"
+              type="email"
               placeholder="Email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <input
               className={s.input}
@@ -56,16 +60,14 @@ export default function Register() {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
+            <div className={s.buttonContainer}>
+              <button type="submit" className={s.create}>
+                Create Account
+              </button>
+            </div>
           </form>
-          {/* <div className={s.buttonContainer}> */}
-            <button type="submit" className={s.button}>
-              Create Account
-            </button>
-            {/* <button className={s.create}>Already have an account</button> */}
-          {/* </div> */}
-
-          <p>Guest Option</p>
         </div>
       </div>
     </div>

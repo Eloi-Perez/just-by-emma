@@ -6,8 +6,7 @@ import Logo from '../UI/svg/logo'
 import Share from '../UI/svg/share'
 import Profile from '../UI/svg/profile'
 import Basket from '../UI/svg/basket'
-import Login from '../login/login'
-import Register from '../register/register'
+import LoginRegister from '../login-register/login-register'
 import s from './navbar.module.scss'
 
 export default function Navbar() {
@@ -29,7 +28,7 @@ export default function Navbar() {
         <Link href="/">Home</Link>
         <Link href="/shop">Shop</Link>
         <Link href="/ingredients">Ingredients</Link>
-        <Dialog trigger="Login"><Login /></Dialog>
+        <Dialog trigger="Login"><LoginRegister /></Dialog>
         <Link href="/about">About</Link>
         <Link href="/news">News</Link>
         <Link href="/contact">Contact</Link>
