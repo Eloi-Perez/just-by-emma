@@ -6,6 +6,8 @@ import Logo from '../UI/svg/logo'
 import Share from '../UI/svg/share'
 import Profile from '../UI/svg/profile'
 import Basket from '../UI/svg/basket'
+import Login from '../login/login'
+import Register from '../register/register'
 import s from './navbar.module.scss'
 
 export default function Navbar() {
@@ -17,7 +19,7 @@ export default function Navbar() {
       <div className={s.top_elements}>
         <div className={s.nav_text}>
           Just 100% natural and simple skincare
-      </div>
+        </div>
         <Search />
         <Share />
         <Link href="/profile"><Profile /></Link>
@@ -27,7 +29,7 @@ export default function Navbar() {
         <Link href="/">Home</Link>
         <Link href="/shop">Shop</Link>
         <Link href="/ingredients">Ingredients</Link>
-        <Dialog trigger="Sign Up">Login/Register here...</Dialog>
+        <Dialog trigger="Login"><Login /></Dialog>
         <Link href="/about">About</Link>
         <Link href="/news">News</Link>
         <Link href="/contact">Contact</Link>
