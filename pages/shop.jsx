@@ -12,7 +12,7 @@ export default function Shop({ arrayProducts }) {
       <p>All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is mainly glass and aluminium which can be fully recycled.
         Our face oil and face cream do include a pump/dropper, however this is necessary to keep the product fresh and avoid any contamination and for ease of use.</p>
       <EmmaImage />
-      {arrayProducts.map((product) => ( //TODO export to component product-card
+      {arrayProducts.map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}
     </div>
