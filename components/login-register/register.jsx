@@ -86,6 +86,8 @@ export default function Register({ toLogin }) {
               type="password"
               placeholder="Password"
               name="password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,20}$"
+              title="The password should be between 6 and 20 characters, include numbers, uppercase, lowercase and one of: @$!%*?&"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
