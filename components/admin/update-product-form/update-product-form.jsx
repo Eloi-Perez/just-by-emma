@@ -2,7 +2,10 @@ import { useState, useRef, useContext } from 'react'
 
 import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
-//TODO update to new schema
+//TODO update to new schema ??
+
+const credentials = localStorage.getItem('credentials')
+
 export default function UpdateProductForm({ id, old }) {
   const { fetchProducts } = useContext(ProductsContext)
   const [name, setName] = useState('')
@@ -51,7 +54,7 @@ export default function UpdateProductForm({ id, old }) {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+          'Authorization': `Bearer ${credentials}`
         },
         body: JSON.stringify(data)
       })
@@ -66,7 +69,7 @@ export default function UpdateProductForm({ id, old }) {
           method: 'POST',
           headers: {
             // 'Content-Type': 'multipart/form-data;',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+            'Authorization': `Bearer ${credentials}`
           },
           body: formData
         })

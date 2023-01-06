@@ -4,14 +4,14 @@ import Login from './login'
 import Register from './register'
 import s from './login-register.module.scss'
 
-export default function LoginRegister() {
+export default function LoginRegister({close}) {
   const [registerActive, setRegisterActive] = useState(false)
 
   return (
     <div className={s.root}>
       {!registerActive &&
         <>
-          <Login />
+          <Login close={close} />
           <button className={s.create}
             onClick={() => setRegisterActive(true)}
           >Create Account</button>
@@ -19,7 +19,7 @@ export default function LoginRegister() {
       }
       {registerActive &&
         <>
-          <Register />
+        <Register toLogin={() => setRegisterActive(false)}/>
           <a href="javascript:void(0);" className={s.back_login}
             onClick={() => setRegisterActive(false)}
           >Already have an account?</a>

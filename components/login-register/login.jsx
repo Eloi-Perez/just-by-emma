@@ -3,12 +3,38 @@ import { useState } from 'react'
 import Logo from '../UI/svg/logo'
 import s from './login-register.module.scss'
 
-export default function Login() {
+export default function Login({ close }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const data = { email, password }
+
+    try {
+      const call = await fetch('/backend/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      const response = await call.json()
+      if (call.ok) {
+        setEmail('')
+        setPassword('')
+        console.log(response)
+        // setAlert('logged in!')
+        localStorage.setItem('credentials', response.token)
+        // Close Dialog
+        close()
+      } else {
+        console.log(response)
+        // setAlert(response.message)
+      }
+    } catch (error) {
+      console.error('An unexpected error happened:', error)
+    }
   }
 
   return (

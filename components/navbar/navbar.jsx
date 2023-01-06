@@ -28,7 +28,7 @@ export default function Navbar() {
         <Link href="/">Home</Link>
         <Link href="/shop">Shop</Link>
         <Link href="/ingredients">Ingredients</Link>
-        <Dialog trigger="Login"><LoginRegister /></Dialog>
+        <Dialog trigger="Sign In"><LoginRegister /></Dialog>
         <Link href="/about">About</Link>
         <Link href="/news">News</Link>
         <Link href="/contact">Contact</Link>

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Logo from '../UI/svg/logo'
 import s from './login-register.module.scss'
 
-export default function Register() {
+export default function Register({ toLogin }) {
   const [name, setName] = useState('')
   const [surname, setSurname] = useState('')
   const [email, setEmail] = useState('')
@@ -11,6 +11,34 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    const data = { name, surname, email, password }
+
+    try {
+      const call = await fetch('/backend/users/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      const response = await call.json()
+      if (call.ok) {
+        setName('')
+        setSurname('')
+        setEmail('')
+        setPassword('')
+        console.log(response)
+        // setAlert('Created!')
+        toLogin()
+        // TODO add message about having to verify email
+      } else {
+        console.log(response)
+        // setAlert(response.message)
+      }
+    } catch (error) {
+      console.error('An unexpected error happened:', error)
+    }
   }
 
   return (

@@ -2,6 +2,8 @@ import { useState, useContext } from 'react'
 
 import { ProductsContext } from '../../../contexts/products-context'
 
+const credentials = localStorage.getItem('credentials')
+
 export default function DeleteProductForm({ id }) {
   const { fetchProducts } = useContext(ProductsContext)
   const [alert, setAlert] = useState('')
@@ -12,7 +14,7 @@ export default function DeleteProductForm({ id }) {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+            'Authorization': `Bearer ${credentials}`
           }
         })
         const response = await call.json()
