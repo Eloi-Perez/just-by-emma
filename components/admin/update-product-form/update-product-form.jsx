@@ -2,7 +2,8 @@ import { useState, useRef, useContext } from 'react'
 
 import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
-//TODO update to new schema ??
+
+//TODO update to new schema (being able to update sizes)
 
 const credentials = localStorage.getItem('credentials')
 
