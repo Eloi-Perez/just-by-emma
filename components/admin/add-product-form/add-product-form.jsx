@@ -12,6 +12,8 @@ export default function AddProductForm() {
   const [alert, setAlert] = useState('')
   const inputFileRef = useRef(null)
 
+  const credentials = localStorage.getItem('credentials')
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -29,7 +31,8 @@ export default function AddProductForm() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+          // 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+          'Authorization': `Bearer ${credentials}`
         },
         body: JSON.stringify(data)
       })
@@ -44,7 +47,7 @@ export default function AddProductForm() {
           method: 'POST',
           headers: {
             // 'Content-Type': 'multipart/form-data;',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+            'Authorization': `Bearer ${credentials}`
           },
           body: formData
         })

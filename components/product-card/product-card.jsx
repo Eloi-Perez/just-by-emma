@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import s from './product-card.module.css'
+import s from './product-card.module.scss'
 
 export default function ProductCard({ product }) {
   return (

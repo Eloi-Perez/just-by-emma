@@ -5,6 +5,9 @@ import { ProductsContext } from '../../../contexts/products-context'
 export default function DeleteProductForm({ id }) {
   const { fetchProducts } = useContext(ProductsContext)
   const [alert, setAlert] = useState('')
+
+  const credentials = localStorage.getItem('credentials')
+
   const apiCall = async () => {
     if (window.confirm('Do you really want to delete?')) {
       try {
@@ -12,7 +15,7 @@ export default function DeleteProductForm({ id }) {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
+            'Authorization': `Bearer ${credentials}`
           }
         })
         const response = await call.json()

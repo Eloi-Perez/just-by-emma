@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-[type="button"] {
+button, [type="button"], [type="submit"], input::file-selector-button {
   cursor: pointer;
 }
 
