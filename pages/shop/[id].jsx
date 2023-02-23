@@ -68,21 +68,41 @@ export default function Product({ product }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.BACKEND}/products`)
-  const arrayProducts = await res.json()
-  const paths = arrayProducts.map(p => ({
-    params: { id: p._id },
-  }))
-  return {
-    paths,
-    fallback: false, // can also be true or 'blocking'
+  try {
+    const res = await fetch(`${process.env.BACKEND}}/products`)
+    if (!res.ok) {
+      return {
+        paths: [],
+        fallback: false,
+      }
+    }
+    const arrayProducts = await res.json()
+    const paths = arrayProducts.map(p => ({
+      params: { id: p._id },
+    }))
+    return {
+      paths,
+      fallback: false, // can also be true or 'blocking'
+    }
+  } catch {
+    return {
+      paths: [],
+      fallback: false,
+    }
   }
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`${process.env.BACKEND}/products/${context.params.id}`)
-  const product = await res.json()
-  return {
-    props: { product },
+  try {
+    const res = await fetch(`${process.env.BACKEND}/products/${context.params.id}`)
+    if (!res.ok) {
+      return { notFound: true }
+    }
+    const product = await res.json()
+    return {
+      props: { product },
+    }
+  } catch {
+    return { notFound: true }
   }
 }
