@@ -13,10 +13,11 @@ export default function Contact() {
   const [message, setMessage] = useState('')
   const [alert, setAlert] = useState('')
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     const data = { firstName, lastName, email, message }
     try {
-      const call = await fetch('/backend/v0/contact', {
+      const call = await fetch('/backend/v0/email/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
