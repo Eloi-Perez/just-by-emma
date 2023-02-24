@@ -16,7 +16,7 @@ export default function Contact() {
   const handleSubmit = async () => {
     const data = { firstName, lastName, email, message }
     try {
-      const call = await fetch('/backend/contact', {
+      const call = await fetch('/backend/v0/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

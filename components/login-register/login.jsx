@@ -12,7 +12,7 @@ export default function Login({ close }) {
     const data = { email, password }
 
     try {
-      const call = await fetch('/backend/users/login', {
+      const call = await fetch('/backend/v0/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -26,7 +26,7 @@ export const ProductsProvider = props => {
 
   const fetchProducts = async () => {
     try {
-      const call = await fetch('/backend/products/')
+      const call = await fetch('/backend/v0/products/')
       const newProducts = await call.json()
       if (call.ok) {
         dispatch({ type: 'SET_PRODUCTS', payload: newProducts })

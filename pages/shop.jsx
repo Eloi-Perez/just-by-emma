@@ -20,7 +20,7 @@ export default function Shop({ arrayProducts }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.BACKEND}/products`)
+  const res = await fetch(`${process.env.BACKEND}/v0/products`)
   const arrayProducts = await res.json()
   return {
     props: {

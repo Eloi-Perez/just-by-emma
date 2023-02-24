@@ -11,7 +11,7 @@ export default function DeleteProductForm({ id }) {
   const apiCall = async () => {
     if (window.confirm('Do you really want to delete?')) {
       try {
-        const call = await fetch(`/backend/products/${id}`, {
+        const call = await fetch(`/backend/v0/products/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -22,6 +22,7 @@ export default function DeleteProductForm({ id }) {
         if (call.ok) {
           console.log(response)
           fetchProducts()
+          // TODO revalidate product page & store page
         } else {
           console.log(response)
           setAlert(response.message)

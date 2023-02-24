@@ -51,7 +51,7 @@ export default function UpdateProductForm({ id, old }) {
     }
 
     try {
-      const call = await fetch(`/backend/products/${id}`, {
+      const call = await fetch(`/backend/v0/products/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export default function UpdateProductForm({ id, old }) {
         for (let i = 0; i < images.length; i++) {
           formData.append('images', images[i], response._id + '_' + i + '.' + images[i].name.split(".").pop())
         }
-        const callImg = await fetch(`/backend/products/img`, {
+        const callImg = await fetch(`/backend/v0/products/img`, {
           method: 'POST',
           headers: {
             // 'Content-Type': 'multipart/form-data;',

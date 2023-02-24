@@ -15,7 +15,7 @@ export default function Register({ toLogin }) {
     const data = { name, surname, email, password }
 
     try {
-      const call = await fetch('/backend/users/signup', {
+      const call = await fetch('/backend/v0/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

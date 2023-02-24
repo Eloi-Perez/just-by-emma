@@ -27,7 +27,7 @@ export default function AddProductForm() {
     const data = { name, sizes, description, imagesMeta }
 
     try {
-      const call = await fetch('/backend/products/add', {
+      const call = await fetch('/backend/v0/products/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,6 +60,7 @@ export default function AddProductForm() {
         console.log(response)
         setAlert('Created!')
         fetchProducts()
+        // TODO revalidate product page & store page
       } else {
         console.log(response)
         setAlert(response.message)
