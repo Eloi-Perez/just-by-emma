@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       <main>
         {children}
       </main>
-      <SideCart />{/* {conditional rendering for Desktop only ?} */}
+      <SideCart />{/* { TODO conditional rendering for Desktop only ?} */}
       <Footer />
     </>
   )
