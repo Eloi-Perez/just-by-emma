@@ -59,6 +59,7 @@ export default function Login({ close }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoFocus
             />
             <input
               className={s.input}
