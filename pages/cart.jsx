@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import Image from 'next/image'
 
 import { CartContext } from '../contexts/cart-context'
+import CheckoutButton from '../components/checkout/checkout-button'
 
 import s from '../styles/home.module.scss'
 
@@ -88,7 +89,7 @@ export default function Cart() {
         <div>Merchandise £{merchandiseTotal}</div>
         <div>Estimated Shipping: £11?</div>
         <div>Subtotal £{merchandiseTotal + 11}</div>
-        <button>Checkout</button>
+        <CheckoutButton />
       </div>
     </div>
   )
