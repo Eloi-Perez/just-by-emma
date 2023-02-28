@@ -2,8 +2,7 @@ import { useState } from 'react'
 
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
-import Facebook from '../components/UI/svg/facebook'
-import Instagram from '../components/UI/svg/instagram'
+import { Facebook, Instagram } from '../components/UI/svg'
 import s from '../styles/home.module.scss'
 
 export default function Contact() {

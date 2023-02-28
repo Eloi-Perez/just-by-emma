@@ -2,10 +2,7 @@ import Link from 'next/link'
 
 import Search from './search'
 import Dialog from '../UI/dialog/dialog'
-import Logo from '../UI/svg/logo'
-import Share from '../UI/svg/share'
-import Profile from '../UI/svg/profile'
-import Basket from '../UI/svg/basket'
+import { Basket, Logo, Profile, Share } from '../UI/svg'
 import LoginRegister from '../login-register/login-register'
 import s from './navbar.module.scss'
 

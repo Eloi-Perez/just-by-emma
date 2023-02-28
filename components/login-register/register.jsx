@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Logo from '../UI/svg/logo'
+import { Logo } from '../UI/svg'
 import s from './login-register.module.scss'
 
 export default function Register({ toLogin }) {

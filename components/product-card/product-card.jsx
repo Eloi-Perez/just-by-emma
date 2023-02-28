@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import Carousel from '../carousel/carousel'
-import Basket from '../UI/svg/basket'
+import { Basket } from '../UI/svg'
 import s from './product-card.module.scss'
 
 export default function ProductCard({ product }) {

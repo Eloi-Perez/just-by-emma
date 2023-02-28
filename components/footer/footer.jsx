@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
-import Facebook from '../UI/svg/facebook'
-import Instagram from '../UI/svg/instagram'
+import { Facebook, Instagram } from '../UI/svg'
 import s from './footer.module.scss'
 
 const year = new Date().getFullYear()
