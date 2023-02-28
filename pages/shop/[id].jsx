@@ -69,7 +69,7 @@ export default function Product({ product }) {
 
 export async function getStaticPaths() {
   try {
-    const res = await fetch(`${process.env.BACKEND}}/v0/products`)
+    const res = await fetch(`${process.env.BACKEND}/v0/products`)
     if (!res.ok) {
       return {
         paths: [],
