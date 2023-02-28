@@ -1,4 +1,4 @@
-import { useReducer, createContext } from 'react'
+import { useReducer, createContext, useEffect } from 'react'
 
 const cartReducer = (state, action) => {
   // redeclare to avoid page not refreshing with new result if return {state}
@@ -7,16 +7,16 @@ const cartReducer = (state, action) => {
   const matchSize = (match !== -1) ?
     newState.cart[match].quantities.findIndex(e => e.size === action.payload.select) : undefined
   switch (action.type) {
-    // case 'SET_CART':
-    //   return {
-    //     ...state,
-    //     cart: action.payload,
-    //   }
-    // case 'EMPTY_CART':
-    //   return {
-    //     ...state,
-    //     cart: []
-    //   }
+    case 'SET_CART':
+      return {
+        ...state,
+        cart: action.payload,
+      }
+    case 'EMPTY_CART':
+      return {
+        ...state,
+        cart: [],
+      }
     // case 'ADD_TO_CART':
     // case 'MODIFY_CART': // review changes new schema
     //   // {id, "quantities": [{ "size": "15ml", "quantity": 1 }], product}
@@ -126,10 +126,18 @@ const mockData = {
 
 export const CartProvider = props => {
   const initialState = {
-    cart: [mockData] //TODO load from localStorage
+    cart: []
   }
 
   const [state, dispatch] = useReducer(cartReducer, initialState)
+
+  useEffect(() => {
+    const oldCart = localStorage.getItem('jbe_cart')
+    if (oldCart) { setCart('SET_CART', JSON.parse(oldCart)) }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('jbe_cart', JSON.stringify(state.cart))
+  }, [state])
 
   const setCart = (type, newCart) => {
     dispatch({ type: type, payload: newCart })
