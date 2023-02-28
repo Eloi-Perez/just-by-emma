@@ -33,6 +33,7 @@ export default function CheckoutButton() {
           amount: p.product.sizes.find(el => el.name === item.size).price * 100,
           currency: 'GBP',
           quantity: item.quantity,
+          tax_rates: ['txr_1Mgb7THikk8qRRx09X5F5Tnk'],
           // images: [`/backend/img/${p.product.images[0].filename}`], // TODO check URL for production
           images: ['https://eloiperez.com/photography/img/food/02.webp'], // TODO remove
         })

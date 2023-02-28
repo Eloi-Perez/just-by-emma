@@ -12,6 +12,11 @@ export default async function handler(req, res) {
         shipping_address_collection: {
           allowed_countries: ['GB'],
         },
+        shipping_options: [
+          { shipping_rate: 'shr_1MgagzHikk8qRRx0Fo1UcaW8' },
+          { shipping_rate: 'shr_1MgahaHikk8qRRx0wsfpkqK0' },
+          { shipping_rate: 'shr_1Mgaj2Hikk8qRRx00fxw1ylh' },
+        ],
         mode: 'payment',
         allow_promotion_codes: true,
         success_url: `${req.headers.origin}/?success=true`, // TODO success page
