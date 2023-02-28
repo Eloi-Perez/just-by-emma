@@ -13,6 +13,7 @@ export default async function handler(req, res) {
           allowed_countries: ['GB'],
         },
         mode: 'payment',
+        allow_promotion_codes: true,
         success_url: `${req.headers.origin}/?success=true`, // TODO success page
         cancel_url: `${req.headers.origin}/cart/?canceled=true`,
       })
