@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from 'react'
 import Image from 'next/image'
 
 import { CartContext } from '../../contexts/cart-context'
+import Carousel from '../../components/carousel/carousel'
 
 // import s from '../../styles/product.module.scss'
 import s2 from '../../styles/shop.module.scss'
@@ -33,7 +34,8 @@ export default function Product({ product }) {
       <h3>Cart Content</h3>
       <p>{JSON.stringify(cart)}</p>
       <h3>{product.name}</h3>
-      {product.images[0] && product.images.map((img) => (
+      {product.images[1] && <Carousel images={product.images} />}
+      {product.images[0] && !product.images[1] && product.images.map((img) => (
         <Image src={`/backend/img/${img.filename}`}
           key={img.filename}
           alt=""
