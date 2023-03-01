@@ -3,7 +3,7 @@ import { useReducer, createContext, useEffect } from 'react'
 const cartReducer = (state, action) => {
   // redeclare to avoid page not refreshing with new result if return {state}
   let newState = { ...state }
-  const match = newState.cart.findIndex(e => e.id === action.payload.id)
+  const match = newState.cart.findIndex(e => e.id === action.payload?.id)
   const matchSize = (match !== -1) ?
     newState.cart[match].quantities.findIndex(e => e.size === action.payload.select) : undefined
   switch (action.type) {
