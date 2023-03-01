@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         ],
         mode: 'payment',
         allow_promotion_codes: true,
-        success_url: `${req.headers.origin}/?success=true`, // TODO success page
+        success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/cart/?canceled=true`,
       })
       // res.redirect(303, session.url)
