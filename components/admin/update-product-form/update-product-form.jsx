@@ -10,7 +10,7 @@ export default function UpdateProductForm({ id, old }) {
   const [sizes, setSizes] = useState(old.sizes)
   const [images, setImages] = useState(null)
   const [alert, setAlert] = useState('')
-
+  console.log(old)
   const inputFileRef = useRef(null)
 
   const credentials = localStorage.getItem('credentials')
@@ -18,7 +18,7 @@ export default function UpdateProductForm({ id, old }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    function resetFetchRevalidate() {
+    async function resetFetchRevalidate() {
       //reset values
       // setName('')
       // setDescription('')
@@ -29,6 +29,14 @@ export default function UpdateProductForm({ id, old }) {
       fetchProducts()
       //revalidate pages
       // TODO add revalidate product page & store page
+      const call = await fetch(`/api/revalidate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ revalidate: ['/shop', `/shop/${old._id}`] })
+      })
+      console.log(await call.json())
     }
 
     const imagesMeta = async () => {
