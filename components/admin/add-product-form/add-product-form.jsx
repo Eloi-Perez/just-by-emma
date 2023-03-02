@@ -60,7 +60,16 @@ export default function AddProductForm() {
         console.log(response)
         setAlert('Created!')
         fetchProducts()
-        // TODO revalidate product page & store page
+        //Revalidate pages
+        const callRevalidate = await fetch(`/api/revalidate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ revalidate: ['/shop', `/shop/${response._id}`] })
+        })
+        const responseRevalidate = await callRevalidate.json()
+        console.log(responseRevalidate)
       } else {
         console.log(response)
         setAlert(response.message)

@@ -19,10 +19,19 @@ export default function DeleteProductForm({ id }) {
           }
         })
         const response = await call.json()
-        if (call.ok) {
+        if (call.ok) { 
           console.log(response)
           fetchProducts()
-          // TODO revalidate product page & store page
+          //Revalidate pages
+          const callRevalidate = await fetch(`/api/revalidate`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ revalidate: ['/shop', `/shop/${id}`] })
+          })
+          const responseRevalidate = await callRevalidate.json()
+          console.log(responseRevalidate)
         } else {
           console.log(response)
           setAlert(response.message)

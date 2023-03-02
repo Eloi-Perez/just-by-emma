@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       // e.g. for "/blog/[slug]" this should be "/blog/post-1"
 
       // await res.revalidate('/path-to-revalidate')
-      await req.body.revalidate.map(async x => await res.revalidate(x))
+      await req.body.revalidate.map(x => res.revalidate(x))
       return res.json({ revalidated: true })
     } catch (err) {
       // If there was an error, Next.js will continue

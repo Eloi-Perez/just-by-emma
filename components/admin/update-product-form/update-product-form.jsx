@@ -27,16 +27,16 @@ export default function UpdateProductForm({ id, old }) {
       inputFileRef.current.value = null
       //fetch updates
       fetchProducts()
-      //revalidate pages
-      // TODO add revalidate product page & store page
-      const call = await fetch(`/api/revalidate`, {
+      //Revalidate pages
+      const callRevalidate = await fetch(`/api/revalidate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ revalidate: ['/shop', `/shop/${old._id}`] })
       })
-      console.log(await call.json())
+      const responseRevalidate = await callRevalidate.json()
+      console.log(responseRevalidate)
     }
 
     const imagesMeta = async () => {
