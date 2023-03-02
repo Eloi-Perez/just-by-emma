@@ -12,7 +12,7 @@ export default function Footer() {
         <div className={s.support}>
           <div className={s.category_name}>SUPPORT</div>
           <Link href="/contact">Contact</Link>
-          <Link href="/faq">FAQ's</Link>
+          <Link href="/faq">FAQ&apos;s</Link>
           <Link href="/delivery">Delivery</Link>
           <Link href="/returns">Return & Exchanges</Link>
           <Link href="/legal">Terms & Conditions</Link>

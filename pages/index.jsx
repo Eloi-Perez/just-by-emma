@@ -41,7 +41,7 @@ export default function Home() {
         <p>
           No 3: Moisturise using the Regenerating Face Cream
           A lightweight, non-greasy face cream, formulated with oils, extracts and hyaluronic acid to regenerate, balance, repair and improve
-          your skin's elasticity, while helping prevent and reduce fine lines. Your skin will be left brightened and hydrated, leaving an even,
+          your skin&apos;s elasticity, while helping prevent and reduce fine lines. Your skin will be left brightened and hydrated, leaving an even,
           smoother skin tone and balanced complexion.
           Directions:
           Apply a pea sized amount to your face and neck area.

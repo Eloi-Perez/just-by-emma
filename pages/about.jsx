@@ -11,17 +11,17 @@ export default function About() {
         Just by Emma is a small independent skincare business based in Leigh-on-Sea, Essex and run by Emma. All products are lovingly handmade in my designated studio, in small batches and always made to order to maintain product quality. The ever-evolving skincare range includes products which are formulated using only natural and simple ingredients.<br />
         The Just by Emma ethos is about formulating products which focus on making your skincare routine natural, simple and including ingredients which contain tremendous benefits for your skin.<br />
         Ingredients are sourced from local suppliers where ever possible but always from reputable suppliers who have clear ethical policies.<br />
-        See our 'Ingredients' page for more information....<br />
+        See our Ingredients page for more information....<br />
         Just by Emma also believes in being completely transparent about each ingredient included in each product....<br />
         So you can make informed decisions about what you are putting on your skin. 
       </p>
       <EmmaImage />
       <h2>MY STORY</h2>
       <p>
-        It all started a few years back when I hit the age of 40 and my skin really started to change. Hormonal pimples, dry patches, oily patches... all of those things you thought you'd left behind in your teens...  All the products I used never seemed to help my sensitive skin or it created break-out or other sensitive reactions, I just got so confused about what I was putting on my skin and I never really knew what ingredients were right for my skin type.<br />
+        It all started a few years back when I hit the age of 40 and my skin really started to change. Hormonal pimples, dry patches, oily patches... all of those things you thought you&apos;d left behind in your teens...  All the products I used never seemed to help my sensitive skin or it created break-out or other sensitive reactions, I just got so confused about what I was putting on my skin and I never really knew what ingredients were right for my skin type.<br />
         After experimenting using more natural product ranges, it led me to venture into a bit of a journey myself.  I embarked on enrolling and completing some well regarded natural and organic skincare formulating courses and started studying, researching and having a go at formulating my own products.<br />
         Crafting and using these simple formulations really helped to nourish and heal my skin. It also inspired me to create and share what is now known as Just by Emma.<br />
-        I've kept it simple for now and have created a basic skincare range that uses gentle, natural, plant based oils, essential oils, extracts and some high performing botanical extracts too.  All of which are formulated with the aim of helping to balance, nourish, hydrate, repair, regenerate and rejuvenate your skin.  Just naturally and simply.
+        I&apos;ve kept it simple for now and have created a basic skincare range that uses gentle, natural, plant based oils, essential oils, extracts and some high performing botanical extracts too.  All of which are formulated with the aim of helping to balance, nourish, hydrate, repair, regenerate and rejuvenate your skin.  Just naturally and simply.
         </p>
       <div className={s.box}>
         <h2>The Just by Emma 4 Step Skincare Routine</h2>
@@ -40,7 +40,7 @@ export default function About() {
           Use a brush to apply to freshly cleansed face and neck area (avoiding eyes). Rinse off with warm water after approximately 10 minutes.<br />
           No 3: Moisturise using the Regenerating Face Cream<br />
           A lightweight, non-greasy face cream, formulated with oils, extracts and hyaluronic acid to regenerate, balance, repair and improve
-          your skin's elasticity, while helping prevent and reduce fine lines. Your skin will be left brightened and hydrated, leaving an even,
+          your skin&apos;s elasticity, while helping prevent and reduce fine lines. Your skin will be left brightened and hydrated, leaving an even,
           smoother skin tone and balanced complexion.<br />
           Directions:<br />
           Apply a pea sized amount to your face and neck area.<br />
