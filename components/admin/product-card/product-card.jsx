@@ -24,10 +24,20 @@ export default function ProductCard({ product }) {
       <p>{product.description}</p>
       {product.sizes.map((size, i) => (
         <div key={i}>
-          <h3>
-            {size.name}<br />
-            Price: £{size.price}
-          </h3>
+          {size.available &&
+            <h3>
+              {size.name}<br />
+              Price: £{size.price}
+            </h3>
+          }
+          {!size.available &&
+            <h3>
+              <del>
+                {size.name}<br />
+                Price: £{size.price}
+              </del>
+            </h3>
+          }
         </div>
       ))}
       <DeleteProductForm id={product._id} />

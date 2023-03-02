@@ -21,7 +21,14 @@ export default function Shop({ arrayProducts }) {
 
 export async function getStaticProps() {
   const res = await fetch(`${process.env.BACKEND}/v0/products`)
-  const arrayProducts = await res.json()
+  const allProducts = await res.json()
+  const availableProducts = await allProducts.map((pr) => {
+    pr.sizes = pr.sizes.filter((s) => s.available)
+    if (pr.sizes[0]) {
+      return pr
+    }
+  })
+  const arrayProducts = await availableProducts.filter((pr) => pr !== undefined)
   return {
     props: {
       arrayProducts,

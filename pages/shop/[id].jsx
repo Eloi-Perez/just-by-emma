@@ -82,7 +82,14 @@ export async function getStaticPaths() {
         fallback: false,
       }
     }
-    const arrayProducts = await res.json()
+    const allProducts = await res.json()
+    const availableProducts = await allProducts.map((pr) => {
+      pr.sizes = pr.sizes.filter((s) => s.available)
+      if (pr.sizes[0]) {
+        return pr
+      }
+    })
+    const arrayProducts = await availableProducts.filter((pr) => pr !== undefined)
     const paths = arrayProducts.map(p => ({
       params: { id: p._id },
     }))
@@ -105,6 +112,10 @@ export async function getStaticProps(context) {
       return { notFound: true }
     }
     const product = await res.json()
+    product.sizes = await product.sizes.filter((s) => s.available)
+    if (!product.sizes[0]) {
+      return { notFound: true }
+    }
     return {
       props: { product },
     }
