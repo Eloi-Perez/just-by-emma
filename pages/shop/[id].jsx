@@ -58,6 +58,10 @@ export default function Product({ product }) {
           )}
         </select>
       </div>}
+      {(product.sizes.length === 1) && <div>
+        <div>Size</div>
+        <div>{product.sizes[0].name}</div>
+      </div>}
       <br />
       <button onClick={handleAdd}>Add to Cart</button>
       <br /><br />
