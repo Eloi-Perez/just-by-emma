@@ -10,7 +10,7 @@ export default function UpdateProductForm({ id, old }) {
   const [sizes, setSizes] = useState(old.sizes)
   const [images, setImages] = useState(null)
   const [alert, setAlert] = useState('')
-  console.log(old)
+
   const inputFileRef = useRef(null)
 
   const credentials = localStorage.getItem('credentials')
