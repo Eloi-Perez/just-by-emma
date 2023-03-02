@@ -24,7 +24,8 @@ export default function ProductCard({ product }) {
         ))}
         <h3>{product.name}</h3>
         <p>{product.description}</p>
-        <h3>Cost From £{product.sizes[0].price}</h3>
+        {(product.sizes.length > 1) && <h3>Cost From £{product.sizes[0].price}</h3>}
+        {(product.sizes.length === 1) && <h3>Cost £{product.sizes[0].price}</h3>}
         <Basket />
       </Link>
       <hr />
