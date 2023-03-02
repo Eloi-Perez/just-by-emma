@@ -3,16 +3,14 @@ import { useState, useRef, useContext } from 'react'
 import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
 
-//TODO update to new schema (being able to update sizes)
-
 export default function UpdateProductForm({ id, old }) {
   const { fetchProducts } = useContext(ProductsContext)
-  const [name, setName] = useState('') 
-  const [description, setDescription] = useState('')
+  const [name, setName] = useState(old.name)
+  const [description, setDescription] = useState(old.description)
   const [sizes, setSizes] = useState(old.sizes)
   const [images, setImages] = useState(null)
   const [alert, setAlert] = useState('')
-  console.log(old)
+
   const inputFileRef = useRef(null)
 
   const credentials = localStorage.getItem('credentials')
@@ -22,9 +20,9 @@ export default function UpdateProductForm({ id, old }) {
 
     function resetFetchRevalidate() {
       //reset values
-      setName('')
-      setDescription('')
-      setSizes([{ name: '', price: '' }])
+      // setName('')
+      // setDescription('')
+      // setSizes([{ name: '', price: '', available: true }])
       setImages(null)
       inputFileRef.current.value = null
       //fetch updates
@@ -95,7 +93,7 @@ export default function UpdateProductForm({ id, old }) {
   function handleNSizes(action) {
     switch (action) {
       case 'add':
-        setSizes(s => s.concat([{ name: '', price: '' }]))
+        setSizes(s => s.concat([{ name: '', price: '', available: true }]))
         break
       case 'remove':
         setSizes(s => s.slice(0, -1))
@@ -163,9 +161,16 @@ export default function UpdateProductForm({ id, old }) {
                   required
                 />
               </div>
-              {/* <div>
-                available: true/false
-              </div> */}
+              <div>
+                Available:
+                <input
+                  type="checkbox"
+                  id={'sizeAvailable' + i}
+                  value="available"
+                  checked={sizes[i].available}
+                  onChange={(e) => handleSetSizes(e.target.checked, 'available', i)}
+                />
+              </div>
               <br />
             </div>
           ))}
