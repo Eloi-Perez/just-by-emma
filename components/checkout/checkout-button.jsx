@@ -37,7 +37,6 @@ export default function CheckoutButton() {
         })
       })
     })
-    console.log(line_items)
 
     const data = { line_items }
     try {

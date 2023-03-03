@@ -44,10 +44,10 @@ export default function UpdateProductForm({ id, old }) {
       let meta = await Array.apply(null, Array(images.length))
       await meta.forEach(
         (e, i, a) =>
-          (a[i] = {
-            priority: priorities[i],
-            ext: images[i].name.split('.').pop(),
-          })
+        (a[i] = {
+          priority: priorities[i] + 1,
+          ext: images[i].name.split('.').pop(),
+        })
       )
       return await meta
     }

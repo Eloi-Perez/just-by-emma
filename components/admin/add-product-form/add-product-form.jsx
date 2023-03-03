@@ -22,7 +22,7 @@ export default function AddProductForm() {
     imagesMeta.forEach(
       (e, i, a) =>
         (a[i] = {
-          priority: priorities[i],
+          priority: priorities[i] + 1,
           ext: images[i].name.split('.').pop(),
         })
     )

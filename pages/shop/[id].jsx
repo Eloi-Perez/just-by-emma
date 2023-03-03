@@ -123,6 +123,7 @@ export async function getStaticProps(context) {
     }
     const product = await res.json()
     product.sizes = await product.sizes.filter((s) => s.available)
+    product.images.sort((a, b) => a.priority - b.priority)
     if (!product.sizes[0]) {
       return { notFound: true }
     }

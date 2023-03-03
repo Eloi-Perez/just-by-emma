@@ -30,6 +30,7 @@ export async function getStaticProps() {
   const res = await fetch(`${process.env.BACKEND}/v0/products`)
   const allProducts = await res.json()
   const availableProducts = await allProducts.map((pr) => {
+    pr.images.sort((a, b) => a.priority - b.priority)
     pr.sizes = pr.sizes.filter((s) => s.available)
     if (pr.sizes[0]) {
       return pr
