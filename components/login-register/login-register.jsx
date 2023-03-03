@@ -9,22 +9,29 @@ export default function LoginRegister({ close }) {
 
   return (
     <div className={s.root}>
-      {!registerActive &&
+      {!registerActive && (
         <>
           <Login close={close} />
-          <button className={s.create}
-            onClick={() => setRegisterActive(true)}
-          >Create Account</button>
+          <button className={s.create} onClick={() => setRegisterActive(true)}>
+            Create Account
+          </button>
         </>
-      }
-      {registerActive &&
+      )}
+      {registerActive && (
         <>
           <Register toLogin={() => setRegisterActive(false)} />
-          <a href="#" className={s.back_login}
-            onClick={e => { e.preventDefault(); setRegisterActive(false) }}
-          >Already have an account?</a>
+          <a
+            href="#"
+            className={s.back_login}
+            onClick={(e) => {
+              e.preventDefault()
+              setRegisterActive(false)
+            }}
+          >
+            Already have an account?
+          </a>
         </>
-      }
+      )}
     </div>
   )
 }

@@ -21,7 +21,7 @@ export default function Dialog({ trigger, button = false, title, children }) {
             {cloneElement(children, {
               close: () => {
                 setOpen(false)
-              }
+              },
             })}
           </D.Content>
         </D.Overlay>

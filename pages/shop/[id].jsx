@@ -22,7 +22,7 @@ export default function Product({ product }) {
       setCart('ADD_QUANTITY', {
         id: product._id,
         select: sizeToSend,
-        product
+        product,
       })
     } else {
       console.error('error, no size selected')
@@ -35,36 +35,46 @@ export default function Product({ product }) {
       <p>{JSON.stringify(cart)}</p>
       <h3>{product.name}</h3>
       {product.images[1] && <Carousel images={product.images} />}
-      {product.images[0] && !product.images[1] && product.images.map((img) => (
-        <Image src={`/backend/img/${img.filename}`}
-          key={img.filename}
-          alt=""
-          width={100}
-          height={100}
-          // fill
-          style={{ objectFit: 'cover' }}
-          sizes="20vw"
-          priority
-        />
-      ))}
+      {product.images[0] &&
+        !product.images[1] &&
+        product.images.map((img) => (
+          <Image
+            src={`/backend/img/${img.filename}`}
+            key={img.filename}
+            alt=""
+            width={100}
+            height={100}
+            // fill
+            style={{ objectFit: 'cover' }}
+            sizes="20vw"
+            priority
+          />
+        ))}
       <p>{product.description}</p>
       <h3>From: £{product.sizes[0].price}</h3>
-      {(product.sizes.length > 1) && <div>
-        <div>Size</div>
-        <select value={sizeToSend} onChange={e => setSizeToSend(e.target.value)}>
-          <option value="0">Select</option>
-          {product.sizes.map(size =>
-            <option key={size.name} value={size.name}>{size.name} £{size.price}</option>
-          )}
-        </select>
-      </div>}
-      {(product.sizes.length === 1) && <div>
-        <div>Size</div>
-        <div>{product.sizes[0].name}</div>
-      </div>}
+      {product.sizes.length > 1 && (
+        <div>
+          <div>Size</div>
+          <select value={sizeToSend} onChange={(e) => setSizeToSend(e.target.value)}>
+            <option value="0">Select</option>
+            {product.sizes.map((size) => (
+              <option key={size.name} value={size.name}>
+                {size.name} £{size.price}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+      {product.sizes.length === 1 && (
+        <div>
+          <div>Size</div>
+          <div>{product.sizes[0].name}</div>
+        </div>
+      )}
       <br />
       <button onClick={handleAdd}>Add to Cart</button>
-      <br /><br />
+      <br />
+      <br />
       <div>
         <h3>Key Ingredients</h3>
         <p>list...</p>
@@ -90,7 +100,7 @@ export async function getStaticPaths() {
       }
     })
     const arrayProducts = await availableProducts.filter((pr) => pr !== undefined)
-    const paths = arrayProducts.map(p => ({
+    const paths = arrayProducts.map((p) => ({
       params: { id: p._id },
     }))
     return {

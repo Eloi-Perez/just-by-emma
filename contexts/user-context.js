@@ -14,16 +14,16 @@ const userDataReducer = (state, action) => {
 
 export const UserDataContext = createContext()
 
-export const UserDataProvider = props => {
+export const UserDataProvider = (props) => {
   const initialState = {
     userData: {
-      name: 'Emma'
-    }
+      name: 'Emma',
+    },
   }
 
   const [state, dispatch] = useReducer(userDataReducer, initialState)
 
-  const setUserData = newUserData => {
+  const setUserData = (newUserData) => {
     dispatch({ type: 'SET_USER_DATA', payload: newUserData })
   }
 
@@ -31,8 +31,9 @@ export const UserDataProvider = props => {
     <UserDataContext.Provider
       value={{
         userData: state.userData,
-        setUserData
-      }}>
+        setUserData,
+      }}
+    >
       {props.children}
     </UserDataContext.Provider>
   )

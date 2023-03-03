@@ -21,7 +21,7 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
       const response = await call.json()
       if (call.ok) {
@@ -45,7 +45,8 @@ export default function Contact() {
       <HeaderImage />
       <h1 className={s.title}>CONTACT</h1>
       <h3>
-        If you would like to talk about your order or have any questions about Just by Emma products or brand, I am here to help you.
+        If you would like to talk about your order or have any questions about Just by Emma products
+        or brand, I am here to help you.
       </h3>
       <EmmaImage />
       <p>Email us at: info@justbyemma.com</p>
@@ -98,8 +99,11 @@ export default function Contact() {
         </div>
         <h3>{alert}</h3>
       </form>
-      <p>We will always aim to get back to you within 24 hours.<br />
-        Thanks for shopping with Just by Emma.</p>
+      <p>
+        We will always aim to get back to you within 24 hours.
+        <br />
+        Thanks for shopping with Just by Emma.
+      </p>
     </div>
   )
 }

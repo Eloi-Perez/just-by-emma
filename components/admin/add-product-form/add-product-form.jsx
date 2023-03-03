@@ -19,10 +19,13 @@ export default function AddProductForm() {
 
     const priorities = Array.from(Array(images.length).keys())
     let imagesMeta = Array.apply(null, Array(images.length))
-    imagesMeta.forEach((e, i, a) => (a[i] = {
-      priority: priorities[i],
-      ext: images[i].name.split(".").pop()
-    }))
+    imagesMeta.forEach(
+      (e, i, a) =>
+        (a[i] = {
+          priority: priorities[i],
+          ext: images[i].name.split('.').pop(),
+        })
+    )
 
     const data = { name, sizes, description, imagesMeta }
 
@@ -32,31 +35,35 @@ export default function AddProductForm() {
         headers: {
           'Content-Type': 'application/json',
           // 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
-          'Authorization': `Bearer ${credentials}`
+          Authorization: `Bearer ${credentials}`,
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
       const response = await call.json()
       if (call.ok) {
         //Upload Image
         let formData = new FormData()
         for (let i = 0; i < images.length; i++) {
-          formData.append('images', images[i], response._id + '_' + i + '.' + images[i].name.split(".").pop())
+          formData.append(
+            'images',
+            images[i],
+            response._id + '_' + i + '.' + images[i].name.split('.').pop()
+          )
         }
         const callImg = await fetch('/backend/v0/products/img', {
           method: 'POST',
           headers: {
             // 'Content-Type': 'multipart/form-data;',
-            'Authorization': `Bearer ${credentials}`
+            Authorization: `Bearer ${credentials}`,
           },
-          body: formData
+          body: formData,
         })
         const responseImg = await callImg.json()
         console.log(responseImg)
         setName('')
         setDescription('')
         setSizes([{ name: '', price: '' }])
-        inputFileRef.current.value = null // clean images      
+        inputFileRef.current.value = null // clean images
         console.log(response)
         setAlert('Created!')
         fetchProducts()
@@ -66,7 +73,7 @@ export default function AddProductForm() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ revalidate: ['/shop', `/shop/${response._id}`] })
+          body: JSON.stringify({ revalidate: ['/shop', `/shop/${response._id}`] }),
         })
         const responseRevalidate = await callRevalidate.json()
         console.log(responseRevalidate)
@@ -82,10 +89,10 @@ export default function AddProductForm() {
   function handleNSizes(action) {
     switch (action) {
       case 'add':
-        setSizes(s => s.concat([{ name: '', price: '' }]))
+        setSizes((s) => s.concat([{ name: '', price: '' }]))
         break
       case 'remove':
-        setSizes(s => s.slice(0, -1))
+        setSizes((s) => s.slice(0, -1))
     }
   }
 
@@ -115,8 +122,16 @@ export default function AddProductForm() {
           />
         </div>
         <br />
-        <input ref={inputFileRef} type="file" accept="image/*" multiple
-          onChange={(e) => { setImages(e.target.files) }} required />
+        <input
+          ref={inputFileRef}
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) => {
+            setImages(e.target.files)
+          }}
+          required
+        />
         <div>
           <br />
           <label htmlFor="description">Description:</label>
@@ -178,8 +193,7 @@ export default function AddProductForm() {
         <h3>{alert}</h3>
       </form>
       <button onClick={() => handleNSizes('add')}>Add Sizes</button>
-      {(sizes.length > 1) && <button onClick={() => handleNSizes('remove')}>Remove Sizes</button>}
+      {sizes.length > 1 && <button onClick={() => handleNSizes('remove')}>Remove Sizes</button>}
     </>
-
   )
 }

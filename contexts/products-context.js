@@ -17,9 +17,9 @@ const productsReducer = (state, action) => {
 
 export const ProductsContext = createContext()
 
-export const ProductsProvider = props => {
+export const ProductsProvider = (props) => {
   const initialState = {
-    products: []
+    products: [],
   }
 
   const [state, dispatch] = useReducer(productsReducer, initialState)
@@ -41,8 +41,9 @@ export const ProductsProvider = props => {
     <ProductsContext.Provider
       value={{
         products: state.products,
-        fetchProducts
-      }}>
+        fetchProducts,
+      }}
+    >
       {props.children}
     </ProductsContext.Provider>
   )

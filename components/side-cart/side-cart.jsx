@@ -17,9 +17,9 @@ export default function SideCart() {
 
   useEffect(() => {
     let calcSubTotal = 0
-    cart.map(item =>
+    cart.map((item) =>
       item.quantities.map((q, i) => {
-        let indexSize = item.product.sizes.findIndex(e => e.name === q.size)
+        let indexSize = item.product.sizes.findIndex((e) => e.name === q.size)
         calcSubTotal += q.quantity * item.product.sizes[indexSize].price
       })
     )
@@ -46,55 +46,67 @@ export default function SideCart() {
     }
   }, [])
 
-
   function handleAdd(id, size) {
     setCart('ADD_QUANTITY', {
       id: id,
-      select: size
+      select: size,
     })
   }
   function handleSub(id, size) {
     setCart('SUB_QUANTITY', {
       id: id,
-      select: size
+      select: size,
     })
   }
 
-  const rootClassName = show ? (`${s.root}`) : (`${s.root} ${s.hidden}`)
+  const rootClassName = show ? `${s.root}` : `${s.root} ${s.hidden}`
 
   return (
     <div className={rootClassName}>
       <h2 className={s.title}>Cart</h2>
       <button onClick={() => setShow(false)}>Hide</button>
       <div>
-        {cart && cart.map(item =>
-          item.quantities.map((variant, i) => (
-            <div key={i}>
-              <Image src={`/backend/img/${item.product.images[0].filename}`}
-                alt=""
-                width={100}
-                height={100}
-                // fill
-                style={{ objectFit: 'cover' }}
-                sizes="20vw"
-                priority
-              />
-              <h3>{item.product.name}</h3>
-              <p>{variant.size} £{item.product.sizes[item.product.sizes.findIndex(e => e.name === variant.size)].price}</p>
-              <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
-              <span> {variant.quantity} </span>
-              <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
-              <div>£{item.product.sizes[item.product.sizes.findIndex(e => e.name === variant.size)].price * variant.quantity}</div>
-              <hr />
-            </div>
-          )
-          )
-        )}
+        {cart &&
+          cart.map((item) =>
+            item.quantities.map((variant, i) => (
+              <div key={i}>
+                <Image
+                  src={`/backend/img/${item.product.images[0].filename}`}
+                  alt=""
+                  width={100}
+                  height={100}
+                  // fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="20vw"
+                  priority
+                />
+                <h3>{item.product.name}</h3>
+                <p>
+                  {variant.size} £
+                  {
+                    item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                      .price
+                  }
+                </p>
+                <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
+                <span> {variant.quantity} </span>
+                <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
+                <div>
+                  £
+                  {item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                    .price * variant.quantity}
+                </div>
+                <hr />
+              </div>
+            ))
+          )}
       </div>
 
       <div className={s.order}>
         <div>Subtotal £{subtotal}</div>
-        <Link href="/cart"><button>View Cart</button></Link>
+        <Link href="/cart">
+          <button>View Cart</button>
+        </Link>
       </div>
     </div>
   )

@@ -15,11 +15,11 @@ export default function DeleteProductForm({ id }) {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${credentials}`
-          }
+            Authorization: `Bearer ${credentials}`,
+          },
         })
         const response = await call.json()
-        if (call.ok) { 
+        if (call.ok) {
           console.log(response)
           fetchProducts()
           //Revalidate pages
@@ -28,7 +28,7 @@ export default function DeleteProductForm({ id }) {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ revalidate: ['/shop', `/shop/${id}`] })
+            body: JSON.stringify({ revalidate: ['/shop', `/shop/${id}`] }),
           })
           const responseRevalidate = await callRevalidate.json()
           console.log(responseRevalidate)

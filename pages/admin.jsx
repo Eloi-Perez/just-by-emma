@@ -7,8 +7,8 @@ import ProductCard from '../components/admin/product-card/product-card'
 import s from '../styles/admin.module.scss'
 
 function decodeJwt(token) {
-  const base64Payload = token.split(".")[1]
-  const payloadBuffer = Buffer.from(base64Payload, "base64")
+  const base64Payload = token.split('.')[1]
+  const payloadBuffer = Buffer.from(base64Payload, 'base64')
   return JSON.parse(payloadBuffer.toString())
 }
 
@@ -19,11 +19,11 @@ export default function Admin() {
   const router = useRouter()
 
   useEffect(() => {
-    (async function () {
-      if (!await isAdmin()) {
+    ;(async function () {
+      if (!(await isAdmin())) {
         router.push('/')
       }
-    })();
+    })()
     fetchProducts()
   }, [])
 
@@ -39,7 +39,7 @@ export default function Admin() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${credentials}`
+          Authorization: `Bearer ${credentials}`,
         },
       })
       const response = await call.json()
@@ -63,14 +63,17 @@ export default function Admin() {
       <input
         type="search"
         placeholder="Search here"
-        onChange={e => setSearchInput(e.target.value)}
-        value={searchInput} />
-      {products && !searchInput && products.map((product) => (
-        <ProductCard key={product._id} product={product} />
-      ))}
-      {products && searchInput && products.filter(li => li.name.toLowerCase().includes(searchInput.toLowerCase())).map((product) => (
-        <ProductCard key={product._id} product={product} />
-      ))}
+        onChange={(e) => setSearchInput(e.target.value)}
+        value={searchInput}
+      />
+      {products &&
+        !searchInput &&
+        products.map((product) => <ProductCard key={product._id} product={product} />)}
+      {products &&
+        searchInput &&
+        products
+          .filter((li) => li.name.toLowerCase().includes(searchInput.toLowerCase()))
+          .map((product) => <ProductCard key={product._id} product={product} />)}
     </div>
   )
 }
