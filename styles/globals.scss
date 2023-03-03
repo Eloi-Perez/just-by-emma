@@ -1,39 +1,39 @@
 @font-face {
-    font-family: 'Josefin Sans';
-    src: url('../public/fonts/JosefinSans.woff2') format('woff2');
-    font-display: swap;
+  font-family: 'Josefin Sans';
+  src: url('../public/fonts/JosefinSans.woff2') format('woff2');
+  font-display: swap;
 }
 
 :root {
-    --primary-color: #fde0dd;
-    --font-color: #4b4b4b;
-    --main-font: 'Josefin Sans', sans-serif;
+  --primary-color: #fde0dd;
+  --font-color: #4b4b4b;
+  --main-font: 'Josefin Sans', sans-serif;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    font-family: var(--main-font);
-    font-size: 16px;
-    color: var(--font-color);
-    background-color: #fff;
+  padding: 0;
+  margin: 0;
+  font-family: var(--main-font);
+  font-size: 16px;
+  color: var(--font-color);
+  background-color: #fff;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
 [type='button'],
 [type='submit'],
 input::file-selector-button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 // @media (prefers-color-scheme: dark) {

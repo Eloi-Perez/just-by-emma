@@ -3,112 +3,112 @@
 .contactContainer,
 .socialsContainer,
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .button {
-    align-items: center;
-    background-color: var(--primary-color);
-    border: 1px solid #dfdfdf;
-    border-radius: 25px;
-    box-sizing: border-box;
-    color: #000000;
-    cursor: pointer;
-    display: flex;
-    font-family: Inter, sans-serif;
-    font-size: 20px;
-    justify-content: center;
-    line-height: 28px;
-    max-width: 100%;
-    padding: 14px 22px;
-    text-decoration: none;
-    transition: all 0.2s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: 35%;
-    margin: 10% auto;
+  align-items: center;
+  background-color: var(--primary-color);
+  border: 1px solid #dfdfdf;
+  border-radius: 25px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 28px;
+  max-width: 100%;
+  padding: 14px 22px;
+  text-decoration: none;
+  transition: all 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 35%;
+  margin: 10% auto;
 }
 
 .button:active,
 .button:hover {
-    outline: 0;
+  outline: 0;
 }
 
 .button:hover {
-    background-color: #ffffff;
-    border-color: rgba(0, 0, 0, 0.19);
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.19);
 }
 
 .container {
-    flex-direction: row;
-    height: 150px;
-    margin: 7% 0 5% 15%;
-    width: 90%;
+  flex-direction: row;
+  height: 150px;
+  margin: 7% 0 5% 15%;
+  width: 90%;
 }
 .contactContainer {
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-    width: 90%;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  width: 90%;
 }
 
 .form {
-    background-color: #fffcfc;
-    margin-top: 5%;
-    width: 60%;
+  background-color: #fffcfc;
+  margin-top: 5%;
+  width: 60%;
 }
 
 .form > :nth-child(1) {
-    border-top: 1px solid #000000;
+  border-top: 1px solid #000000;
 }
 
 .form > :nth-child(4) > input {
-    height: 60px;
+  height: 60px;
 }
 
 .imageContainer {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .input {
-    align-items: center;
-    border: none;
-    background-color: #fffcfc;
-    border-bottom: 1px solid #000000;
-    margin-bottom: 10px;
-    outline: none;
-    padding: 10px;
-    width: 100%;
+  align-items: center;
+  border: none;
+  background-color: #fffcfc;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
 }
 
 .input::placeholder {
-    position: absolute;
-    font-size: 1rem;
+  position: absolute;
+  font-size: 1rem;
 }
 
 .socials {
-    gap: 10px;
+  gap: 10px;
 }
 
 .socialsContainer {
-    align-items: center;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
 }
 
 .text {
-    line-height: 1.5;
-    text-align: center;
-    width: 60%;
+  line-height: 1.5;
+  text-align: center;
+  width: 60%;
 }
 
 .textContainer {
-    justify-content: center;
-    margin-right: 7%;
-    padding: 30px;
-    width: 60%;
+  justify-content: center;
+  margin-right: 7%;
+  padding: 30px;
+  width: 60%;
 }
