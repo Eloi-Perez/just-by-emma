@@ -1,7 +1,7 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
-import s from './emma-image.module.scss';
-import emma_img from '../../../public/img/emma.webp';
+import s from './emma-image.module.scss'
+import emma_img from '../../../public/img/emma.webp'
 
 export default function EmmaImage() {
   return (
