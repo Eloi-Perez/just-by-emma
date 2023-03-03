@@ -6,9 +6,7 @@ export default function ContextProviders({ children }) {
   return (
     <UserDataProvider>
       <ProductsProvider>
-        <CartProvider>
-          {children}
-        </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </ProductsProvider>
     </UserDataProvider>
   )

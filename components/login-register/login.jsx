@@ -15,9 +15,9 @@ export default function Login({ close }) {
       const call = await fetch('/backend/v0/users/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
       const response = await call.json()
       if (call.ok) {
@@ -45,8 +45,8 @@ export default function Login({ close }) {
             <Logo />
           </div>
           <p className={s.description}>
-            A natural skincare range. Just simple 100% natural ingredients,
-            lovingly handmade. Keeping your skincare routine simple and natural
+            A natural skincare range. Just simple 100% natural ingredients, lovingly handmade.
+            Keeping your skincare routine simple and natural
           </p>
           <p className={s.title}>Sign in</p>
           <p>Welcome again please sign in</p>

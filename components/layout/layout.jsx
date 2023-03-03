@@ -9,10 +9,9 @@ export default function Layout({ children }) {
     <>
       <HeadContent />
       <Navbar />
-      <main>
-        {children}
-      </main>
-      <SideCart />{/* { TODO conditional rendering for Desktop only ?} */}
+      <main>{children}</main>
+      <SideCart />
+      {/* { TODO conditional rendering for Desktop only ?} */}
       <Footer />
     </>
   )

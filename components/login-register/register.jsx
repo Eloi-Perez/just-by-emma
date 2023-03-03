@@ -18,9 +18,9 @@ export default function Register({ toLogin }) {
       const call = await fetch('/backend/v0/users/signup', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
       const response = await call.json()
       if (call.ok) {
@@ -49,8 +49,8 @@ export default function Register({ toLogin }) {
             <Logo />
           </div>
           <p className={s.description}>
-            A natural skincare range. Just simple 100% natural ingredients,
-            lovingly handmade. Keeping your skincare routine simple and natural
+            A natural skincare range. Just simple 100% natural ingredients, lovingly handmade.
+            Keeping your skincare routine simple and natural
           </p>
           <p className={s.title}>Create Account</p>
           <form className={s.form} onSubmit={handleSubmit}>

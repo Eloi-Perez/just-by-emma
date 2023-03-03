@@ -3,9 +3,11 @@ import { useReducer, createContext, useEffect } from 'react'
 const cartReducer = (state, action) => {
   // redeclare to avoid page not refreshing with new result if return {state}
   let newState = { ...state }
-  const match = newState.cart.findIndex(e => e.id === action.payload?.id)
-  const matchSize = (match !== -1) ?
-    newState.cart[match].quantities.findIndex(e => e.size === action.payload.select) : undefined
+  const match = newState.cart.findIndex((e) => e.id === action.payload?.id)
+  const matchSize =
+    match !== -1
+      ? newState.cart[match].quantities.findIndex((e) => e.size === action.payload.select)
+      : undefined
   switch (action.type) {
     case 'SET_CART':
       return {
@@ -32,7 +34,8 @@ const cartReducer = (state, action) => {
     case 'REMOVE_FROM_CART':
       // {id, select: 'size'}
       if (match >= 0 && newState.cart[match].quantities[matchSize].quantity) {
-        if (newState.cart[match].quantities.length === 1) { // only 1 variant
+        if (newState.cart[match].quantities.length === 1) {
+          // only 1 variant
           newState.cart.splice(match, 1)
         } else {
           newState.cart[match].quantities.splice(matchSize, 1)
@@ -43,13 +46,15 @@ const cartReducer = (state, action) => {
       return newState
     case 'ADD_QUANTITY': // TODO save newState to localStorage
       // {id, select: 'size', product}
-      if (match === -1) { // ID not in cart
+      if (match === -1) {
+        // ID not in cart
         newState.cart.push({
           id: action.payload.id,
           quantities: [{ size: action.payload.select, quantity: 1 }],
-          product: action.payload.product
+          product: action.payload.product,
         })
-      } else if (match >= 0 && matchSize === -1) { // size not in cart
+      } else if (match >= 0 && matchSize === -1) {
+        // size not in cart
         newState.cart[match].quantities.push({ size: action.payload.select, quantity: 1 })
       } else {
         newState.cart[match].quantities[matchSize].quantity += 1
@@ -77,63 +82,65 @@ const cartReducer = (state, action) => {
 export const CartContext = createContext()
 
 const mockData = {
-  "id": "637035139fe8d9dcd00238e9",
+  id: '637035139fe8d9dcd00238e9',
   // "size": { "s50ml": 3, "s15ml": 1 },
-  "quantities": [
-    { "size": "15ml", "quantity": 1 },
-    { "size": "50ml", "quantity": 3 }
+  quantities: [
+    { size: '15ml', quantity: 1 },
+    { size: '50ml', quantity: 3 },
   ],
-  "product": {
-    "_id": "637035139fe8d9dcd00238e9",
-    "name": "item with multiple sizes",
-    "sizes": [
+  product: {
+    _id: '637035139fe8d9dcd00238e9',
+    name: 'item with multiple sizes',
+    sizes: [
       {
-        "name": "15ml",
-        "price": 5,
-        "offer": 0,
-        "available": true,
-        "_id": "637035139fe8d9dcd00238ea"
+        name: '15ml',
+        price: 5,
+        offer: 0,
+        available: true,
+        _id: '637035139fe8d9dcd00238ea',
       },
       {
-        "name": "50ml",
-        "price": 30,
-        "offer": 0,
-        "available": true,
-        "_id": "637035139fe8d9dcd00238eb"
-      }
+        name: '50ml',
+        price: 30,
+        offer: 0,
+        available: true,
+        _id: '637035139fe8d9dcd00238eb',
+      },
     ],
-    "description": "amazing description",
-    "images": [
+    description: 'amazing description',
+    images: [
       {
-        "filename": "637035139fe8d9dcd00238e9_0.jpg",
-        "priority": 0,
-        "_id": "637035139fe8d9dcd00238ec"
+        filename: '637035139fe8d9dcd00238e9_0.jpg',
+        priority: 0,
+        _id: '637035139fe8d9dcd00238ec',
       },
       {
-        "filename": "637035139fe8d9dcd00238e9_1.jpeg",
-        "priority": 1,
-        "_id": "637035139fe8d9dcd00238ed"
-      }
+        filename: '637035139fe8d9dcd00238e9_1.jpeg',
+        priority: 1,
+        _id: '637035139fe8d9dcd00238ed',
+      },
     ],
-    "createdAt": "2022-11-13T00:06:43.048Z",
-    "updatedAt": "2022-11-13T00:06:43.048Z",
-    "__v": 0
-  }
+    createdAt: '2022-11-13T00:06:43.048Z',
+    updatedAt: '2022-11-13T00:06:43.048Z',
+    __v: 0,
+  },
 }
 // { "id": "63455d5bf0c1b313f5c77085", "size": { "s50ml": 2, "s15ml": 1 } }
 // { id: 'idNumber', size: '15ml', quantity: 2 }
 // OR [{ id: 'the-product-id', variants: { small: 2, medium: 1 } }]
 
-export const CartProvider = props => {
+export const CartProvider = (props) => {
   const initialState = {
-    cart: []
+    cart: [],
   }
 
   const [state, dispatch] = useReducer(cartReducer, initialState)
 
   useEffect(() => {
     const oldCart = localStorage.getItem('jbe_cart')
-    if (oldCart) { setCart('SET_CART', JSON.parse(oldCart)) }
+    if (oldCart) {
+      setCart('SET_CART', JSON.parse(oldCart))
+    }
   }, [])
   useEffect(() => {
     localStorage.setItem('jbe_cart', JSON.stringify(state.cart))
@@ -148,8 +155,9 @@ export const CartProvider = props => {
     <CartContext.Provider
       value={{
         cart: state.cart,
-        setCart
-      }}>
+        setCart,
+      }}
+    >
       {props.children}
     </CartContext.Provider>
   )

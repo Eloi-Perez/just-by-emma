@@ -13,19 +13,23 @@ export default function Navbar() {
         <Logo />
       </div>
       <div className={s.top_elements}>
-        <div className={s.nav_text}>
-          Just 100% natural and simple skincare
-        </div>
+        <div className={s.nav_text}>Just 100% natural and simple skincare</div>
         <Search />
         <Share />
-        <Link href="/profile"><Profile /></Link>
-        <Link href="/cart"><Basket /></Link>
+        <Link href="/profile">
+          <Profile />
+        </Link>
+        <Link href="/cart">
+          <Basket />
+        </Link>
       </div>
       <div className={s.menu}>
         <Link href="/">Home</Link>
         <Link href="/shop">Shop</Link>
         <Link href="/ingredients">Ingredients</Link>
-        <Dialog trigger="Sign In"><LoginRegister /></Dialog>
+        <Dialog trigger="Sign In">
+          <LoginRegister />
+        </Dialog>
         <Link href="/about">About</Link>
         <Link href="/news">News</Link>
         <Link href="/contact">Contact</Link>

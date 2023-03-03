@@ -5,9 +5,7 @@ import { CartContext } from '../../contexts/cart-context'
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-)
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function CheckoutButton() {
   const { cart } = useContext(CartContext)
   // useEffect(() => {
@@ -25,12 +23,12 @@ export default function CheckoutButton() {
   const checkout = async (e) => {
     e.preventDefault()
     let line_items = []
-    cart.map(p => {
-      p.quantities.map(item => {
+    cart.map((p) => {
+      p.quantities.map((item) => {
         line_items.push({
           name: p.product.name,
-          description: item.size ,
-          amount: p.product.sizes.find(el => el.name === item.size).price * 100,
+          description: item.size,
+          amount: p.product.sizes.find((el) => el.name === item.size).price * 100,
           currency: 'GBP',
           quantity: item.quantity,
           tax_rates: ['txr_1Mgb7THikk8qRRx09X5F5Tnk'],
@@ -48,7 +46,7 @@ export default function CheckoutButton() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
       const response = await call.json()
       if (call.ok) {

@@ -25,8 +25,11 @@ export default function Search() {
 
   function handleChange(e) {
     setSearchInput(e.target.value)
-    const result = products.filter(li => li.name.toLowerCase().includes(e.target.value.toLowerCase()))
-    if (!result.length && !!products.length) { // error won't show on first keystroke
+    const result = products.filter((li) =>
+      li.name.toLowerCase().includes(e.target.value.toLowerCase())
+    )
+    if (!result.length && !!products.length) {
+      // error won't show on first keystroke
       setErrorSearch(true)
     } else {
       setErrorSearch(false)
@@ -39,25 +42,21 @@ export default function Search() {
 
   return (
     <div className={s.search}>
-      <input
-        type="search"
-        placeholder="Search here"
-        onChange={handleChange}
-        value={searchInput} />
+      <input type="search" placeholder="Search here" onChange={handleChange} value={searchInput} />
 
-      {searchInput && <ul>
-        {products
-          .filter(li => li.name.toLowerCase().includes(searchInput.toLowerCase()))
-          .map((item, key) => (
-            <li key={key}>
-              <Link href={`/shop/${item._id}`}>{item.name}</Link>
-            </li>
-          ))}
-      </ul>}
+      {searchInput && (
+        <ul>
+          {products
+            .filter((li) => li.name.toLowerCase().includes(searchInput.toLowerCase()))
+            .map((item, key) => (
+              <li key={key}>
+                <Link href={`/shop/${item._id}`}>{item.name}</Link>
+              </li>
+            ))}
+        </ul>
+      )}
 
-      {errorSearch &&
-        <p>no match</p>
-      }
+      {errorSearch && <p>no match</p>}
     </div>
   )
 }
