@@ -10,7 +10,8 @@ export default function Search() {
   const initSearch = useRef(false)
   const [searchInput, setSearchInput] = useState('')
   const [errorSearch, setErrorSearch] = useState(false)
-  const { products, fetchProducts } = useContext(ProductsContext)
+  const { products: unfilteredProducts, fetchProducts } = useContext(ProductsContext)
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -22,6 +23,17 @@ export default function Search() {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [])
+
+  useEffect(() => {
+    const availableProducts = unfilteredProducts.map((pr) => {
+      pr.sizes = pr.sizes.filter((s) => s.available)
+      if (pr.sizes[0]) {
+        return pr
+      }
+    })
+    const filteredProducts = availableProducts.filter((pr) => pr !== undefined)
+    setProducts(filteredProducts)
+  }, [unfilteredProducts])
 
   function handleChange(e) {
     setSearchInput(e.target.value)
