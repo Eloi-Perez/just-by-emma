@@ -22,6 +22,7 @@ export default function Search() {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

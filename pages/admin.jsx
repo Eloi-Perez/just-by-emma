@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { ProductsContext } from '../contexts/products-context'
 import AddProductForm from '../components/admin/add-product-form/add-product-form'
 import ProductCard from '../components/admin/product-card/product-card'
-import s from '../styles/admin.module.scss'
+// import s from '../styles/admin.module.scss'
 
 function decodeJwt(token) {
   const base64Payload = token.split('.')[1]
@@ -19,12 +19,13 @@ export default function Admin() {
   const router = useRouter()
 
   useEffect(() => {
-    ;(async function () {
+    ; (async function () {
       if (!(await isAdmin())) {
         router.push('/')
       }
     })()
     fetchProducts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const isAdmin = async () => {

@@ -9,6 +9,7 @@ export default function Success() {
 
   useEffect(() => {
     setCart('EMPTY_CART')
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

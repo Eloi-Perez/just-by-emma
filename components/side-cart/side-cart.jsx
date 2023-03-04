@@ -44,6 +44,7 @@ export default function SideCart() {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function handleAdd(id, size) {
