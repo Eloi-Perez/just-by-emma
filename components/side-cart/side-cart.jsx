@@ -35,8 +35,8 @@ export default function SideCart() {
   }, [JSON.stringify(cart)])
 
   useEffect(() => {
-    const handleRouteChange = () => {
-      if (router.pathname === '/cart') {
+    const handleRouteChange = (url) => {
+      if (url === '/cart') {
         setShow(false)
       }
     }
