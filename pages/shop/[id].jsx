@@ -4,8 +4,7 @@ import Image from 'next/image'
 import { CartContext } from '../../contexts/cart-context'
 import Carousel from '../../components/carousel/carousel'
 
-// import s from '../../styles/product.module.scss'
-import s2 from '../../styles/shop.module.scss'
+// import s from '../../styles/shop.module.scss'
 
 export default function Product({ product }) {
   const { cart, setCart } = useContext(CartContext)
@@ -15,7 +14,7 @@ export default function Product({ product }) {
     if (product.sizes.length === 1) {
       setSizeToSend(product.sizes[0].name)
     }
-  }, [])
+  }, [product])
 
   function handleAdd() {
     if (sizeToSend !== '0') {
