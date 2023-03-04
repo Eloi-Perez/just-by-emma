@@ -43,7 +43,7 @@ export default function Contact() {
   }
 
   return (
-    <div className={s.root}>
+    <>
       <HeaderImage />
       <div className={styles.container}>
         <div className={styles.textContainer}>
@@ -131,6 +131,6 @@ export default function Contact() {
           Thanks for shopping with Just by Emma.
         </p>
       </div>
-    </div>
+    </>
   )
 }

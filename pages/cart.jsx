@@ -46,7 +46,7 @@ export default function Cart() {
   }
 
   return (
-    <div className={s.root}>
+    <>
       <h1 className={s.title}>CART</h1>
       {/* delete next 2 lines */}
       <h3>Cart Content</h3>
@@ -98,6 +98,6 @@ export default function Cart() {
         <div>Subtotal £{merchandiseTotal + 11}</div>
         <CheckoutButton />
       </div>
-    </div>
+    </>
   )
 }

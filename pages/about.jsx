@@ -4,7 +4,7 @@ import s from '../styles/home.module.scss'
 
 export default function About() {
   return (
-    <div className={s.root}>
+    <>
       <HeaderImage />
       <h1 className={s.title}>ABOUT</h1>
       <p className={s.description}>
@@ -107,6 +107,6 @@ export default function About() {
       </div>
       <button>Shop Now</button>
       <button>Sing up for 10% Discount and product reviews</button>
-    </div>
+    </>
   )
 }

@@ -56,7 +56,7 @@ export default function Admin() {
   }
 
   return (
-    <div className={s.main_container}>
+    <>
       <button onClick={() => setOpenAdd(!openAdd)}>Add new product</button>
       {openAdd && <AddProductForm />}
       <h1>Product list:</h1>
@@ -74,6 +74,6 @@ export default function Admin() {
         products
           .filter((li) => li.name.toLowerCase().includes(searchInput.toLowerCase()))
           .map((product) => <ProductCard key={product._id} product={product} />)}
-    </div>
+    </>
   )
 }

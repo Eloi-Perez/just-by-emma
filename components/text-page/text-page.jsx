@@ -4,7 +4,7 @@ import s from '../../styles/text.module.scss'
 
 export default function TextPage({ title, children }) {
   return (
-    <div className={s.root}>
+    <>
       <HeaderImage />
       <div>{title}</div>
       <p>
@@ -13,6 +13,6 @@ export default function TextPage({ title, children }) {
       </p>
       <EmmaImage />
       <div className={s.box}>{children}</div>
-    </div>
+    </>
   )
 }

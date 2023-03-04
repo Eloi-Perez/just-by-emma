@@ -10,7 +10,7 @@ export default function HeaderImage() {
         src={header_img}
         alt="Photo Showcase of the range of products on a pink background"
         fill
-        style={{ objectFit: 'cover' }}
+        style={{ objectFit: 'none', objectPosition: 'bottom 0px right 0px' }}
         priority
       />
     </div>

@@ -29,7 +29,7 @@ export default function Product({ product }) {
     }
   }
   return (
-    <div className={s2.root}>
+    <>
       {/* delete next 2 lines */}
       <h3>Cart Content</h3>
       <p>{JSON.stringify(cart)}</p>
@@ -79,7 +79,7 @@ export default function Product({ product }) {
         <h3>Key Ingredients</h3>
         <p>list...</p>
       </div>
-    </div>
+    </>
   )
 }
 

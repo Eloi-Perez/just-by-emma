@@ -5,7 +5,7 @@ import s from '../styles/shop.module.scss'
 
 export default function Shop({ arrayProducts }) {
   return (
-    <div className={s.root}>
+    <>
       <HeaderImage />
       <h1>THE JUST BY EMMA SHOP</h1>
       <p>
@@ -22,7 +22,7 @@ export default function Shop({ arrayProducts }) {
       {arrayProducts.map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}
-    </div>
+    </>
   )
 }
 

@@ -4,7 +4,7 @@ import s from '../styles/home.module.scss'
 
 export default function Ingredients() {
   return (
-    <div className={s.root}>
+    <>
       <HeaderImage />
       <h1 className={s.title}>INGREDIENTS</h1>
       <p className={s.description}>
@@ -19,6 +19,6 @@ export default function Ingredients() {
       </div>
       <button>Shop Now</button>
       <button>Create Account</button>
-    </div>
+    </>
   )
 }

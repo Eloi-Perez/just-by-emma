@@ -4,7 +4,7 @@ import s from '../styles/home.module.scss'
 
 export default function Home() {
   return (
-    <div className={s.root}>
+    <>
       <HeaderImage />
       <h1 className={s.title}>THE JUST BY EMMA ETHOS</h1>
       <p className={s.description}>
@@ -61,6 +61,6 @@ export default function Home() {
       </div>
       <button>Shop Now</button>
       <button>Sing up for 10% Discount and product reviews</button>
-    </div>
+    </>
   )
 }
