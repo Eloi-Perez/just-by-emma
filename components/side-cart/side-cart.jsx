@@ -25,7 +25,7 @@ export default function SideCart() {
     )
     setSubtotal(calcSubTotal)
 
-    if (cart?.length && router.pathname !== '/cart') {
+    if (cart?.length && router.pathname !== '/cart' && router.pathname !== '/404') {
       setShow(true)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
