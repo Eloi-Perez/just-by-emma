@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useRef } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,7 +13,6 @@ export default function SideCart() {
   const { cart, setCart } = useContext(CartContext)
   const [subtotal, setSubtotal] = useState(0)
   const [show, setShow] = useState(false)
-  const isInitialMount = useRef(true)
 
   useEffect(() => {
     const tempCart = [...cart]
@@ -26,14 +25,10 @@ export default function SideCart() {
     )
     setSubtotal(calcSubTotal)
 
-    if (isInitialMount.current) {
-      isInitialMount.current = false
-    } else {
-      if (router.pathname !== '/cart') {
-        setShow(true)
-      }
+    if (cart?.length && router.pathname !== '/cart') {
+      setShow(true)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart])
 
   useEffect(() => {
