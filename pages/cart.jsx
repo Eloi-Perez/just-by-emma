@@ -12,19 +12,20 @@ export default function Cart() {
   const [merchandiseTotal, setMerchandiseTotal] = useState(0)
 
   useEffect(() => {
+    const tempCart = [...cart]
     let items = 0
-    cart.map((item) => item.quantities.map((q) => (items += q.quantity)))
+    tempCart.map((item) => item.quantities.map((q) => (items += q.quantity)))
     setNItems(items)
 
     let merchandise = 0
-    cart.map((item) =>
+    tempCart.map((item) =>
       item.quantities.map((q, i) => {
         let indexSize = item.product.sizes.findIndex((e) => e.name === q.size)
         merchandise += q.quantity * item.product.sizes[indexSize].price
       })
     )
     setMerchandiseTotal(merchandise)
-  }, [JSON.stringify(cart)])
+  }, [cart])
 
   function handleAdd(id, size) {
     setCart('ADD_QUANTITY', {

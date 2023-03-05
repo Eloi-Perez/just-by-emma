@@ -2,7 +2,7 @@ import { useReducer, createContext, useEffect } from 'react'
 
 const cartReducer = (state, action) => {
   // redeclare to avoid page not refreshing with new result if return {state}
-  let newState = { ...state }
+  const newState = JSON.parse(JSON.stringify(state))
   const match = newState.cart.findIndex((e) => e.id === action.payload?.id)
   const matchSize =
     match !== -1
@@ -44,7 +44,7 @@ const cartReducer = (state, action) => {
         console.error('Nothing to delete')
       }
       return newState
-    case 'ADD_QUANTITY': // TODO save newState to localStorage
+    case 'ADD_QUANTITY':
       // {id, select: 'size', product}
       if (match === -1) {
         // ID not in cart
@@ -81,53 +81,49 @@ const cartReducer = (state, action) => {
 
 export const CartContext = createContext()
 
-const mockData = {
-  id: '637035139fe8d9dcd00238e9',
-  // "size": { "s50ml": 3, "s15ml": 1 },
-  quantities: [
-    { size: '15ml', quantity: 1 },
-    { size: '50ml', quantity: 3 },
-  ],
-  product: {
-    _id: '637035139fe8d9dcd00238e9',
-    name: 'item with multiple sizes',
-    sizes: [
-      {
-        name: '15ml',
-        price: 5,
-        offer: 0,
-        available: true,
-        _id: '637035139fe8d9dcd00238ea',
-      },
-      {
-        name: '50ml',
-        price: 30,
-        offer: 0,
-        available: true,
-        _id: '637035139fe8d9dcd00238eb',
-      },
-    ],
-    description: 'amazing description',
-    images: [
-      {
-        filename: '637035139fe8d9dcd00238e9_0.jpg',
-        priority: 0,
-        _id: '637035139fe8d9dcd00238ec',
-      },
-      {
-        filename: '637035139fe8d9dcd00238e9_1.jpeg',
-        priority: 1,
-        _id: '637035139fe8d9dcd00238ed',
-      },
-    ],
-    createdAt: '2022-11-13T00:06:43.048Z',
-    updatedAt: '2022-11-13T00:06:43.048Z',
-    __v: 0,
-  },
-}
-// { "id": "63455d5bf0c1b313f5c77085", "size": { "s50ml": 2, "s15ml": 1 } }
-// { id: 'idNumber', size: '15ml', quantity: 2 }
-// OR [{ id: 'the-product-id', variants: { small: 2, medium: 1 } }]
+// const mockData = {
+//   id: '637035139fe8d9dcd00238e9',
+//   quantities: [
+//     { size: '15ml', quantity: 1 },
+//     { size: '50ml', quantity: 3 },
+//   ],
+//   product: {
+//     _id: '637035139fe8d9dcd00238e9',
+//     name: 'item with multiple sizes',
+//     sizes: [
+//       {
+//         name: '15ml',
+//         price: 5,
+//         offer: 0,
+//         available: true,
+//         _id: '637035139fe8d9dcd00238ea',
+//       },
+//       {
+//         name: '50ml',
+//         price: 30,
+//         offer: 0,
+//         available: true,
+//         _id: '637035139fe8d9dcd00238eb',
+//       },
+//     ],
+//     description: 'amazing description',
+//     images: [
+//       {
+//         filename: '637035139fe8d9dcd00238e9_0.jpg',
+//         priority: 0,
+//         _id: '637035139fe8d9dcd00238ec',
+//       },
+//       {
+//         filename: '637035139fe8d9dcd00238e9_1.jpeg',
+//         priority: 1,
+//         _id: '637035139fe8d9dcd00238ed',
+//       },
+//     ],
+//     createdAt: '2022-11-13T00:06:43.048Z',
+//     updatedAt: '2022-11-13T00:06:43.048Z',
+//     __v: 0,
+//   },
+// }
 
 export const CartProvider = (props) => {
   const initialState = {

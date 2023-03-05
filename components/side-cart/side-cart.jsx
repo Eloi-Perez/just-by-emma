@@ -16,8 +16,9 @@ export default function SideCart() {
   const isInitialMount = useRef(true)
 
   useEffect(() => {
+    const tempCart = [...cart]
     let calcSubTotal = 0
-    cart.map((item) =>
+    tempCart.map((item) =>
       item.quantities.map((q, i) => {
         let indexSize = item.product.sizes.findIndex((e) => e.name === q.size)
         calcSubTotal += q.quantity * item.product.sizes[indexSize].price
@@ -32,7 +33,8 @@ export default function SideCart() {
         setShow(true)
       }
     }
-  }, [JSON.stringify(cart)])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cart])
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -44,7 +46,7 @@ export default function SideCart() {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function handleAdd(id, size) {
