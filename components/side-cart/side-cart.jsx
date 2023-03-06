@@ -1,18 +1,14 @@
 import { useContext, useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { CartContext } from '../../contexts/cart-context'
+import SideCartDialog from './side-cart-dialog'
 import s from './side-cart.module.scss'
 
-// TODO include dialog/modal
-
 export default function SideCart() {
-  const router = useRouter()
   const { cart, setCart } = useContext(CartContext)
   const [subtotal, setSubtotal] = useState(0)
-  const [show, setShow] = useState(false)
 
   useEffect(() => {
     const tempCart = [...cart]
@@ -24,25 +20,7 @@ export default function SideCart() {
       })
     )
     setSubtotal(calcSubTotal)
-
-    if (cart?.length && router.pathname !== '/cart' && router.pathname !== '/404') {
-      setShow(true)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart])
-
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      if (url === '/cart') {
-        setShow(false)
-      }
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   function handleAdd(id, size) {
     setCart('ADD_QUANTITY', {
@@ -57,13 +35,9 @@ export default function SideCart() {
     })
   }
 
-  const rootClassName = show ? `${s.root}` : `${s.root} ${s.hidden}`
-
   return (
-    <div className={rootClassName}>
-      <h2 className={s.title}>Cart</h2>
-      <button onClick={() => setShow(false)}>Hide</button>
-      <div>
+    <SideCartDialog>
+      <div className={s.item_list}>
         {cart &&
           cart.map((item) =>
             item.quantities.map((variant, i) => (
@@ -98,14 +72,13 @@ export default function SideCart() {
               </div>
             ))
           )}
-      </div>
-
-      <div className={s.order}>
         <div>Subtotal £{subtotal}</div>
+      </div>
+      <div className={s.button_section}>
         <Link href="/cart">
-          <button>View Cart</button>
+          <button autoFocus>View Cart</button>
         </Link>
       </div>
-    </div>
+    </SideCartDialog>
   )
 }
