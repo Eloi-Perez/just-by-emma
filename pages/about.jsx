@@ -1,11 +1,13 @@
 import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
+import Background from '../components/UI/background/background'
 import s from '../styles/home.module.scss'
 
 export default function About() {
   return (
     <>
       <HeaderImage />
+      <Background />
       <h1 className={s.title}>ABOUT</h1>
       <p className={s.description}>
         Just by Emma is a small independent skincare business based in Leigh-on-Sea, Essex and run

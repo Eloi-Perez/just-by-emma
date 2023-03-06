@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { CartContext } from '../contexts/cart-context'
 import CheckoutButton from '../components/checkout/checkout-button'
 
+import Background from '../components/UI/background/background'
 import s from '../styles/home.module.scss'
 
 export default function Cart() {
@@ -48,6 +49,7 @@ export default function Cart() {
 
   return (
     <>
+      <Background />
       <h1 className={s.title}>CART</h1>
       {/* delete next 2 lines */}
       <h3>Cart Content</h3>
