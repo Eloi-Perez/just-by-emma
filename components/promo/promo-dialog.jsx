@@ -1,25 +1,26 @@
 import * as D from '@radix-ui/react-dialog'
-import { useContext, useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 
-import { CartContext } from '../../contexts/cart-context'
-import s from './side-cart.module.scss'
+import s from './promo.module.scss'
 
-export default function SideCartDialog({ trigger, children }) {
+export default function PromoDialog({ children }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
-  const { cart } = useContext(CartContext)
+  const isInitialMount = useRef(true)
 
   useEffect(() => {
-    if (cart?.length && router.pathname !== '/cart' && router.pathname !== '/404') {
+    if (isInitialMount.current) {
+      // TODO store on localStorage?
+      // TODO call to DB to check if it should open
+      isInitialMount.current = false
       setOpen(true)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cart])
+  }, [])
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      if (url === '/cart') {
+      if (url === '/shop') {
         setOpen(false)
       }
     }
@@ -30,14 +31,13 @@ export default function SideCartDialog({ trigger, children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+
   return (
     <D.Root open={open} onOpenChange={setOpen}>
-      {/* <D.Trigger>{trigger}</D.Trigger> */}
       <D.Portal>
         <D.Overlay className={s.overlay}>
           <D.Content className={s.content}>
-            <D.Close className={s.close}>{'>'}</D.Close>
-            <D.Title className={s.title}>Cart</D.Title>
+            <D.Close className={s.close}>{'X'}</D.Close>
             {children}
           </D.Content>
         </D.Overlay>
