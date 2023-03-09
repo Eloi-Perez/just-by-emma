@@ -53,8 +53,8 @@ export default function UpdateProductForm({ id, old }) {
     }
 
     let data = {
-      ...(name && { name }),
-      ...(description && { description }),
+      ...(name && { name: name.trim() }),
+      ...(description && { description: description.trim() }),
       ...(sizes && { sizes }),
       ...(images && { imagesMeta: await imagesMeta() }),
     }
@@ -159,16 +159,15 @@ export default function UpdateProductForm({ id, old }) {
           />
         </div>
         <div>
-          {[...Array(sizes.length)].map((e, i) => (
+          {[...Array(sizes.length)].map((_, i) => (
             <div key={i}>
               <div>
                 <label htmlFor={'sizeName' + i}>Size Name:</label>
                 <input
                   id={'sizeName' + i}
                   type="text"
-                  placeholder="size name*"
                   value={sizes[i].name}
-                  onChange={(e) => handleSetSizes(e.target.value, 'name', i)}
+                  onChange={(e) => handleSetSizes(e.target.value.trim(), 'name', i)}
                   required
                 />
               </div>
@@ -176,15 +175,14 @@ export default function UpdateProductForm({ id, old }) {
                 <label htmlFor={'sizePrice' + i}>Size Price:</label>
                 <input
                   id={'sizePrice' + i}
-                  type="text" // number
-                  placeholder="price*"
+                  type="number"
                   value={sizes[i].price}
                   onChange={(e) => handleSetSizes(e.target.value, 'price', i)}
                   required
                 />
               </div>
               <div>
-                Available:
+                <label htmlFor={'sizeAvailable' + i}>Available:</label>
                 <input
                   type="checkbox"
                   id={'sizeAvailable' + i}
@@ -193,6 +191,15 @@ export default function UpdateProductForm({ id, old }) {
                   onChange={(e) => handleSetSizes(e.target.checked, 'available', i)}
                 />
               </div>
+              {/* <div>
+                <label htmlFor={'sizeOffer' + i}>Size Offer (0 = no offer):</label>
+                <input
+                  id={'sizeOffer' + i}
+                  type="number"
+                  value={sizes[i].offer}
+                  onChange={(e) => handleSetSizes(e.target.value, 'offer', i)}
+                />
+              </div> */}
               <br />
             </div>
           ))}
