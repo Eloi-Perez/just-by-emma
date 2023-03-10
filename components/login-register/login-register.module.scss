@@ -5,7 +5,7 @@
 }
 .container {
   // width: 100%;
-  background-color: #fffcfc;
+  background-color: var(--background-color);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #fffcfc;
+  background-color: var(--background-color);
 }
 .hr {
   width: 386px;
@@ -58,7 +58,7 @@
   margin-bottom: 10px;
   align-items: center;
   padding: 5px;
-  background-color: #fffcfc;
+  background-color: var(--background-color);
 }
 .buttonContainer {
   display: flex;
