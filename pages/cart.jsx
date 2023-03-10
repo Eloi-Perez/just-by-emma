@@ -2,9 +2,14 @@ import { useContext, useState, useEffect } from 'react'
 import Image from 'next/image'
 
 import { CartContext } from '../contexts/cart-context'
-import CheckoutButton from '../components/checkout/checkout-button'
+import { Button } from '../components/UI/button/button.styles'
 
+<<<<<<< Updated upstream
 import s from '../styles/home.module.scss'
+=======
+import styles from '../styles/cart.module.scss'
+import { GrTrash } from 'react-icons/gr'
+>>>>>>> Stashed changes
 
 export default function Cart() {
   const { cart, setCart } = useContext(CartContext)
@@ -48,11 +53,15 @@ export default function Cart() {
 
   return (
     <>
+<<<<<<< Updated upstream
       <h1 className={s.title}>CART</h1>
       {/* delete next 2 lines */}
       <h3>Cart Content</h3>
       <p>{JSON.stringify(cart)}</p>
       <div>
+=======
+      <div className={styles.container}>
+>>>>>>> Stashed changes
         {cart &&
           cart.map((item) =>
             // Object.keys(item.size).map((size, i) => {
@@ -91,6 +100,7 @@ export default function Cart() {
           )}
       </div>
 
+<<<<<<< Updated upstream
       <div className={s.order}>
         <h3>Your Order ({nItems} items)</h3>
         <hr />
@@ -98,6 +108,28 @@ export default function Cart() {
         <div>Estimated Shipping: £11?</div>
         <div>Subtotal £{merchandiseTotal + 11}</div>
         <CheckoutButton />
+=======
+        <div className={styles.checkoutContainer}>
+          <div className={styles.orderContainer}>
+            <h3 className={styles.orderHeader}>Your Order ({nItems} items)</h3>
+            <hr className={styles.hr} />
+            <div className={styles.itemizedList}>
+              <div className={styles.merchandise}>
+                Merchandise <span className={styles.float}>£{merchandiseTotal}</span>
+              </div>
+              <div>
+                Estimated Shipping: <span className={styles.float}>£11?</span>
+              </div>
+            </div>
+            <div className={styles.subtotal}>
+              Subtotal <span className={styles.float}>£{merchandiseTotal + 11}</span>
+            </div>
+          </div>
+          <Button primaryColor md>
+            Checkout
+          </Button>
+        </div>
+>>>>>>> Stashed changes
       </div>
     </>
   )
