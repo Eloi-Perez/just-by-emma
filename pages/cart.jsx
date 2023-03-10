@@ -73,9 +73,10 @@ export default function Cart() {
                 <h3>{item.product.name}</h3>
                 <p>
                   {variant.size} £
+                  {/* TODO posible bug (can't reproduce) -> price undefined  (also on sidecart)*/}
                   {
-                    item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                      .price
+                    item.product.sizes[0].price ? item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                  .price : 'error'
                   }
                 </p>
                 <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
@@ -83,7 +84,7 @@ export default function Cart() {
                 <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
                 <div>
                   £
-                  {item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                  {item.product.sizes[0].price && item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
                     .price * variant.quantity}
                 </div>
                 <button onClick={() => handleRemove(item.id, variant.size)}>Delete</button>
