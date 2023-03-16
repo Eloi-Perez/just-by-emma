@@ -1,0 +1,26 @@
+.header_content {
+  display: flex;
+  flex-direction: row;
+  max-width: 900px;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.header_content_left {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+.header_text {
+  font-size: 1.5rem;
+}
+
+.box {
+  max-width: 900px;
+  background-color: var(--primary-color);
+  padding: 2rem 3rem 4rem 3rem;
+}
