@@ -3,6 +3,7 @@ import { useState } from 'react'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
 import Background from '../components/UI/background/background'
+import { Button } from '../components/UI/button/button.styles'
 import { Facebook, Instagram } from '../components/UI/svg'
 import s from '../styles/home.module.scss'
 import f from '../components/footer/footer.module.scss'
@@ -121,9 +122,9 @@ export default function Contact() {
             />
           </div>
           <div>
-            <button className={styles.button} type="submit">
+            <Button type="submit" primaryColor>
               Send
-            </button>
+            </Button>
           </div>
           <h3>{alert}</h3>
         </form>
