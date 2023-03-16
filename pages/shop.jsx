@@ -1,5 +1,4 @@
 import HeaderImage from '../components/UI/header-image/header-image'
-import Background from '../components/UI/background/background'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import ProductCard from '../components/product-card/product-card'
 import s from '../styles/shop.module.scss'
@@ -8,7 +7,6 @@ export default function Shop({ arrayProducts }) {
   return (
     <>
       <HeaderImage />
-      <Background />
       <h1>THE JUST BY EMMA SHOP</h1>
       <p>
         Our ethos is about producing naturally formulated products which focus on keeping your

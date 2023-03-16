@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
-import Background from '../components/UI/background/background'
 import { Button } from '../components/UI/button/button.styles'
 import { Facebook, Instagram } from '../components/UI/svg'
 import s from '../styles/home.module.scss'
@@ -47,7 +46,6 @@ export default function Contact() {
   return (
     <>
       <HeaderImage />
-      <Background />
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h3 className={s.title}>CONTACT</h3>

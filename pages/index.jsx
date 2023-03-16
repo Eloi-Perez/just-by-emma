@@ -1,4 +1,3 @@
-import Background from '../components/UI/background/background'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
 import s from '../styles/home.module.scss'
@@ -7,7 +6,6 @@ export default function Home() {
   return (
     <>
       <HeaderImage />
-      <Background />
       <h1 className={s.title}>THE JUST BY EMMA ETHOS</h1>
       <p className={s.description}>
         Our ethos is about producing naturally formulated products which focus on keeping your

@@ -7,7 +7,6 @@ export default function Ingredients() {
   return (
     <>
       <HeaderImage />
-      <Background />
       <h1 className={s.title}>INGREDIENTS</h1>
       <p className={s.description}>
         Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils
