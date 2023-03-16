@@ -1,5 +1,4 @@
 import HeaderImage from '../components/UI/header-image/header-image'
-import Background from '../components/UI/background/background'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import s from '../styles/home.module.scss'
 
