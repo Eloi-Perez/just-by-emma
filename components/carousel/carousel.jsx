@@ -28,16 +28,20 @@ export default function Carousel({ images }) {
           src={`/backend/img/${images[currentImage].filename}`}
           key={images[currentImage].filename}
           alt=""
-          width={100}
-          height={100}
-          // fill
+          width={250}
+          height={250}
           style={{ objectFit: 'cover' }}
           sizes="20vw"
-          // priority
+          placeholder="blur"
+          blurDataURL={`/backend/img/${images[currentImage].filename}`}
         />
       )}
-      <button onClick={() => prevImg()}>Prev</button>
-      <button onClick={() => nextImg()}>Next</button>
+      {images[1] &&
+        <>
+          <button className={[s.arrow_left, 'resetButton'].join(' ')} onClick={() => prevImg()}>{'<'}</button>
+          <button className={[s.arrow_right, 'resetButton'].join(' ')} onClick={() => nextImg()}>{'>'}</button>
+        </>
+      }
     </div>
   )
 }

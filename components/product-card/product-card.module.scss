@@ -1,8 +1,42 @@
 .root {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+  width: 700px;
+  height: 320px;
+}
+
+.info {
+  display: flex;
   flex-direction: column;
-  hr {
-    min-width: 200px;
+  height: 100%;
+  width: 100%;
+  margin: 0 1rem;
+  padding: 1rem 0;
+}
+
+.title {
+  margin: 1rem 0 0 0;
+}
+
+.description {
+  height: 100%;
+}
+
+.root hr {
+  width: 100%;
+}
+
+.cost {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  .cost_item {
+    width: 50%;
   }
 }
