@@ -36,7 +36,7 @@ export default function SideCartDialog({ trigger, children }) {
       <D.Portal>
         <D.Overlay className={s.overlay}>
           <D.Content className={s.content}>
-            <D.Close className={s.close}>{'>'}</D.Close>
+             <D.Close className={['resetButton', s.close].join(' ')}>{'>'}</D.Close>
              <D.Title className={s.title}>Cart</D.Title>
             {children}
           </D.Content>

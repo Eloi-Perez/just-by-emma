@@ -6,7 +6,7 @@ import s from './dialog.module.scss'
 export default function Dialog({ trigger, button = false, title, children }) {
   const [open, setOpen] = useState(false)
 
-  const triggerStyle = button ? null : s.resetTriggerButton
+  const triggerStyle = button ? null : 'resetButton'
 
   return (
     <D.Root open={open} onOpenChange={setOpen}>
@@ -15,7 +15,7 @@ export default function Dialog({ trigger, button = false, title, children }) {
       <D.Portal>
         <D.Overlay className={s.overlay}>
           <D.Content className={s.content}>
-            <D.Close className={s.close}>X</D.Close>
+            <D.Close className={['resetButton', s.close].join(' ')}>X</D.Close>
             <D.Title>{title}</D.Title>
             {/* <D.Description>subtitle</D.Description> */}
             {cloneElement(children, {
