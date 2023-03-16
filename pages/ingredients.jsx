@@ -1,16 +1,20 @@
 import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
-import s from '../styles/home.module.scss'
+// import s from '../styles/home.module.scss'
 
 export default function Ingredients() {
   return (
     <>
       <HeaderImage />
-      <h1 className={s.title}>INGREDIENTS</h1>
-      <p className={s.description}>
-        Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils
-      </p>
-      <EmmaImage />
+      <div className={'header_content'}>
+        <div className={'header_text_container'}>
+          <h1 className={'header_title'}>INGREDIENTS</h1>
+          <p className={'header_text'}>
+            Simple & Natural Oils, Butters, Botanical<br />Extracts & Essential Oils.
+          </p>
+        </div>
+        <EmmaImage />
+      </div>
       <div>
         <div>Ingredient 1</div>
         <div>Ingredient 2</div>

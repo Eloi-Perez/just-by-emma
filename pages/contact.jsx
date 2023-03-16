@@ -4,7 +4,7 @@ import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
 import { Button } from '../components/UI/button/button.styles'
 import { Facebook, Instagram } from '../components/UI/svg'
-import s from '../styles/home.module.scss'
+// import s from '../styles/home.module.scss'
 import f from '../components/footer/footer.module.scss'
 import styles from '../styles/contact.module.scss'
 
@@ -46,10 +46,10 @@ export default function Contact() {
   return (
     <>
       <HeaderImage />
-      <div className={styles.container}>
-        <div className={styles.textContainer}>
-          <h3 className={s.title}>CONTACT</h3>
-          <p>
+      <div className={'header_content'}>
+        <div className={'header_text_container'}>
+          <h1 className={'header_title'}>CONTACT</h1>
+          <p className={'header_text'}>
             If you would like to talk about your order or have any questions about Just by Emma
             products or brand, I am here to help you.
           </p>

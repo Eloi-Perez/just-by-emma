@@ -6,28 +6,33 @@ export default function About() {
   return (
     <>
       <HeaderImage />
-      <h1 className={s.title}>ABOUT</h1>
-      <p className={s.description}>
-        Just by Emma is a small independent skincare business based in Leigh-on-Sea, Essex and run
-        by Emma. All products are lovingly handmade in my designated studio, in small batches and
-        always made to order to maintain product quality. The ever-evolving skincare range includes
-        products which are formulated using only natural and simple ingredients.
-        <br />
-        The Just by Emma ethos is about formulating products which focus on making your skincare
-        routine natural, simple and including ingredients which contain tremendous benefits for your
-        skin.
-        <br />
-        Ingredients are sourced from local suppliers where ever possible but always from reputable
-        suppliers who have clear ethical policies.
-        <br />
-        See our Ingredients page for more information....
-        <br />
-        Just by Emma also believes in being completely transparent about each ingredient included in
-        each product....
-        <br />
-        So you can make informed decisions about what you are putting on your skin.
-      </p>
-      <EmmaImage />
+      <div className={'header_content'}>
+        <div className={'header_text_container'}>
+          <h1 className={'header_title'}>ABOUT</h1>
+          <p className={'header_text'}>
+            Just by Emma is a small independent skincare business based in Leigh-on-Sea, Essex and run
+            by Emma. All products are lovingly handmade in my designated studio, in small batches and
+            always made to order to maintain product quality. The ever-evolving skincare range includes
+            products which are formulated using only natural and simple ingredients.<br /><br />
+
+            The Just by Emma ethos is about formulating products which focus on making your skincare
+            routine natural, simple and including ingredients which contain tremendous benefits for your
+            skin.<br /><br />
+
+            Ingredients are sourced from local suppliers where ever possible but always from reputable
+            suppliers who have clear ethical policies.<br /><br />
+            
+            See our Ingredients page for more information....<br /><br />
+            
+            Just by Emma also believes in being completely transparent about each ingredient included in
+            each product....<br /><br />
+            
+            So you can make informed decisions about what you are putting on your skin.
+          </p>
+        </div>
+        <EmmaImage />
+      </div>
+      
       <h2>MY STORY</h2>
       <p>
         It all started a few years back when I hit the age of 40 and my skin really started to
@@ -50,7 +55,7 @@ export default function About() {
         extracts too. All of which are formulated with the aim of helping to balance, nourish,
         hydrate, repair, regenerate and rejuvenate your skin. Just naturally and simply.
       </p>
-      <div className={s.box}>
+      <div>
         <h2>The Just by Emma 4 Step Skincare Routine</h2>
         <p>
           No 1: Cleanse using the Nourishing Beauty Balm A gentle all purpose balm for cleansing and
