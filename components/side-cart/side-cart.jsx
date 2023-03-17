@@ -6,6 +6,13 @@ import { CartContext } from '../../contexts/cart-context'
 import SideCartDialog from './side-cart-dialog'
 import s from './side-cart.module.scss'
 
+const toCurrency = (number) => {
+  return new Intl.NumberFormat('en-uk', {
+    style: 'currency',
+    currency: 'GBP',
+  }).format(number / 100)
+}
+
 export default function SideCart() {
   const { cart, setCart } = useContext(CartContext)
   const [subtotal, setSubtotal] = useState(0)
@@ -54,25 +61,22 @@ export default function SideCart() {
                 />
                 <h3>{item.product.name}</h3>
                 <p>
-                  {variant.size} £
+                  {variant.size}{' '}
                   {item.product.sizes[0].price ?
-                    item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                      .price : 'error'
+                    toCurrency(item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price) : 'error'
                   }
                 </p>
                 <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
                 <span> {variant.quantity} </span>
                 <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
                 <div>
-                  £
-                  {item.product.sizes[0].price && item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                    .price * variant.quantity}
+                  {toCurrency(item.product.sizes[0].price && item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price * variant.quantity)}
                 </div>
                 <hr />
               </div>
             ))
           )}
-        <div>Subtotal £{subtotal}</div>
+        <div>Subtotal {toCurrency(subtotal)}</div>
       </div>
       <div className={s.button_section}>
         <Link href="/cart">

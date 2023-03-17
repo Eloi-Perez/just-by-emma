@@ -6,6 +6,13 @@ import Carousel from '../../components/carousel/carousel'
 
 // import s from '../../styles/shop.module.scss'
 
+const toCurrency = (number) => {
+  return new Intl.NumberFormat('en-uk', {
+    style: 'currency',
+    currency: 'GBP',
+  }).format(number / 100)
+}
+
 export default function Product({ product }) {
   const { cart, setCart } = useContext(CartContext)
   const [sizeToSend, setSizeToSend] = useState('0')
@@ -50,7 +57,7 @@ export default function Product({ product }) {
           />
         ))}
       <p>{product.description}</p>
-      <h3>From: £{product.sizes[0].price}</h3>
+      <h3>From: {toCurrency(product.sizes[0].price)}</h3>
       {product.sizes.length > 1 && (
         <div>
           <div>Size</div>
@@ -58,7 +65,7 @@ export default function Product({ product }) {
             <option value="0">Select</option>
             {product.sizes.map((size) => (
               <option key={size.name} value={size.name}>
-                {size.name} £{size.price}
+                {size.name} {toCurrency(size.price)}
               </option>
             ))}
           </select>
