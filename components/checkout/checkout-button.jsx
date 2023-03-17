@@ -73,28 +73,62 @@ export default function CheckoutButton() {
       </section>
       <style jsx>
         {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 112px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
+          // section {
+          //   background: #ffffff;
+          //   display: flex;
+          //   flex-direction: column;
+          //   width: 400px;
+          //   height: 112px;
+          //   border-radius: 6px;
+          //   justify-content: space-between;
+          // }
+          // button {
+          //   height: 36px;
+          //   background: #556cd6;
+          //   border-radius: 4px;
+          //   color: white;
+          //   border: 0;
+          //   font-weight: 600;
+          //   cursor: pointer;
+          //   transition: all 0.2s ease;
+          //   box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+          // }
+          // button:hover {
+          //   opacity: 0.8;
           button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
+            align-items: center;
+            background-color: var(--primary-color);
+            border: 1px solid #dfdfdf;
+            border-radius: 25px;
+            box-sizing: border-box;
+            color: #000000;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+            display: flex;
+            font-family: Inter, sans-serif;
+            font-size: 20px;
+            justify-content: center;
+            line-height: 28px;
+            max-width: 100%;
+            padding: 14px 22px;
+            text-decoration: none;
+            transition: all 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 100%;
+            margin: 10% auto;
           }
+          
+          button:active,
           button:hover {
-            opacity: 0.8;
+            outline: 0;
+          }
+          
+          button:hover {
+            background-color: #ffffff;
+            border-color: rgba(0, 0, 0, 0.19);
+          }
+
           }
         `}
       </style>

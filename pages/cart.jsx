@@ -2,9 +2,12 @@ import { useContext, useState, useEffect } from 'react'
 import Image from 'next/image'
 
 import { CartContext } from '../contexts/cart-context'
+import Link from 'next/link'
+import { Bin } from '../components/UI/svg'
+import QuantityButton from '../components/UI/quantity-button/quantity-button'
 import CheckoutButton from '../components/checkout/checkout-button'
 
-import s from '../styles/home.module.scss'
+import styles from '../styles/cart.module.scss'
 
 export default function Cart() {
   const { cart, setCart } = useContext(CartContext)
@@ -45,61 +48,80 @@ export default function Cart() {
       select: size,
     })
   }
-
-  return (
-    <>
-      <h1 className={s.title}>CART</h1>
-      {/* delete next 2 lines */}
-      <h3>Cart Content</h3>
-      <p>{JSON.stringify(cart)}</p>
-      <div>
-        {cart &&
-          cart.map((item) =>
-            // Object.keys(item.size).map((size, i) => {
-            item.quantities.map((variant, i) => (
-              <div key={i}>
-                <Image
-                  src={`/backend/img/${item.product.images[0].filename}`}
-                  alt=""
-                  width={100}
-                  height={100}
-                  // fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="20vw"
-                  priority
-                />
-                <h3>{item.product.name}</h3>
-                <p>
-                  {variant.size} £
-                  {/* TODO posible bug (can't reproduce) -> price undefined  (also on sidecart)*/}
-                  {
-                    item.product.sizes[0].price ? item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                  .price : 'error'
-                  }
-                </p>
-                <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
-                <span> {variant.quantity} </span>
-                <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
-                <div>
-                  £
-                  {item.product.sizes[0].price && item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                    .price * variant.quantity}
+  if (cart.length > 0) {
+    return (
+      <div className={styles.container}>
+        <div>
+          {cart &&
+            cart.map((item) =>
+              item.quantities.map((variant, i) => (
+                <div key={i} className={styles.itemContainer}>
+                  <Link href={`/shop/${item.id}`}>
+                    <Image
+                      src={`/backend/img/${item.product.images[0].filename}`}
+                      alt=""
+                      width={100}
+                      height={100}
+                      style={{ objectFit: 'cover', borderRadius: '50%', marginRight: '50px' }}
+                      sizes="20vw"
+                      priority
+                    />
+                  </Link>
+                  <div className={styles.lineContainer}>
+                    <div className={styles.descriptionContainer}>
+                      <h3>{item.product.name}</h3>
+                      <p>
+                        {variant.size} £
+                        {
+                          item.product.sizes[0].price ? item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                            .price : 'error'
+                        }
+                      </p>
+                    </div>
+                    <QuantityButton
+                      variant={variant}
+                      item={item}
+                      handleAdd={handleAdd}
+                      handleSub={handleSub}
+                    />
+                    <div>
+                      £
+                      {item.product.sizes[
+                        item.product.sizes.findIndex((e) => e.name === variant.size)
+                      ].price * variant.quantity}
+                    </div>
+                    <button
+                      className={styles.button}
+                      onClick={() => handleRemove(item.id, variant.size)}
+                    >
+                      <Bin />
+                    </button>
+                  </div>
                 </div>
-                <button onClick={() => handleRemove(item.id, variant.size)}>Delete</button>
-                <hr />
+              ))
+            )}
+        </div>
+        <div className={styles.checkoutContainer}>
+          <div className={styles.orderContainer}>
+            <h3 className={styles.orderHeader}>Your Order ({nItems} items)</h3>
+            <hr className={styles.hr} />
+            <div className={styles.itemizedList}>
+              <div className={styles.merchandise}>
+                Merchandise <span className={styles.float}>£{merchandiseTotal}</span>
               </div>
-            ))
-          )}
+              <div>
+                Estimated Shipping: <span className={styles.float}>£11?</span>
+              </div>
+            </div>
+            <div className={styles.subtotal}>
+              Subtotal <span className={styles.float}>£{merchandiseTotal + 11}</span>
+            </div>
+          </div>
+          <CheckoutButton style={styles.checkout} />
+        </div>
       </div>
-
-      <div className={s.order}>
-        <h3>Your Order ({nItems} items)</h3>
-        <hr />
-        <div>Merchandise £{merchandiseTotal}</div>
-        <div>Estimated Shipping: £11?</div>
-        <div>Subtotal £{merchandiseTotal + 11}</div>
-        <CheckoutButton />
-      </div>
-    </>
-  )
+    )
+  } else {
+    return <div>Cart is empty</div>
+  }
 }
