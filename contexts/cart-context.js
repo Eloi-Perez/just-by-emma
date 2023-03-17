@@ -10,27 +10,20 @@ const cartReducer = (state, action) => {
       : undefined
   switch (action.type) {
     case 'SET_CART':
+      // Only used to set cart from localStorage, so no need to set it back
+      // localStorage.setItem('jbe_cart', JSON.stringify(action.payload))
       return {
         ...state,
         cart: action.payload,
       }
     case 'EMPTY_CART':
+      localStorage.removeItem('jbe_cart')
       return {
         ...state,
         cart: [],
       }
     // case 'ADD_TO_CART':
-    // case 'MODIFY_CART': // review changes new schema
-    //   // {id, "quantities": [{ "size": "15ml", "quantity": 1 }], product}
-    //   if (match === -1) {
-    //     newState.cart.push(action.payload)
-    //   } else {
-    //     newState.cart[match] = {
-    //       ...newState.cart[match],
-    //       size: { ...newState.cart[match].size, ...action.payload.size }
-    //     }
-    //   }
-    //   return newState
+    // case 'MODIFY_CART':
     case 'REMOVE_FROM_CART':
       // {id, select: 'size'}
       if (match >= 0 && newState.cart[match].quantities[matchSize].quantity) {
@@ -43,6 +36,7 @@ const cartReducer = (state, action) => {
       } else {
         console.error('Nothing to delete')
       }
+      localStorage.setItem('jbe_cart', JSON.stringify(newState.cart))
       return newState
     case 'ADD_QUANTITY':
       // {id, select: 'size', product}
@@ -59,6 +53,7 @@ const cartReducer = (state, action) => {
       } else {
         newState.cart[match].quantities[matchSize].quantity += 1
       }
+      localStorage.setItem('jbe_cart', JSON.stringify(newState.cart))
       return newState
     case 'SUB_QUANTITY':
       // {id, select: 'size'}
@@ -73,6 +68,7 @@ const cartReducer = (state, action) => {
       } else {
         console.error('Nothing to delete')
       }
+      localStorage.setItem('jbe_cart', JSON.stringify(newState.cart))
       return newState
     default:
       return state
@@ -80,50 +76,6 @@ const cartReducer = (state, action) => {
 }
 
 export const CartContext = createContext()
-
-// const mockData = {
-//   id: '637035139fe8d9dcd00238e9',
-//   quantities: [
-//     { size: '15ml', quantity: 1 },
-//     { size: '50ml', quantity: 3 },
-//   ],
-//   product: {
-//     _id: '637035139fe8d9dcd00238e9',
-//     name: 'item with multiple sizes',
-//     sizes: [
-//       {
-//         name: '15ml',
-//         price: 5,
-//         offer: 0,
-//         available: true,
-//         _id: '637035139fe8d9dcd00238ea',
-//       },
-//       {
-//         name: '50ml',
-//         price: 30,
-//         offer: 0,
-//         available: true,
-//         _id: '637035139fe8d9dcd00238eb',
-//       },
-//     ],
-//     description: 'amazing description',
-//     images: [
-//       {
-//         filename: '637035139fe8d9dcd00238e9_0.jpg',
-//         priority: 0,
-//         _id: '637035139fe8d9dcd00238ec',
-//       },
-//       {
-//         filename: '637035139fe8d9dcd00238e9_1.jpeg',
-//         priority: 1,
-//         _id: '637035139fe8d9dcd00238ed',
-//       },
-//     ],
-//     createdAt: '2022-11-13T00:06:43.048Z',
-//     updatedAt: '2022-11-13T00:06:43.048Z',
-//     __v: 0,
-//   },
-// }
 
 export const CartProvider = (props) => {
   const initialState = {
@@ -138,9 +90,6 @@ export const CartProvider = (props) => {
       setCart('SET_CART', JSON.parse(oldCart))
     }
   }, [])
-  useEffect(() => {
-    localStorage.setItem('jbe_cart', JSON.stringify(state.cart))
-  }, [state])
 
   const setCart = (type, newCart) => {
     dispatch({ type: type, payload: newCart })

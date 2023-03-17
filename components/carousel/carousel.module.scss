@@ -1,0 +1,30 @@
+.root {
+  position: relative;
+}
+
+.root img {
+  border-radius: 50%;
+}
+
+.arrow_left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 10%;
+  height: 100%;
+  width: 40%;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.arrow_right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 10%;
+  height: 100%;
+  width: 40%;
+  text-align: end;
+  font-size: 1.5rem;
+  font-weight: 900;
+}

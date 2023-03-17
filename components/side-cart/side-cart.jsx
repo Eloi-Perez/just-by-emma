@@ -55,9 +55,9 @@ export default function SideCart() {
                 <h3>{item.product.name}</h3>
                 <p>
                   {variant.size} £
-                  {
+                  {item.product.sizes[0].price ?
                     item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                      .price
+                      .price : 'error'
                   }
                 </p>
                 <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
@@ -65,7 +65,7 @@ export default function SideCart() {
                 <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
                 <div>
                   £
-                  {item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                  {item.product.sizes[0].price && item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
                     .price * variant.quantity}
                 </div>
                 <hr />

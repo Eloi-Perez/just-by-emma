@@ -1,0 +1,43 @@
+.root {
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty {
+  height: 30vw;
+}
+
+.spacer400 {
+  height: 400px;
+}
+.spacer200 {
+  height: 200px;
+}
+
+.root img {
+  position: relative;
+  opacity: 5%;
+}
+
+.img1_1 {
+  left: -40px;
+}
+.img1_2 {
+  left: 120px;
+  top: -83px;
+}
+.img2 {
+  align-self: end;
+  right: -140px;
+}
+.img3 {
+  left: -40px;
+}
+.img4 {
+  align-self: end;
+  right: -40px;
+}

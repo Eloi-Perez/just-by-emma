@@ -57,7 +57,7 @@ export default function Cart() {
               cart.map((item) =>
                 // Object.keys(item.size).map((size, i) => {
                 item.quantities.map((variant, i) => (
-                  <div>
+                  <div key={i + 'a'}>
                     <div key={i} className={styles.itemContainer}>
                       <Link href="/shop">
                         <Image
@@ -77,9 +77,8 @@ export default function Cart() {
                           <p>
                             {variant.size} £
                             {
-                              item.product.sizes[
-                                item.product.sizes.findIndex((e) => e.name === variant.size)
-                              ].price
+                              item.product.sizes[0].price ? item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                                .price : 'error'
                             }
                           </p>
                         </div>

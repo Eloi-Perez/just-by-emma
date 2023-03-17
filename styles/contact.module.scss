@@ -1,7 +1,3 @@
-.container,
-.textContainer,
-.contactContainer,
-.socialsContainer,
 .form {
   display: flex;
   flex-direction: column;
@@ -41,12 +37,6 @@
   border-color: rgba(0, 0, 0, 0.19);
 }
 
-.container {
-  flex-direction: row;
-  height: 150px;
-  margin: 7% 0 5% 15%;
-  width: 90%;
-}
 .contactContainer {
   align-items: center;
   gap: 10px;
@@ -55,32 +45,27 @@
 }
 
 .form {
-  background-color: #fffcfc;
   margin-top: 5%;
   width: 60%;
 }
 
 .form > :nth-child(1) {
   border-top: 1px solid #000000;
+  padding-top: 10px;
 }
 
 .form > :nth-child(4) > input {
   height: 60px;
 }
 
-.imageContainer {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .input {
   align-items: center;
   border: none;
-  background-color: #fffcfc;
+  background-color: transparent;
   border-bottom: 1px solid #000000;
   margin-bottom: 10px;
   outline: none;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
 }
 
@@ -103,12 +88,5 @@
 .text {
   line-height: 1.5;
   text-align: center;
-  width: 60%;
-}
-
-.textContainer {
-  justify-content: center;
-  margin-right: 7%;
-  padding: 30px;
   width: 60%;
 }

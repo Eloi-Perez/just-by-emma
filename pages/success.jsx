@@ -6,10 +6,10 @@ import { CartContext } from '../contexts/cart-context'
 
 export default function Success() {
   const { setCart } = useContext(CartContext)
-
   useEffect(() => {
+    localStorage.removeItem('jbe_cart')
     setCart('EMPTY_CART')
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

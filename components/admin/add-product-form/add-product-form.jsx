@@ -21,13 +21,18 @@ export default function AddProductForm() {
     let imagesMeta = Array.apply(null, Array(images.length))
     imagesMeta.forEach(
       (e, i, a) =>
-        (a[i] = {
-          priority: priorities[i] + 1,
-          ext: images[i].name.split('.').pop(),
-        })
+      (a[i] = {
+        priority: priorities[i] + 1,
+        ext: images[i].name.split('.').pop(),
+      })
     )
 
-    const data = { name, sizes, description, imagesMeta }
+    const data = {
+      name: name.trim(),
+      description: description.trim(),
+      sizes,
+      imagesMeta,
+    }
 
     try {
       const call = await fetch('/backend/v0/products/add', {
@@ -145,7 +150,7 @@ export default function AddProductForm() {
         </div>
         <br />
         <div>
-          {[...Array(sizes.length)].map((e, i) => (
+          {[...Array(sizes.length)].map((_, i) => (
             <div key={i}>
               <div>
                 <label htmlFor={'sizeName' + i}>Size Name:</label>
@@ -154,7 +159,7 @@ export default function AddProductForm() {
                   type="text"
                   placeholder="size name*"
                   value={sizes[i].name}
-                  onChange={(e) => handleSetSizes(e.target.value, 'name', i)}
+                  onChange={(e) => handleSetSizes(e.target.value.trim(), 'name', i)}
                   required
                 />
               </div>
@@ -162,27 +167,13 @@ export default function AddProductForm() {
                 <label htmlFor={'sizePrice' + i}>Size Price:</label>
                 <input
                   id={'sizePrice' + i}
-                  type="text" // number
+                  type="number"
                   placeholder="price*"
                   value={sizes[i].price}
                   onChange={(e) => handleSetSizes(e.target.value, 'price', i)}
                   required
                 />
               </div>
-              {/* <div>
-                <label htmlFor={'sizeOffer' + i}>Size Offer:</label>
-                <input
-                  id={'sizeOffer' + i}
-                  type="text" // number
-                  placeholder="0 = no offer"
-                  value={sizes[i].price}
-                  onChange={(e) => handleSetSizes(e.target.value, 'offer', i)}
-                  required
-                />
-              </div> */}
-              {/* <div>
-                available: true/false
-              </div> */}
               <br />
             </div>
           ))}

@@ -26,14 +26,18 @@ export default function CheckoutButton() {
     cart.map((p) => {
       p.quantities.map((item) => {
         line_items.push({
-          name: p.product.name,
-          description: item.size,
-          amount: p.product.sizes.find((el) => el.name === item.size).price * 100,
-          currency: 'GBP',
+          price_data: {
+            currency: 'GBP',
+            unit_amount: p.product.sizes.find((el) => el.name === item.size).price * 100,
+            product_data: {
+              name: p.product.name,
+              description: item.size,
+              // TODO change for server image
+              images: ['https://eloiperez.com/photography/img/food/02.webp'],
+            },
+          },
           quantity: item.quantity,
-          tax_rates: ['txr_1Mgb7THikk8qRRx09X5F5Tnk'],
-          // images: [`/backend/img/${p.product.images[0].filename}`], // TODO check URL for production
-          images: ['https://eloiperez.com/photography/img/food/02.webp'], // TODO remove
+          // tax_rates: ['txr_1Mgb7THikk8qRRx09X5F5Tnk'], // not needed
         })
       })
     })

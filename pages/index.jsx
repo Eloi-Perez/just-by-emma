@@ -6,17 +6,21 @@ export default function Home() {
   return (
     <>
       <HeaderImage />
-      <h1 className={s.title}>THE JUST BY EMMA ETHOS</h1>
-      <p className={s.description}>
-        Our ethos is about producing naturally formulated products which focus on keeping your
-        skincare routine natural and simple (with minimal wastage).
-        <br />
-        All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is
-        mainly glass and aluminium which can be fully recycled. Our face oil and face cream do
-        include a pump/dropper, however this is necessary to keep the product fresh and avoid any
-        contamination and for ease of use.
-      </p>
-      <EmmaImage />
+      <div className={'header_content'}>
+        <div className={'header_text_container'}>
+          <h1 className={'header_title'}>THE JUST BY EMMA ETHOS</h1>
+          <p className={'header_text'}>
+            Our ethos is about producing naturally formulated products which focus on keeping your
+            skincare routine natural and simple (with minimal wastage.)
+            <br />
+            All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is
+            mainly glass and aluminium which can be fully recycled. Our face oil and face cream do
+            include a pump/dropper, however this is necessary to keep the product fresh and avoid any
+            contamination and for ease of use.
+          </p>
+        </div>
+        <EmmaImage />
+      </div>
       <h2>What our Customers Say</h2>
       <div>
         <div>Product 1</div>
