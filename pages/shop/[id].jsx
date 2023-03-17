@@ -6,6 +6,13 @@ import Carousel from '../../components/carousel/carousel'
 
 // import s from '../../styles/shop.module.scss'
 
+const toCurrency = (number) => {
+  return new Intl.NumberFormat('en-uk', {
+    style: 'currency',
+    currency: 'GBP',
+  }).format(number / 100)
+}
+
 export default function Product({ product }) {
   const { cart, setCart } = useContext(CartContext)
   const [sizeToSend, setSizeToSend] = useState('0')
@@ -33,24 +40,9 @@ export default function Product({ product }) {
       <h3>Cart Content</h3>
       <p>{JSON.stringify(cart)}</p>
       <h3>{product.name}</h3>
-      {product.images[1] && <Carousel images={product.images} />}
-      {product.images[0] &&
-        !product.images[1] &&
-        product.images.map((img) => (
-          <Image
-            src={`/backend/img/${img.filename}`}
-            key={img.filename}
-            alt=""
-            width={100}
-            height={100}
-            // fill
-            style={{ objectFit: 'cover' }}
-            sizes="20vw"
-            priority
-          />
-        ))}
+      {product.images[0] && <Carousel images={product.images} />}
       <p>{product.description}</p>
-      <h3>From: £{product.sizes[0].price}</h3>
+      <h3>{product.sizes[1] && 'From: '}{toCurrency(product.sizes[0].price)}</h3>
       {product.sizes.length > 1 && (
         <div>
           <div>Size</div>
@@ -58,7 +50,7 @@ export default function Product({ product }) {
             <option value="0">Select</option>
             {product.sizes.map((size) => (
               <option key={size.name} value={size.name}>
-                {size.name} £{size.price}
+                {size.name} {toCurrency(size.price)}
               </option>
             ))}
           </select>

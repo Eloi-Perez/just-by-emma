@@ -176,8 +176,8 @@ export default function UpdateProductForm({ id, old }) {
                 <input
                   id={'sizePrice' + i}
                   type="number"
-                  value={sizes[i].price}
-                  onChange={(e) => handleSetSizes(e.target.value, 'price', i)}
+                  value={sizes[i].price === 0 ? null : sizes[i].price / 100}
+                  onChange={(e) => handleSetSizes(e.target.value * 100, 'price', i)}
                   required
                 />
               </div>

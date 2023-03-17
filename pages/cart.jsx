@@ -9,6 +9,13 @@ import CheckoutButton from '../components/checkout/checkout-button'
 
 import styles from '../styles/cart.module.scss'
 
+const toCurrency = (number) => {
+  return new Intl.NumberFormat('en-uk', {
+    style: 'currency',
+    currency: 'GBP',
+  }).format(number / 100)
+}
+
 export default function Cart() {
   const { cart, setCart } = useContext(CartContext)
   const [nItems, setNItems] = useState(0)
@@ -71,10 +78,10 @@ export default function Cart() {
                     <div className={styles.descriptionContainer}>
                       <h3>{item.product.name}</h3>
                       <p>
-                        {variant.size} £
+                        {variant.size}{' '}
                         {
-                          item.product.sizes[0].price ? item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                            .price : 'error'
+                          item.product.sizes[0].price ? toCurrency(item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
+                            .price) : 'error'
                         }
                       </p>
                     </div>
@@ -85,10 +92,7 @@ export default function Cart() {
                       handleSub={handleSub}
                     />
                     <div>
-                      £
-                      {item.product.sizes[
-                        item.product.sizes.findIndex((e) => e.name === variant.size)
-                      ].price * variant.quantity}
+                      {toCurrency(item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price * variant.quantity)}
                     </div>
                     <button
                       className={styles.button}
@@ -107,14 +111,14 @@ export default function Cart() {
             <hr className={styles.hr} />
             <div className={styles.itemizedList}>
               <div className={styles.merchandise}>
-                Merchandise <span className={styles.float}>£{merchandiseTotal}</span>
+                Merchandise <span className={styles.float}>{toCurrency(merchandiseTotal)}</span>
               </div>
               <div>
                 Estimated Shipping: <span className={styles.float}>£11?</span>
               </div>
             </div>
             <div className={styles.subtotal}>
-              Subtotal <span className={styles.float}>£{merchandiseTotal + 11}</span>
+              Subtotal <span className={styles.float}>{toCurrency(merchandiseTotal + 1100)}</span>
             </div>
           </div>
           <CheckoutButton style={styles.checkout} />

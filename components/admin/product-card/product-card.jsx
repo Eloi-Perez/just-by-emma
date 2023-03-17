@@ -5,6 +5,13 @@ import DeleteProductForm from '../delete-product-form/delete-product-form'
 import s from '../../../styles/admin.module.scss'
 import Images from './images'
 
+const toCurrency = (number) => {
+  return new Intl.NumberFormat('en-uk', {
+    style: 'currency',
+    currency: 'GBP',
+  }).format(number / 100)
+}
+
 export default function ProductCard({ product }) {
   const [openUpdate, setOpenUpdate] = useState(false)
   return (
@@ -20,7 +27,7 @@ export default function ProductCard({ product }) {
             <h3>
               {size.name}
               <br />
-              Price: £{size.price}
+              Price: {toCurrency(size.price)}
             </h3>
           )}
           {!size.available && (
@@ -28,7 +35,7 @@ export default function ProductCard({ product }) {
               <del>
                 {size.name}
                 <br />
-                Price: £{size.price}
+                Price: {toCurrency(size.price)}
               </del>
             </h3>
           )}

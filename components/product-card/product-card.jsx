@@ -4,6 +4,13 @@ import Carousel from '../carousel/carousel'
 import { Basket } from '../UI/svg'
 import s from './product-card.module.scss'
 
+const toCurrency = (number) => {
+  return new Intl.NumberFormat('en-uk', {
+    style: 'currency',
+    currency: 'GBP',
+  }).format(number / 100)
+}
+
 export default function ProductCard({ product }) {
   return (
     <div className={s.root}>
@@ -14,8 +21,8 @@ export default function ProductCard({ product }) {
         <hr />
         <div className={s.cost}>
           <h3 className={s.cost_item}>
-            {product.sizes.length > 1 && <>Cost From £{product.sizes[0].price}</>}
-            {product.sizes.length === 1 && <>Cost £{product.sizes[0].price}</>}
+            {product.sizes.length > 1 && <>Cost From {toCurrency(product.sizes[0].price)}</>}
+            {product.sizes.length === 1 && <>Cost {toCurrency(product.sizes[0].price)}</>}
           </h3>
           <div className={s.cost_item}><Basket /></div>
         </div>

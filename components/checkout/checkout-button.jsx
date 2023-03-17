@@ -28,7 +28,7 @@ export default function CheckoutButton() {
         line_items.push({
           price_data: {
             currency: 'GBP',
-            unit_amount: p.product.sizes.find((el) => el.name === item.size).price * 100,
+            unit_amount: p.product.sizes.find((el) => el.name === item.size).price,
             product_data: {
               name: p.product.name,
               description: item.size,
