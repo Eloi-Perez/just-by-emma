@@ -1,4 +1,5 @@
 export { default as Basket } from './basket'
+export { default as Bin } from './bin'
 export { default as Facebook } from './facebook'
 export { default as Instagram } from './instagram'
 export { default as Logo } from './logo'
