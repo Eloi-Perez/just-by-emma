@@ -57,7 +57,9 @@ export default function Product({ product }) {
           />
         ))}
       <p>{product.description}</p>
-      <h3>From: {toCurrency(product.sizes[0].price)}</h3>
+      
+      <h3>{product.sizes[1] && 'From: '}{toCurrency(product.sizes[0].price)}</h3>
+      
       {product.sizes.length > 1 && (
         <div>
           <div>Size</div>
