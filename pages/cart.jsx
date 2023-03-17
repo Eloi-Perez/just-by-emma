@@ -2,11 +2,12 @@ import { useContext, useState, useEffect } from 'react'
 import Image from 'next/image'
 
 import { CartContext } from '../contexts/cart-context'
+import Link from 'next/link'
+import Bin from '../components/UI/svg/bin'
+import QuantityButton from '../components/UI/quantity-button/quantity-button'
 import CheckoutButton from '../components/checkout/checkout-button'
 
-import s from '../styles/home.module.scss'
 import styles from '../styles/cart.module.scss'
-import { GrTrash } from 'react-icons/gr'
 
 export default function Cart() {
   const { cart, setCart } = useContext(CartContext)
@@ -47,90 +48,88 @@ export default function Cart() {
       select: size,
     })
   }
-
-  return (
-    <>
-      <h1 className={s.title}>CART</h1>
-      {/* delete next 2 lines */}
-      <h3>Cart Content</h3>
-      <p>{JSON.stringify(cart)}</p>
-      <div className={styles.container}>
-        {cart &&
-          cart.map((item) =>
-            // Object.keys(item.size).map((size, i) => {
-            item.quantities.map((variant, i) => (
-              <div key={i} className={styles.itemContainer}>
-                <Image
-                  src={`/backend/img/${item.product.images[0].filename}`}
-                  alt=""
-                  width={100}
-                  height={100}
-                  // fill
-                  style={{ objectFit: 'cover', borderRadius: '50%' }}
-                  sizes="20vw"
-                  priority
-                />
-                <div className={styles.lineContainer}>
-                  <div className={styles.descriptionContainer}>
-                    <h3>{item.product.name}</h3>
-                    <p>
-                      {variant.size} £
-                      {
-                        item.product.sizes[
-                          item.product.sizes.findIndex((e) => e.name === variant.size)
-                        ].price
-                      }
-                    </p>
-                  </div>
-                  <div className={styles.quantityContainer}>
-                    <button
-                      className={styles.button}
-                      onClick={() => handleSub(item.id, variant.size)}
-                    >
-                      {' '}
-                      -{' '}
-                    </button>
-                    <span> {variant.quantity} </span>
-                    <button
-                      className={styles.button}
-                      onClick={() => handleAdd(item.id, variant.size)}
-                    >
-                      {' '}
-                      +{' '}
-                    </button>
-                  </div>
+  if (cart.length > 0) {
+    return (
+      <>
+        <div className={styles.container}>
+          <div>
+            {cart &&
+              cart.map((item) =>
+                // Object.keys(item.size).map((size, i) => {
+                item.quantities.map((variant, i) => (
                   <div>
-                    £
-                    {item.product.sizes[
-                      item.product.sizes.findIndex((e) => e.name === variant.size)
-                    ].price * variant.quantity}
+                    <div key={i} className={styles.itemContainer}>
+                      <Link href="/shop">
+                        <Image
+                          src={`/backend/img/${item.product.images[0].filename}`}
+                          alt=""
+                          width={100}
+                          height={100}
+                          // fill
+                          style={{ objectFit: 'cover', borderRadius: '50%', marginRight: '50px' }}
+                          sizes="20vw"
+                          priority
+                        />
+                      </Link>
+                      <div className={styles.lineContainer}>
+                        <div className={styles.descriptionContainer}>
+                          <h3>{item.product.name}</h3>
+                          <p>
+                            {variant.size} £
+                            {
+                              item.product.sizes[
+                                item.product.sizes.findIndex((e) => e.name === variant.size)
+                              ].price
+                            }
+                          </p>
+                        </div>
+                        <QuantityButton
+                          variant={variant}
+                          item={item}
+                          handleAdd={handleAdd}
+                          handleSub={handleSub}
+                        />
+                        <div>
+                          £
+                          {item.product.sizes[
+                            item.product.sizes.findIndex((e) => e.name === variant.size)
+                          ].price * variant.quantity}
+                        </div>
+                        <button
+                          className={styles.button}
+                          onClick={() => handleRemove(item.id, variant.size)}
+                        >
+                          <Bin />
+                        </button>
+                        <hr />
+                      </div>
+                    </div>
                   </div>
-                  <GrTrash onClick={() => handleRemove(item.id, variant.size)}>Delete</GrTrash>
-                  <hr />
+                ))
+              )}
+          </div>
+          <div className={styles.checkoutContainer}>
+            <div className={styles.orderContainer}>
+              <h3 className={styles.orderHeader}>Your Order ({nItems} items)</h3>
+              <hr className={styles.hr} />
+              <div className={styles.itemizedList}>
+                <div className={styles.merchandise}>
+                  Merchandise <span className={styles.float}>£{merchandiseTotal}</span>
+                </div>
+                <div>
+                  Estimated Shipping: <span className={styles.float}>£11?</span>
                 </div>
               </div>
-            ))
-          )}
-
-        <div className={styles.checkoutContainer}>
-          <div className={styles.orderContainer}>
-            <h3 className={styles.orderHeader}>Your Order ({nItems} items)</h3>
-            <hr className={styles.hr} />
-            <div className={styles.itemizedList}>
-              <div className={styles.merchandise}>
-                Merchandise <span className={styles.float}>£{merchandiseTotal}</span>
-              </div>
-              <div>
-                Estimated Shipping: <span className={styles.float}>£11?</span>
+              <div className={styles.subtotal}>
+                Subtotal <span className={styles.float}>£{merchandiseTotal + 11}</span>
               </div>
             </div>
-            <div className={styles.subtotal}>
-              Subtotal <span className={styles.float}>£{merchandiseTotal + 11}</span>
-            </div>
+            <CheckoutButton style={styles.checkout} />
           </div>
-          <CheckoutButton style={styles.checkout} />
         </div>
-      </div>
-    </>
-  )
+      </>
+    )
+  } else {
+    return <div>Cart is empty</div>
+  }
 }

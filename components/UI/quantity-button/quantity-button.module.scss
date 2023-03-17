@@ -1,0 +1,16 @@
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  background-color: var(--white-bg);
+  border: var(--border);
+  justify-content: space-evenly;
+  padding: 5px;
+  width: 75px;
+  max-width: 75px;
+  overflow: hidden;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+}
