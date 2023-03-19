@@ -50,7 +50,7 @@ export default function SideCart() {
             item.quantities.map((variant, i) => (
               <div key={i}>
                 <Image
-                  src={`/backend/img/${item.product.images[0].filename}`}
+                  src={`/backend/img/products/${item.product.images[0].filename}`}
                   alt=""
                   width={100}
                   height={100}

@@ -64,7 +64,7 @@ export default function Images({ product }) {
       {images[0] && images.map((img, i) => (
         <div key={img._id}>
           <div className={s.img_container}>
-            <img src={`/backend/img/${img.filename}`}
+            <img src={`/backend/img/products/${img.filename}`}
               alt=""
               width="100px"
               height="100px"

@@ -65,7 +65,7 @@ export default function Cart() {
                 <div key={i} className={styles.itemContainer}>
                   <Link href={`/shop/${item.id}`}>
                     <Image
-                      src={`/backend/img/${item.product.images[0].filename}`}
+                      src={`/backend/img/products/${item.product.images[0].filename}`}
                       alt=""
                       width={100}
                       height={100}

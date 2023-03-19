@@ -25,7 +25,7 @@ export default function Carousel({ images }) {
     <div className={s.root}>
       {images[0] && (
         <Image
-          src={`/backend/img/${images[currentImage].filename}`}
+          src={`/backend/img/products/${images[currentImage].filename}`}
           key={images[currentImage].filename}
           alt=""
           width={250}
@@ -33,7 +33,7 @@ export default function Carousel({ images }) {
           style={{ objectFit: 'cover' }}
           sizes="20vw"
           placeholder="blur"
-          blurDataURL={`/backend/img/${images[currentImage].filename}`}
+          blurDataURL={`/backend/img/products/${images[currentImage].filename}`}
         />
       )}
       {images[1] &&
