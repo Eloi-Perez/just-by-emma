@@ -6,7 +6,7 @@
 
 :root {
   --primary-color: #fde0dd;
-  --primary-transparent-color: rgba(253, 224, 221, 0.2);
+  --primary-color-transparent: rgba(253, 224, 221, 0.2);
   --background-color: #fffcfc;
   --font-color: #4b4b4b;
   --main-font: "Josefin Sans", sans-serif;
@@ -58,13 +58,13 @@ a {
   align-items: inherit;
   // cursor: default;
   box-sizing: inherit;
-  background-color: inherit;
-  margin: inherit;
-  padding: inherit;
-  border-width: inherit;
-  border-style: inherit;
-  border-color: inherit;
-  border-image: inherit;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  border-image: none;
 }
 
 button,

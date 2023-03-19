@@ -3,7 +3,7 @@ import style from 'styled-components'
 export const Button = style.button`
   align-items: center;
   background-color: ${(props) =>
-    props.primaryColor ? 'var(--primary-color)' : 'var(--primary-transparent-color)'};
+  props.primaryColor ? 'var(--primary-color)' : 'var(--primary-color-transparent)'};
   border: 1px solid #dfdfdf;
   border-radius: 25px;
   box-sizing: border-box;
