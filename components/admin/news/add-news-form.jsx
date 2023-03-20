@@ -1,9 +1,6 @@
-import { useState, useRef, useContext } from 'react'
-
-// import { ProductsContext } from '../../../contexts/products-context'
+import { useState, useRef } from 'react'
 
 export default function AddNewsForm({update}) {
-  // const { fetchProducts } = useContext(ProductsContext)
   const [image, setImage] = useState(null)
   const [alert, setAlert] = useState('')
   const inputFileRef = useRef(null)
@@ -49,16 +46,16 @@ export default function AddNewsForm({update}) {
         console.log(response)
         setAlert('Sent!')
         update()
-        //Revalidate pages
-        // const callRevalidate = await fetch(`/api/revalidate`, {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({ revalidate: ['/news'] }),
-        // })
-        // const responseRevalidate = await callRevalidate.json()
-        // console.log(responseRevalidate)
+        // Revalidate pages
+        const callRevalidate = await fetch(`/api/revalidate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ revalidate: ['/news'] }),
+        })
+        const responseRevalidate = await callRevalidate.json()
+        console.log(responseRevalidate)
       } else {
         console.log(response)
         setAlert(response.message)
