@@ -43,7 +43,7 @@ export async function getStaticProps() {
   const arrayNews = await res.json()
   return {
     props: {
-      arrayNews,
+      arrayNews: arrayNews.reverse(),
     },
   }
 }
