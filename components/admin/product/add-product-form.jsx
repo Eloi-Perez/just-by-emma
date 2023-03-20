@@ -3,73 +3,48 @@ import { useState, useRef, useContext } from 'react'
 import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
 
-export default function UpdateProductForm({ id, old }) {
+export default function AddProductForm() {
   const { fetchProducts } = useContext(ProductsContext)
-  const [name, setName] = useState(old.name)
-  const [description, setDescription] = useState(old.description)
-  const [sizes, setSizes] = useState(old.sizes)
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [sizes, setSizes] = useState([{ name: '', price: '' }])
   const [images, setImages] = useState(null)
   const [alert, setAlert] = useState('')
-
   const inputFileRef = useRef(null)
-
-  const credentials = localStorage.getItem('credentials')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const credentials = localStorage.getItem('credentials')
 
-    async function resetFetchRevalidate() {
-      //reset values
-      // setName('')
-      // setDescription('')
-      // setSizes([{ name: '', price: '', available: true }])
-      setImages(null)
-      inputFileRef.current.value = null
-      //fetch updates
-      fetchProducts()
-      //Revalidate pages
-      const callRevalidate = await fetch(`/api/revalidate`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ revalidate: ['/shop', `/shop/${old._id}`] }),
+    const priorities = Array.from(Array(images.length).keys())
+    let imagesMeta = Array.apply(null, Array(images.length))
+    imagesMeta.forEach(
+      (e, i, a) =>
+      (a[i] = {
+        priority: priorities[i] + 1,
+        ext: images[i].name.split('.').pop(),
       })
-      const responseRevalidate = await callRevalidate.json()
-      console.log(responseRevalidate)
-    }
+    )
 
-    const imagesMeta = async () => {
-      const priorities = Array.from(Array(images.length).keys())
-      let meta = await Array.apply(null, Array(images.length))
-      await meta.forEach(
-        (e, i, a) =>
-        (a[i] = {
-          priority: priorities[i] + 1,
-          ext: images[i].name.split('.').pop(),
-        })
-      )
-      return await meta
-    }
-
-    let data = {
-      ...(name && { name: name.trim() }),
-      ...(description && { description: description.trim() }),
-      ...(sizes && { sizes }),
-      ...(images && { imagesMeta: await imagesMeta() }),
+    const data = {
+      name: name.trim(),
+      description: description.trim(),
+      sizes,
+      imagesMeta,
     }
 
     try {
-      const call = await fetch(`/backend/v0/products/${id}`, {
-        method: 'PUT',
+      const call = await fetch('/backend/v0/products/add', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          // 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TESTING_JWT}`
           Authorization: `Bearer ${credentials}`,
         },
         body: JSON.stringify(data),
       })
       const response = await call.json()
-      if (call.ok && images) {
+      if (call.ok) {
         //Upload Image
         let formData = new FormData()
         for (let i = 0; i < images.length; i++) {
@@ -79,7 +54,7 @@ export default function UpdateProductForm({ id, old }) {
             response._id + '_' + i + '.' + images[i].name.split('.').pop()
           )
         }
-        const callImg = await fetch(`/backend/v0/products/img`, {
+        const callImg = await fetch('/backend/v0/products/img', {
           method: 'POST',
           headers: {
             // 'Content-Type': 'multipart/form-data;',
@@ -88,14 +63,24 @@ export default function UpdateProductForm({ id, old }) {
           body: formData,
         })
         const responseImg = await callImg.json()
-        console.log(response)
         console.log(responseImg)
-        setAlert('Updated!')
-        resetFetchRevalidate()
-      } else if (call.ok && !images) {
+        setName('')
+        setDescription('')
+        setSizes([{ name: '', price: '' }])
+        inputFileRef.current.value = null // clean images
         console.log(response)
-        setAlert('Updated!')
-        resetFetchRevalidate()
+        setAlert('Created!')
+        fetchProducts()
+        //Revalidate pages
+        const callRevalidate = await fetch(`/api/revalidate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ revalidate: ['/shop', `/shop/${response._id}`] }),
+        })
+        const responseRevalidate = await callRevalidate.json()
+        console.log(responseRevalidate)
       } else {
         console.log(response)
         setAlert(response.message)
@@ -108,7 +93,7 @@ export default function UpdateProductForm({ id, old }) {
   function handleNSizes(action) {
     switch (action) {
       case 'add':
-        setSizes((s) => s.concat([{ name: '', price: '', available: true }]))
+        setSizes((s) => s.concat([{ name: '', price: '' }]))
         break
       case 'remove':
         setSizes((s) => s.slice(0, -1))
@@ -125,21 +110,22 @@ export default function UpdateProductForm({ id, old }) {
     })
     setSizes(setter)
   }
-
   return (
     <>
-      <h1>Update Product Form:</h1>
+      <h1>New Product Form:</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
           <input
             id="name"
             type="text"
-            placeholder={old.name}
+            placeholder="item name*"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </div>
+        <br />
         <input
           ref={inputFileRef}
           type="file"
@@ -148,16 +134,20 @@ export default function UpdateProductForm({ id, old }) {
           onChange={(e) => {
             setImages(e.target.files)
           }}
+          required
         />
         <div>
+          <br />
           <label htmlFor="description">Description:</label>
           <textarea
             id="description"
-            placeholder={old.description}
+            placeholder="write your description here*"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            required
           />
         </div>
+        <br />
         <div>
           {[...Array(sizes.length)].map((_, i) => (
             <div key={i}>
@@ -166,6 +156,7 @@ export default function UpdateProductForm({ id, old }) {
                 <input
                   id={'sizeName' + i}
                   type="text"
+                  placeholder="size name*"
                   value={sizes[i].name}
                   onChange={(e) => handleSetSizes(e.target.value.trim(), 'name', i)}
                   required
@@ -176,30 +167,12 @@ export default function UpdateProductForm({ id, old }) {
                 <input
                   id={'sizePrice' + i}
                   type="number"
+                  placeholder="price*"
                   value={sizes[i].price === 0 ? null : sizes[i].price / 100}
                   onChange={(e) => handleSetSizes(e.target.value * 100, 'price', i)}
                   required
                 />
               </div>
-              <div>
-                <label htmlFor={'sizeAvailable' + i}>Available:</label>
-                <input
-                  type="checkbox"
-                  id={'sizeAvailable' + i}
-                  value="available"
-                  checked={sizes[i].available}
-                  onChange={(e) => handleSetSizes(e.target.checked, 'available', i)}
-                />
-              </div>
-              {/* <div>
-                <label htmlFor={'sizeOffer' + i}>Size Offer (0 = no offer):</label>
-                <input
-                  id={'sizeOffer' + i}
-                  type="number"
-                  value={sizes[i].offer}
-                  onChange={(e) => handleSetSizes(e.target.value, 'offer', i)}
-                />
-              </div> */}
               <br />
             </div>
           ))}

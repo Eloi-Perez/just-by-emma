@@ -6,9 +6,9 @@ export default function DeleteProductForm({ id }) {
   const { fetchProducts } = useContext(ProductsContext)
   const [alert, setAlert] = useState('')
 
-  const credentials = localStorage.getItem('credentials')
-
   const apiCall = async () => {
+    const credentials = localStorage.getItem('credentials')
+    
     if (window.confirm('Do you really want to delete?')) {
       try {
         const call = await fetch(`/backend/v0/products/${id}`, {

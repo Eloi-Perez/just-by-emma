@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import UpdateProductForm from '../update-product-form/update-product-form'
-import DeleteProductForm from '../delete-product-form/delete-product-form'
+import UpdateProductForm from '../product/update-product-form'
+import DeleteProductForm from '../product/delete-product-form'
 import s from '../../../styles/admin.module.scss'
 import Images from './images'
 

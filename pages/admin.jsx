@@ -2,8 +2,9 @@ import { useState, useContext, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/router'
 
 import { ProductsContext } from '../contexts/products-context'
-import AddProductForm from '../components/admin/add-product-form/add-product-form'
+import AddProductForm from '../components/admin/product/add-product-form'
 import ProductCard from '../components/admin/product-card/product-card'
+import News from '../components/admin/news/news'
 // import s from '../styles/admin.module.scss'
 
 function decodeJwt(token) {
@@ -75,6 +76,9 @@ export default function Admin() {
         products
           .filter((li) => li.name.toLowerCase().includes(searchInput.toLowerCase()))
           .map((product) => <ProductCard key={product._id} product={product} />)}
+
+      <h1>News</h1>
+      <News />
     </>
   )
 }
