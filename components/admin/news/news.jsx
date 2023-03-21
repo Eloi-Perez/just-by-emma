@@ -16,8 +16,6 @@ const fetcher = async (address) => {
   }
 }
 
-const test = () => ['from function test']
-
 export default function News() {
   const [news, setNews] = useState([])
 
