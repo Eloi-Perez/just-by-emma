@@ -1,17 +1,36 @@
-import { useState, useRef, useContext } from 'react'
+import { useState, useRef, useContext, useMemo } from 'react'
+import Select from 'react-select'
 
 import { ProductsContext } from '../../../contexts/products-context'
 // import s from '../../styles/admin.module.scss'
 
+// const ingredientsList = [
+//   { value: '641a323f2602668b318fd2da', label: 'Chocolate' },
+//   { value: '641a33e12602668b318fd310', label: 'Strawberry' },
+// ]
+
 export default function UpdateProductForm({ id, old }) {
-  const { fetchProducts } = useContext(ProductsContext)
+  const { fetchProducts, ingredients: dataIngredientsList } = useContext(ProductsContext)
   const [name, setName] = useState(old.name)
   const [description, setDescription] = useState(old.description)
   const [sizes, setSizes] = useState(old.sizes)
   const [images, setImages] = useState(null)
+  const [ingredients, setIngredients] = useState(() => {
+    const oldList = JSON.parse(JSON.stringify(old.ingredients))
+    const newList = oldList.map((e) => ({ value: e._id, label: e.name }))
+    return newList
+  })
   const [alert, setAlert] = useState('')
 
   const inputFileRef = useRef(null)
+
+  const ingredientsList = useMemo(() => {
+    const toConvertList = JSON.parse(JSON.stringify(dataIngredientsList))
+    const convertedList = toConvertList.map((e) => (
+      { value: e._id, label: e.name }
+    ))
+    return convertedList
+  }, [dataIngredientsList])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -19,9 +38,6 @@ export default function UpdateProductForm({ id, old }) {
 
     async function resetFetchRevalidate() {
       //reset values
-      // setName('')
-      // setDescription('')
-      // setSizes([{ name: '', price: '', available: true }])
       setImages(null)
       inputFileRef.current.value = null
       //fetch updates
@@ -51,11 +67,14 @@ export default function UpdateProductForm({ id, old }) {
       return await meta
     }
 
+    const ingredientsToData = await ingredients?.map((e) => e.value)
+
     let data = {
       ...(name && { name: name.trim() }),
       ...(description && { description: description.trim() }),
       ...(sizes && { sizes }),
       ...(images && { imagesMeta: await imagesMeta() }),
+      ...(ingredients && { ingredients: ingredientsToData }),
     }
 
     try {
@@ -87,12 +106,12 @@ export default function UpdateProductForm({ id, old }) {
           body: formData,
         })
         const responseImg = await callImg.json()
-        console.log(response)
+        // console.log(response)
         console.log(responseImg)
         setAlert('Updated!')
         resetFetchRevalidate()
       } else if (call.ok && !images) {
-        console.log(response)
+        // console.log(response)
         setAlert('Updated!')
         resetFetchRevalidate()
       } else {
@@ -181,13 +200,13 @@ export default function UpdateProductForm({ id, old }) {
                 />
               </div>
               <div>
-                <label htmlFor={'sizeAvailable' + i}>Available:</label>
+                <label htmlFor={'sizePrice' + i}>Size Price:</label>
                 <input
-                  type="checkbox"
-                  id={'sizeAvailable' + i}
-                  value="available"
-                  checked={sizes[i].available}
-                  onChange={(e) => handleSetSizes(e.target.checked, 'available', i)}
+                  id={'sizePrice' + i}
+                  type="number"
+                  value={sizes[i].price === 0 ? null : sizes[i].price / 100}
+                  onChange={(e) => handleSetSizes(e.target.value * 100, 'price', i)}
+                  required
                 />
               </div>
               {/* <div>
@@ -202,6 +221,15 @@ export default function UpdateProductForm({ id, old }) {
               <br />
             </div>
           ))}
+        </div>
+        <div>
+          <label>Please choose one or more Ingredients:</label>
+          <Select
+            defaultValue={ingredients}
+            onChange={setIngredients}
+            options={ingredientsList}
+            isMulti
+          />
         </div>
         <div>
           <button type="submit">Send</button>

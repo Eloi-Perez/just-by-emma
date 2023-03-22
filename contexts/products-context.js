@@ -7,6 +7,11 @@ const productsReducer = (state, action) => {
         ...state,
         products: action.payload,
       }
+    case 'SET_INGREDIENTS':
+      return {
+        ...state,
+        ingredients: action.payload,
+      }
     default:
       return state
   }
@@ -20,6 +25,7 @@ export const ProductsContext = createContext()
 export const ProductsProvider = (props) => {
   const initialState = {
     products: [],
+    ingredients: [],
   }
 
   const [state, dispatch] = useReducer(productsReducer, initialState)
@@ -31,7 +37,20 @@ export const ProductsProvider = (props) => {
       if (call.ok) {
         dispatch({ type: 'SET_PRODUCTS', payload: newProducts })
       }
-      console.log('fetched')
+      console.log('fetched products')
+    } catch (error) {
+      console.error('An unexpected error happened:', error)
+    }
+  }
+
+  const fetchIngredients = async () => {
+    try {
+      const call = await fetch('/backend/v0/ingredients/')
+      const newIngredients = await call.json()
+      if (call.ok) {
+        dispatch({ type: 'SET_INGREDIENTS', payload: newIngredients })
+      }
+      console.log('fetched ingredients')
     } catch (error) {
       console.error('An unexpected error happened:', error)
     }
@@ -42,6 +61,8 @@ export const ProductsProvider = (props) => {
       value={{
         products: state.products,
         fetchProducts,
+        ingredients: state.ingredients,
+        fetchIngredients,
       }}
     >
       {props.children}
