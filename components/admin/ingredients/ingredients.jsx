@@ -12,7 +12,7 @@ export default function Ingredients() {
     <>
       <AddIngredientsForm />
       <h2>Ingredients list:</h2>
-      {ingredients[0] && ingredients.map((e) => (
+      {ingredients && ingredients.map((e) => (
         <div key={e._id}>
           <h3>{e.name}</h3>
           <p>{e.description}</p>
