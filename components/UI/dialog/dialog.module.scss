@@ -20,11 +20,9 @@
   border-radius: 10px;
 }
 
-.close {
+button.close {
   position: absolute;
   top: 15px;
   right: 15px;
-  // remove button styles
-  padding: 0;
   font-size: 1.4rem;
 }
