@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+}
+
+.ingredient{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  font-size: 0.8rem;
+  gap: 1rem;
+}
+
+.image {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+
+.button{
+  margin: 3rem;
+}

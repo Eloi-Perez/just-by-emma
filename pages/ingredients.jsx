@@ -1,8 +1,11 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
 import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
-// import s from '../styles/home.module.scss'
+import s from '../styles/ingredients.module.scss'
 
-export default function Ingredients() {
+export default function Ingredients({ arrayIngredients }) {
   return (
     <>
       <HeaderImage />
@@ -15,14 +18,37 @@ export default function Ingredients() {
         </div>
         <EmmaImage />
       </div>
-      <div>
-        <div>Ingredient 1</div>
-        <div>Ingredient 2</div>
-        <div>Ingredient 3</div>
-        <div>...</div>
+      <div className={s.grid}>
+        {arrayIngredients && arrayIngredients.map(e => (
+          <div className={s.ingredient} key={e._id}>
+            <div className={s.image} >
+              <Image
+                src={`/backend/img/ingredients/${e.image}`}
+                alt=""
+                fill
+                style={{ objectFit: 'cover', borderRadius: '50%' }}
+              />
+            </div>
+            <div>
+              <h3>{e.name}</h3>
+              <p>{e.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
-      <button>Shop Now</button>
-      <button>Create Account</button>
+      <Link href="/shop">
+        <button className={s.button}>Shop Now</button>
+      </Link>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.BACKEND}/v0/ingredients`)
+  const arrayIngredients = await res.json()
+  return {
+    props: {
+      arrayIngredients,
+    },
+  }
 }

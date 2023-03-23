@@ -56,15 +56,15 @@ export default function AddIngredientsForm() {
         setAlert('Sent!')
         fetchIngredients()
         // Revalidate pages
-        // const callRevalidate = await fetch(`/api/revalidate`, {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({ revalidate: ['/ingredients'] }),
-        // })
-        // const responseRevalidate = await callRevalidate.json()
-        // console.log(responseRevalidate)
+        const callRevalidate = await fetch(`/api/revalidate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ revalidate: ['/ingredients'] }),
+        })
+        const responseRevalidate = await callRevalidate.json()
+        console.log(responseRevalidate)
       } else {
         console.log(response)
         setAlert(response.message)
