@@ -3,11 +3,12 @@ import { useState, useContext } from 'react'
 import { ProductsContext } from '../../../contexts/products-context'
 
 export default function DeleteIngredientsForm({ id }) {
-  const { fetchIngredients } = useContext(ProductsContext)
+  const { fetchProducts, fetchIngredients } = useContext(ProductsContext)
   const [alert, setAlert] = useState('')
 
   const apiCall = async () => {
     const credentials = localStorage.getItem('credentials')
+    setAlert('')
 
     if (window.confirm('Do you really want to delete?')) {
       try {
@@ -22,6 +23,7 @@ export default function DeleteIngredientsForm({ id }) {
         if (call.ok) {
           console.log(response)
           fetchIngredients()
+          fetchProducts()
           // Revalidate pages
           // const callRevalidate = await fetch(`/api/revalidate`, {
           //   method: 'POST',
