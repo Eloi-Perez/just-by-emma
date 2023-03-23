@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import * as D from '@radix-ui/react-dialog'
 
 import { ProductsContext } from '../../contexts/products-context'
-import { Magnifier } from '../UI/svg'
+import { Close, Magnifier } from '../UI/svg'
 import s from './navbar.module.scss'
 
 const toCurrency = (number) => {
@@ -71,7 +71,7 @@ export default function SearchDialog({ children }) {
       <D.Portal>
         <D.Overlay className={s.dialog_overlay}>
           <D.Content className={s.search_dialog_content}>
-            <D.Close className={['resetButton', s.dialog_close].join(' ')}>{'x'}</D.Close>
+            <D.Close className={['resetButton', s.dialog_close].join(' ')}><Close /></D.Close>
             <div className={s.search_bar_container}>
               <input type="search" id="search-bar" placeholder="Search here" onChange={handleChange} value={searchInput} autoFocus />
               <label htmlFor="search-bar"><Magnifier /></label>

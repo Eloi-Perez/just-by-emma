@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { Logo, Hamburger, Facebook, Instagram } from '../UI/svg'
+import { Close, Logo, Hamburger, Facebook, Instagram } from '../UI/svg'
 import Dialog from '../UI/dialog/dialog'
 import LoginRegister from '../login-register/login-register'
 import s from './navbar.module.scss'
@@ -32,7 +32,7 @@ export default function MobileMenuDialog() {
       <D.Portal>
         <D.Overlay className={s.dialog_overlay}>
           <D.Content className={s.mobile_menu_dialog_content}>
-            <D.Close className={['resetButton', s.dialog_close].join(' ')}>X</D.Close>
+            <D.Close className={['resetButton', s.dialog_close].join(' ')}><Close /></D.Close>
             <div>
               <div className={s.logo}>
                 <Logo />
