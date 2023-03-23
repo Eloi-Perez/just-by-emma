@@ -2,13 +2,12 @@ import style from 'styled-components'
 
 export const Button = style.button`
   align-items: center;
-  background-color: ${(props) =>
-    props.primaryColor ? 'var(--primary-color)' : 'var(--primary-transparent-color)'};
+  background-color: ${(props) => (props.primaryColor ? 'var(--primary-color)' : 'gray')};
   border: 1px solid #dfdfdf;
   border-radius: 25px;
   box-sizing: border-box;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  color: var(--font-color);
+  color: ${(props) => (props.primaryColor ? 'var(--font-color)' : '#fff')};
   cursor: pointer;
   display: flex;
   font-family: var(--main-font);
@@ -31,8 +30,7 @@ export const Button = style.button`
 }
 
   &:hover {
-    background-color: #ffffff;
-    border-color: rgba(0, 0, 0, 0.19);
+    opacity:0.5;
   }
   
 }

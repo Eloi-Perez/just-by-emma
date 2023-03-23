@@ -1,30 +1,115 @@
-// .root {
-//   min-height: 100vh;
-//   flex: 1;
-//   padding: 0 2rem 4rem 2rem;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   overflow-x: hidden;
-// }
+//OUR INGREDIENTS SECTION
 
-// @media (max-width: 600px) {
-//   .grid {
-//     width: 100%;
-//     flex-direction: column;
-//   }
-// }
+.ingredientsContainer {
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+  background-color: var(--primary-color);
+}
 
-// @media (prefers-color-scheme: dark) {
-//   .card,
-//   .footer {
-//     border-color: #222;
-//   }
-//   .code {
-//     background: #111;
-//   }
-//   .logo img {
-//     filter: invert(1);
-//   }
-// }
+.ingredientsTextContainer {
+  text-align: center;
+  margin: 0 auto;
+  opacity: none;
+  width: 40%;
+}
+
+.ingredientsHeader {
+  margin: 100px 0;
+  font-size: 2.5rem;
+}
+
+.ingredientsText {
+  font-size: 1.75rem;
+  letter-spacing: 1.2;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+// INCREDIBLE PRODUCTS SECTION
+
+.productsContainer {
+  display: flex;
+  width: 100vw;
+  margin: 0 auto;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.productsHeader {
+  text-align: center;
+  margin: 100px 0;
+  font-size: 2.5rem;
+}
+.productHeader {
+  font-size: 2rem;
+}
+
+.productParagraph {
+  width: 30ch;
+  font-size: 20px;
+  font-family: var(--main-font);
+}
+
+// BUTTON STYLES
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 100px 150px 100px 0px;
+  width: 100vw;
+  gap: 30px;
+}
+
+.reviewButton {
+  width: 76vw;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 50px;
+}
+
+// CUSTOMER REVIEW SECTION
+
+.customersHeader {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.customersContainer {
+  display: flex;
+  margin: 50px 0;
+  justify-content: space-around;
+  width: 80vw;
+}
+
+.reviewContainer {
+  width: 598px;
+  height: 364px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  font-size: 1.75rem;
+  padding: 20px;
+}
+
+.infoContainer {
+  display: flex;
+  font-size: 2rem;
+  gap: 40px;
+}
+
+.customerName {
+  padding: 0;
+}
+
+.customerRating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -30px;
+}

@@ -1,6 +1,18 @@
+import Image from 'next/image'
+import { Button } from '../components/UI/button/button.styles'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
+import IngredientsSection from '../components/UI/skincare-routine/skincare-routine'
+import FruitImage from '../public/img/fruits.png'
+import ProductOne from '../public/img/product1.png'
+import ProductTwo from '../public/img/product2.png'
+import ProductThree from '../public/img/product3.png'
+import CustomerOne from '../public/img/customer1.png'
+import CustomerTwo from '../public/img/customer2.png'
+import FiveStars from '../public/img/FiveStars.png'
+
 import s from '../styles/home.module.scss'
+import SkinCareSection from '../components/UI/skincare-routine/skincare-routine'
 
 export default function Home() {
   return (
@@ -15,56 +27,126 @@ export default function Home() {
             <br />
             All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is
             mainly glass and aluminium which can be fully recycled. Our face oil and face cream do
-            include a pump/dropper, however this is necessary to keep the product fresh and avoid any
-            contamination and for ease of use.
+            include a pump/dropper, however this is necessary to keep the product fresh and avoid
+            any contamination and for ease of use.
           </p>
         </div>
         <EmmaImage />
       </div>
-      <h2>What our Customers Say</h2>
       <div>
-        <div>Product 1</div>
-        <div>Product 2</div>
-        <div>Product 3</div>
-        <div>Product 4</div>
+        <div className={s.ingredientsContainer}>
+          <div style={{ width: '850px', overflow: 'hidden' }}>
+            <Image
+              src={FruitImage}
+              alt="fruits"
+              style={{ width: '1000px', height: 'auto', opacity: '0.5' }}
+            />
+          </div>
+          <div className={s.ingredientsTextContainer}>
+            <h2 className={s.ingredientsHeader}>OUR INGREDIENTS</h2>
+            <p className={s.ingredientsText}>
+              Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils.
+            </p>
+            <Button style={{ margin: '150px auto', width: '410px' }}>Learn More</Button>
+          </div>
+        </div>
       </div>
-
-      <div className={s.box}>
-        <p>
-          No 1: Cleanse using the Nourishing Beauty Balm A gentle all purpose balm for cleansing and
-          moisturising. Formulated using 100% natural, simple ingredients rich in antioxidants to
-          help calm, balance, boost, nourish and give your skin a natural glow. Directions: To
-          cleanse, warm a small amount in your hands and then massage, using circular motions, into
-          dry skin for around 30 seconds to 1 minute, then gently remove with a warm cloth.
-        </p>
-        <p>
-          No 2: Detox using the Detoxifying Face Mask A base powder detoxifying face mask with a
-          light floral aroma and blend of vitamins and antioxidants. This mask will help draw out
-          dirt and toxins to leave the skin clean and fresh with an even, smoother skin tone and
-          balanced complexion. Directions: Mix one teaspoon of powder with approximately 1-2
-          teaspoons of the following for each skin type until it forms a smooth paste: Oily Skin -
-          Organic yogurt Normal/Combination Skin - Water or rose hydrosol (water) Dry/Sensitive Skin
-          - Half water/half honey Use a brush to apply to freshly cleansed face and neck area
-          (avoiding eyes). Rinse off with warm water after approximately 10 minutes.
-        </p>
-        <p>
-          No 3: Moisturise using the Regenerating Face Cream A lightweight, non-greasy face cream,
-          formulated with oils, extracts and hyaluronic acid to regenerate, balance, repair and
-          improve your skin&apos;s elasticity, while helping prevent and reduce fine lines. Your
-          skin will be left brightened and hydrated, leaving an even, smoother skin tone and
-          balanced complexion. Directions: Apply a pea sized amount to your face and neck area.
-        </p>
-        <p>
-          No 4: Nourish using Rejuvenating Facial Oil A light facial oil to help repair and
-          rejuvenate damaged skin. Including oils rich in Omega 5 fatty acids and anti-aging
-          properties to fend off free radicals. Formulated using 100% natural, simple ingredients
-          rich in antioxidants to help calm, balance, boost, nourish, rejuvenate and revitalise your
-          skin. Directions: Apply 3-4 drops to your face and neck area after you have applied face
-          cream
-        </p>
+      <h2 className={s.productsHeader}>INCREDIBLE PRODUCTS</h2>
+      <div className={s.productsContainer}>
+        <div className={s.productContainer}>
+          <Image style={{ margin: '0 auto' }} src={ProductOne} alt="Rejuvenating Facial Oil" />
+          <h2 className={s.productHeader}>Rejuvenating Facial Oil;</h2>
+          <p className={s.productParagraph}>
+            A light facial oil to help repair damaged skin, including Omega 5 fatty acids and
+            anti-aging properties to fend of free radicals. Formulated using 100% natural, simple
+            ingredients rich in antioxidants to help calm, balance, boost, nourish, rejuvenating and
+            revitalising your skin
+          </p>
+        </div>
+        <div className={s.productContainer}>
+          <Image src={ProductTwo} alt="he Full Facial Gift Box" />
+          <h2 className={s.productHeader}>The Full Facial Gift Box;</h2>
+          <p className={s.productParagraph}>The gift box includes the following:</p>
+          <p className={s.productParagraph}>
+            Glass mask mixing bowl So Eco mask brush applicator Bamboo face cloth Wooden spoon (for
+            the balm) The 4 Step Skincare Routine full sized products: Nourishing Beauty Balm 50ml
+            Detoxifying Face Mask 20g Regenerating Face Cream 50ml Rejuvenating Facial Oil 50ml
+            Information insert giving guidance on the '4 step Skincare Routine'
+          </p>
+        </div>
+        <div className={s.productContainer}>
+          <Image src={ProductThree} alt="The Mini Facial Gift Box" />
+          <h2 className={s.productHeader}>The Mini Facial Gift Box;</h2>
+          <p className={s.productParagraph}>
+            Mini sized facial products. A facial in a box. Sample all four facial products in one
+            handy gift box. Great for gifts. The gift box includes the following:
+          </p>
+          <p className={s.productParagraph}>
+            Natural mini canvas draw string gift bag, Bamboo face cloth,Wooden spoon (for the balm)
+            The 4 Step Skincare Routine mini sized products: Nourishing Beauty Balm 15ml Detoxifying
+            Face Mask 5g Regenerating Face Cream 15ml Rejuvenating Facial Oil 10ml Information
+            insert giving guidance on the '4 step care Routine'
+          </p>
+        </div>
       </div>
-      <button>Shop Now</button>
-      <button>Sing up for 10% Discount and product reviews</button>
+      <div className={s.buttonContainer}>
+        <Button style={{ margin: '0', width: '390px' }} primaryColor>
+          Shop Now
+        </Button>
+        <Button style={{ margin: '0', width: '390px' }}>Sing up for 10% Discount</Button>
+      </div>
+      <h2 className={s.customersHeader}>What our Customers Say</h2>
+      <div className={s.customersContainer}>
+        <div className={s.reviewContainer}>
+          <div className={s.infoContainer}>
+            <Image src={CustomerOne} alt="customer profile" />
+            <div>
+              <p className={s.customerName}>Claire</p>
+              <p className={s.customerRating}>
+                5.0
+                <span>
+                  <Image src={FiveStars} alt="rating" />
+                </span>
+              </p>
+            </div>
+          </div>
+          <p>
+            The Orange and Coconut smell is AMAZING. Seriously smells good enough to eat. The pot
+            lasts a really long time as the cream is nice and rich. Love it.
+          </p>
+        </div>
+        <div className={s.reviewContainer}>
+          <div className={s.infoContainer}>
+            <Image src={CustomerTwo} alt="customer profile" />
+            <div>
+              <p className={s.customerName}>Claire</p>
+              <p className={s.customerRating}>
+                5.0
+                <span>
+                  <Image src={FiveStars} alt="rating" />
+                </span>
+              </p>
+            </div>
+          </div>
+          <p>
+            The Orange and Coconut smell is AMAZING. Seriously smells good enough to eat. The pot
+            lasts a really long time as the cream is nice and rich. Love it.
+          </p>
+        </div>
+      </div>
+      <div className={s.reviewButton}>
+        <Button style={{ margin: '0', width: '430px' }} primaryColor>
+          More Reviews
+        </Button>
+      </div>
+      <h2 style={{ fontSize: '2.5rem', marginBottom: '100px' }}>Skincare Routine in 4 Steps</h2>
+      <SkinCareSection />
+      <div className={s.buttonContainer}>
+        <Button style={{ margin: '0', width: '390px' }} primaryColor>
+          Shop Now
+        </Button>
+        <Button style={{ margin: '0', width: '390px' }}>Sing up for 10% Discount</Button>
+      </div>
     </>
   )
 }
