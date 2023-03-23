@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 import UpdateProductForm from '../product/update-product-form'
 import DeleteProductForm from '../product/delete-product-form'
@@ -14,6 +14,13 @@ const toCurrency = (number) => {
 
 export default function ProductCard({ product }) {
   const [openUpdate, setOpenUpdate] = useState(false)
+
+  const ingredientsList = useMemo(() => {
+    const toConvertList = JSON.parse(JSON.stringify(product.ingredients))
+    const convertedList = toConvertList.map((e) => e.name)
+    return convertedList
+  }, [product])
+
   return (
     <div>
       <h3>{product.name}</h3>
@@ -21,6 +28,7 @@ export default function ProductCard({ product }) {
         {product.images[0] && <Images product={product} />}
       </div>
       <p>{product.description}</p>
+      <p>Ingredients: {ingredientsList.join(', ')}</p>
       {product.sizes.map((size, i) => (
         <div key={i}>
           {size.available && (
