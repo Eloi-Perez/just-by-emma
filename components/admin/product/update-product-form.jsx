@@ -200,13 +200,13 @@ export default function UpdateProductForm({ id, old }) {
                 />
               </div>
               <div>
-                <label htmlFor={'sizePrice' + i}>Size Price:</label>
+                <label htmlFor={'sizeAvailable' + i}>Available:</label>
                 <input
-                  id={'sizePrice' + i}
-                  type="number"
-                  value={sizes[i].price === 0 ? null : sizes[i].price / 100}
-                  onChange={(e) => handleSetSizes(e.target.value * 100, 'price', i)}
-                  required
+                  type="checkbox"
+                  id={'sizeAvailable' + i}
+                  value="available"
+                  checked={sizes[i].available}
+                  onChange={(e) => handleSetSizes(e.target.checked, 'available', i)}
                 />
               </div>
               {/* <div>
