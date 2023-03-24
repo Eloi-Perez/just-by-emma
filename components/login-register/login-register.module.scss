@@ -4,7 +4,6 @@
   flex-direction: column;
 }
 .container {
-  // width: 100%;
   background-color: var(--background-color);
   display: flex;
   justify-content: flex-start;
@@ -12,8 +11,6 @@
   flex-direction: column;
 }
 .wrapper {
-  // width: 1440px;
-  // height: 1024px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -65,28 +62,10 @@
   flex-direction: column;
   margin-top: 50px;
 }
-// .login {
-  // height: 40px;
-  // width: 262px;
-  // border-radius: 33px;
-  // background-color: #fffefe;
-  // color: #8f8e8e;
-  // border: 1px solid #8f8e8e;
-  // font-size: 18px;
-  // margin-bottom: 10px;
-  // box-shadow: 0 2px 0 0 #8f8e8e;
-// }
 
-// .create {
-//   height: 40px;
-//   width: 262px;
-//   border-radius: 33px;
-//   background-color: #fde0dd;
-//   color: #4b4b4b;
-//   border: 1px solid #8f8e8e;
-//   font-size: 18px;
-//   margin-top: 20px;
-// }
+button.registerButton {
+  margin-top: 1rem;
+}
 
 .back_login {
   margin-top: 30px;

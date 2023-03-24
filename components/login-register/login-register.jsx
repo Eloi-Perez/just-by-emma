@@ -13,7 +13,7 @@ export default function LoginRegister({ close }) {
       {!registerActive && (
         <>
           <Login close={close} />
-          <Button onClick={() => setRegisterActive(true)}>
+          <Button className={s.registerButton} onClick={() => setRegisterActive(true)}>
             Create Account
           </Button>
         </>

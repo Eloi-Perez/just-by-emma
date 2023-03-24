@@ -87,10 +87,10 @@ export default function Home() {
         </div>
       </div>
       <div className={s.buttonContainer}>
-        <Button style={{ margin: '0', width: '390px' }} primaryColor>
+        <Button style={{ width: '390px' }} primaryColor>
           Shop Now
         </Button>
-        <Button style={{ margin: '0', width: '390px' }}>Sing up for 10% Discount</Button>
+        <Button style={{ width: '390px' }}>Sing up for 10% Discount</Button>
       </div>
       <h2 className={s.customersHeader}>What our Customers Say</h2>
       <div className={s.customersContainer}>
@@ -132,17 +132,17 @@ export default function Home() {
         </div>
       </div>
       <div className={s.reviewButton}>
-        <Button style={{ margin: '0', width: '430px' }} primaryColor>
+        <Button style={{ width: '430px' }} primaryColor>
           More Reviews
         </Button>
       </div>
       <h2 style={{ fontSize: '2.5rem', marginBottom: '100px' }}>Skincare Routine in 4 Steps</h2>
       <SkinCareSection />
       <div className={s.buttonContainer}>
-        <Button style={{ margin: '0', width: '390px' }} primaryColor>
+        <Button style={{ width: '390px' }} primaryColor>
           Shop Now
         </Button>
-        <Button style={{ margin: '0', width: '390px' }}>Sing up for 10% Discount</Button>
+        <Button style={{ width: '390px' }}>Sing up for 10% Discount</Button>
       </div>
     </>
   )

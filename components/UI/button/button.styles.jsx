@@ -14,7 +14,6 @@ export const Button = style.button`
   font-size:  ${(props) => (props.md ? '1rem' : '1.75rem')};
   justify-content: center;
   line-height: 28px;
-  // max-width: 50%;
   padding: 14px 22px;
   text-decoration: none;
   transition: all 0.2s;
@@ -22,7 +21,6 @@ export const Button = style.button`
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 250px;
-  margin: 10% auto;
 
   &:active,
   &:hover {
