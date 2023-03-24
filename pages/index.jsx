@@ -13,7 +13,7 @@ import ProductTwo from '../public/img/product2.png'
 import ProductThree from '../public/img/product3.png'
 import CustomerOne from '../public/img/customer1.png'
 import CustomerTwo from '../public/img/customer2.png'
-import FiveStars from '../public/img/FiveStars.png'
+import FiveStars from '../public/img/five_star.png'
 import s from '../styles/home.module.scss'
 
 export default function Home() {
