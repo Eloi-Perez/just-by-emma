@@ -61,7 +61,7 @@ export default function Contact() {
       <div className={styles.contactContainer}>
         <p>Email us at: info@justbyemma.com</p>
         <div className={styles.socialsContainer}>
-          <p>Social Media</p>
+          <p>Social Media:</p>
           <div className={f.social}>
             <a href="https://www.facebook.com/people/justbyemma/100069221673666" target="_blank">
               <Facebook />
@@ -72,7 +72,8 @@ export default function Contact() {
           </div>
         </div>
         <p className={styles.text}>
-          For direct message please put your details and questions in the lines below.
+          For direct message please put your details
+          and questions in the lines below.
         </p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -119,11 +120,9 @@ export default function Contact() {
               required
             />
           </div>
-          <div>
-            <Button type="submit" primaryColor>
-              Send
-            </Button>
-          </div>
+          <Button className={styles.buttonSend} type="submit" primaryColor>
+            Send
+          </Button>
           <h3>{alert}</h3>
         </form>
         <p className={styles.text}>
