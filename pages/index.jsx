@@ -22,13 +22,9 @@ export default function Home() {
         <div className={'header_text_container'}>
           <h1 className={'header_title'}>THE JUST BY EMMA ETHOS</h1>
           <p className={'header_text'}>
-            Our ethos is about producing naturally formulated products which focus on keeping your
-            skincare routine natural and simple (with minimal wastage.)
-            <br />
-            All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is
-            mainly glass and aluminium which can be fully recycled. Our face oil and face cream do
-            include a pump/dropper, however this is necessary to keep the product fresh and avoid
-            any contamination and for ease of use.
+            The Just by Emma ethos is about formulating products which focus on making your skincare routine natural, simple and including ingredients which contain tremendous benefits for your skin.<br />
+            All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is mainly glass and aluminium which can be fully recycled.<br />
+            Ingredients are sourced from local suppliers wherever possible but always from reputable suppliers who have clear ethical policies.
           </p>
         </div>
         <EmmaImage />
