@@ -78,8 +78,11 @@ input::file-selector-button {
   display: flex;
   flex-direction: row;
   max-width: 900px;
+  // justify-content: space-around;
+  // width: 85vw;
+  // height: 60vh;
   gap: 3rem;
-  margin: 3rem 0;
+  margin: 4rem 0;
   .header_text_container {
     display: flex;
     flex-direction: column;
@@ -89,7 +92,9 @@ input::file-selector-button {
       margin: 2rem 0 0 0;
     }
     .header_text {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+      width: 710px;
+      // height: 180px;
     }
   }
 }
