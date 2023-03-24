@@ -1,9 +1,9 @@
-//OUR INGREDIENTS SECTION
+// OUR INGREDIENTS SECTION
 
 .ingredientsContainer {
   display: flex;
   width: 100vw;
-  height: 90vh;
+  // height: 90vh;
   background-color: var(--primary-color);
 }
 
@@ -31,6 +31,7 @@
 .productsContainer {
   display: flex;
   width: 100vw;
+  max-width: 1200px;
   margin: 0 auto;
   gap: 30px;
   justify-content: space-evenly;
@@ -52,7 +53,7 @@
 }
 
 .productParagraph {
-  width: 30ch;
+  width: 100%;
   font-size: 20px;
   font-family: var(--main-font);
 }
@@ -64,14 +65,8 @@
   justify-content: flex-end;
   margin: 100px 150px 100px 0px;
   width: 100vw;
+  max-width: 1200px;
   gap: 30px;
-}
-
-.reviewButton {
-  width: 76vw;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 50px;
 }
 
 // CUSTOMER REVIEW SECTION
@@ -86,6 +81,8 @@
   margin: 50px 0;
   justify-content: space-around;
   width: 80vw;
+  gap: 30px;
+  max-width: 1200px;
 }
 
 .reviewContainer {
@@ -112,4 +109,12 @@
   align-items: center;
   gap: 10px;
   margin-top: -30px;
+}
+
+.reviewButton {
+  width: 76vw;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 50px;
+  max-width: 1200px;
 }

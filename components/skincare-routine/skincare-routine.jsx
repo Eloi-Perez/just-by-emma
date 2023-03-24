@@ -8,7 +8,6 @@ import s from './skincare-routine.module.scss'
 
 function SkinCareSection() {
   return (
-    <div>
       <div className={s.container}>
         <div className={s.child}>
           <Image src={PictureOne} alt="" style={{ margin: '0 auto' }} />
@@ -49,7 +48,6 @@ function SkinCareSection() {
           </p>
         </div>
       </div>
-    </div>
   )
 }
 
