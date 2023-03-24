@@ -5,6 +5,7 @@ import { ProductsContext } from '../contexts/products-context'
 import AddProductForm from '../components/admin/product/add-product-form'
 import ProductCard from '../components/admin/product-card/product-card'
 import News from '../components/admin/news/news'
+import Ingredients from '../components/admin/ingredients/ingredients'
 // import s from '../styles/admin.module.scss'
 
 function decodeJwt(token) {
@@ -14,9 +15,12 @@ function decodeJwt(token) {
 }
 
 export default function Admin() {
-  const { products, fetchProducts } = useContext(ProductsContext)
+  const { products, fetchProducts, fetchIngredients } = useContext(ProductsContext)
   const [searchInput, setSearchInput] = useState('')
-  const [openAdd, setOpenAdd] = useState(false)
+  const [showProducts, setShowProducts] = useState(false)
+  const [openAddProduct, setOpenAddProduct] = useState(false)
+  const [showNews, setShowNews] = useState(false)
+  const [showIngredients, setShowIngredients] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -26,6 +30,7 @@ export default function Admin() {
       }
     })()
     fetchProducts()
+    fetchIngredients()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -59,26 +64,45 @@ export default function Admin() {
 
   return (
     <>
-      <button onClick={() => setOpenAdd(!openAdd)}>Add new product</button>
-      {openAdd && <AddProductForm />}
-      <h1>Product list:</h1>
-      <input
-        type="search"
-        placeholder="Search here"
-        onChange={(e) => setSearchInput(e.target.value)}
-        value={searchInput}
-      />
-      {products &&
-        !searchInput &&
-        products.map((product) => <ProductCard key={product._id} product={product} />)}
-      {products &&
-        searchInput &&
-        products
-          .filter((li) => li.name.toLowerCase().includes(searchInput.toLowerCase()))
-          .map((product) => <ProductCard key={product._id} product={product} />)}
-
+      <h1>Products</h1>
+      {!showProducts &&
+        <button onClick={() => setShowProducts(true)}>Show Products</button>
+      }
+      {showProducts &&
+        <>
+          <button onClick={() => setOpenAddProduct(!openAddProduct)}>Add new product</button>
+          {openAddProduct && <AddProductForm />}
+          <h2>Product list:</h2>
+          <input
+            type="search"
+            placeholder="Search here"
+            onChange={(e) => setSearchInput(e.target.value)}
+            value={searchInput}
+          />
+          {products &&
+            !searchInput &&
+            products.map((product) => <ProductCard key={product._id} product={product} />)}
+          {products &&
+            searchInput &&
+            products
+              .filter((li) => li.name.toLowerCase().includes(searchInput.toLowerCase()))
+              .map((product) => <ProductCard key={product._id} product={product} />)}
+        </>
+      }
       <h1>News</h1>
-      <News />
+      {!showNews &&
+        <button onClick={() => setShowNews(true)}>Show News</button>
+      }
+      {showNews &&
+        <News />
+      }
+      <h1>Ingredients</h1>
+      {!showIngredients &&
+        <button onClick={() => setShowIngredients(true)}>Show Ingredients</button>
+      }
+      {showIngredients &&
+        <Ingredients />
+      }
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { Logo } from '../UI/svg'
+import { Button } from '../UI/button/button.styles'
 import s from './login-register.module.scss'
 
 export default function Login({ close }) {
@@ -71,9 +72,9 @@ export default function Login({ close }) {
               required
             />
             <div className={s.buttonContainer}>
-              <button type="submit" className={s.login}>
-                Login
-              </button>
+              <Button type="submit" className={s.login} primaryColor>
+                Sign In
+              </Button>
             </div>
           </form>
         </div>

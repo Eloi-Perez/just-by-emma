@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from 'next/image'
 
 import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
@@ -32,7 +32,7 @@ export default function News({ arrayNews }) {
               33vw"
             />
           </div>
-        ))}      
+        ))}
       </div>
     </>
   )

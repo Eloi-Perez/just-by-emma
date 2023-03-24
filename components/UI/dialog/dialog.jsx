@@ -1,6 +1,7 @@
 import * as D from '@radix-ui/react-dialog'
 import { useState, cloneElement } from 'react'
 
+import { Close } from '../svg'
 import s from './dialog.module.scss'
 
 export default function Dialog({ trigger, button = false, title, children }) {
@@ -15,7 +16,7 @@ export default function Dialog({ trigger, button = false, title, children }) {
       <D.Portal>
         <D.Overlay className={s.overlay}>
           <D.Content className={s.content}>
-            <D.Close className={['resetButton', s.close].join(' ')}>X</D.Close>
+            <D.Close className={['resetButton', s.close].join(' ')}><Close /></D.Close>
             <D.Title>{title}</D.Title>
             {/* <D.Description>subtitle</D.Description> */}
             {cloneElement(children, {

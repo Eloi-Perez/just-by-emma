@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
+import { Left, Right } from '../UI/svg'
 import s from './carousel.module.scss'
 
 export default function Carousel({ images }) {
@@ -38,8 +39,8 @@ export default function Carousel({ images }) {
       )}
       {images[1] &&
         <>
-          <button className={[s.arrow_left, 'resetButton'].join(' ')} onClick={() => prevImg()}>{'<'}</button>
-          <button className={[s.arrow_right, 'resetButton'].join(' ')} onClick={() => nextImg()}>{'>'}</button>
+          <button className={[s.arrow_left, 'resetButton'].join(' ')} onClick={() => prevImg()}><Left /></button>
+          <button className={[s.arrow_right, 'resetButton'].join(' ')} onClick={() => nextImg()}><Right /></button>
         </>
       }
     </div>

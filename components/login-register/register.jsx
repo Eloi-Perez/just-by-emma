@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { Logo } from '../UI/svg'
+import { Button } from '../UI/button/button.styles'
 import s from './login-register.module.scss'
 
 export default function Register({ toLogin }) {
@@ -94,9 +95,9 @@ export default function Register({ toLogin }) {
               required
             />
             <div className={s.buttonContainer}>
-              <button type="submit" className={s.create}>
+              <Button type="submit">
                 Create Account
-              </button>
+              </Button>
             </div>
           </form>
         </div>
