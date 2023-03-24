@@ -67,7 +67,7 @@ export default function Home() {
             Glass mask mixing bowl So Eco mask brush applicator Bamboo face cloth Wooden spoon (for
             the balm) The 4 Step Skincare Routine full sized products: Nourishing Beauty Balm 50ml
             Detoxifying Face Mask 20g Regenerating Face Cream 50ml Rejuvenating Facial Oil 50ml
-            Information insert giving guidance on the '4 step Skincare Routine'
+            Information insert giving guidance on the &apos;4 step Skincare Routine&apos;
           </p>
         </div>
         <div className={s.productContainer}>
@@ -81,7 +81,7 @@ export default function Home() {
             Natural mini canvas draw string gift bag, Bamboo face cloth,Wooden spoon (for the balm)
             The 4 Step Skincare Routine mini sized products: Nourishing Beauty Balm 15ml Detoxifying
             Face Mask 5g Regenerating Face Cream 15ml Rejuvenating Facial Oil 10ml Information
-            insert giving guidance on the '4 step care Routine'
+            insert giving guidance on the &apos;4 step care Routine&apos;
           </p>
         </div>
       </div>
