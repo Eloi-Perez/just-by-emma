@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Button } from '../components/UI/button/button.styles'
 import EmmaImage from '../components/UI/emma-image/emma-image'
@@ -44,7 +45,9 @@ export default function Home() {
             <p className={s.ingredientsText}>
               Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils.
             </p>
-            <Button style={{ margin: '150px auto', width: '410px' }}>Learn More</Button>
+            <Link href="/ingredients">
+              <Button style={{ margin: '150px auto', width: '410px' }}>Learn More</Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -87,9 +90,11 @@ export default function Home() {
         </div>
       </div>
       <div className={s.buttonContainer}>
-        <Button style={{ width: '390px' }} primaryColor>
-          Shop Now
-        </Button>
+        <Link href="/shop">
+          <Button style={{ width: '390px' }} primaryColor>
+            Shop Now
+          </Button>
+        </Link>
         <Button style={{ width: '390px' }}>Sing up for 10% Discount</Button>
       </div>
       <h2 className={s.customersHeader}>What our Customers Say</h2>
@@ -139,9 +144,11 @@ export default function Home() {
       <h2 style={{ fontSize: '2.5rem', marginBottom: '100px' }}>Skincare Routine in 4 Steps</h2>
       <SkinCareSection />
       <div className={s.buttonContainer}>
-        <Button style={{ width: '390px' }} primaryColor>
-          Shop Now
-        </Button>
+        <Link href="/shop">
+          <Button style={{ width: '390px' }} primaryColor>
+            Shop Now
+          </Button>
+        </Link>
         <Button style={{ width: '390px' }}>Sing up for 10% Discount</Button>
       </div>
     </>
