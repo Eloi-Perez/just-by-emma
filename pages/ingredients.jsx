@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
+import { Button } from '../components/UI/button/button.styles'
 import s from '../styles/ingredients.module.scss'
 
 export default function Ingredients({ arrayIngredients }) {
@@ -35,10 +36,10 @@ export default function Ingredients({ arrayIngredients }) {
             </div>
           </div>
         ))}
+        <Link className={s.buttonConteiner} href="/shop">
+          <Button primaryColor>Shop Now</Button>
+        </Link>
       </div>
-      <Link href="/shop">
-        <button className={s.button}>Shop Now</button>
-      </Link>
     </>
   )
 }
