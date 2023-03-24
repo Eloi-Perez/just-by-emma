@@ -36,9 +36,6 @@ export default function Product({ product }) {
   }
   return (
     <>
-      {/* delete next 2 lines */}
-      <h3>Cart Content</h3>
-      <p>{JSON.stringify(cart)}</p>
       <h3>{product.name}</h3>
       {product.images[0] && <Carousel images={product.images} />}
       <p>{product.description}</p>
@@ -68,7 +65,9 @@ export default function Product({ product }) {
       <br />
       <div>
         <h3>Key Ingredients</h3>
-        <p>list...</p>
+        {/* delete next 2 lines */}
+        <p>list...</p>        
+        <p>{JSON.stringify(product)}</p>
       </div>
     </>
   )
