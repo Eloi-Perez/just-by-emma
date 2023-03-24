@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Login from './login'
 import Register from './register'
+import { Button } from '../UI/button/button.styles'
 import s from './login-register.module.scss'
 
 export default function LoginRegister({ close }) {
@@ -12,9 +13,9 @@ export default function LoginRegister({ close }) {
       {!registerActive && (
         <>
           <Login close={close} />
-          <button className={s.create} onClick={() => setRegisterActive(true)}>
+          <Button onClick={() => setRegisterActive(true)}>
             Create Account
-          </button>
+          </Button>
         </>
       )}
       {registerActive && (

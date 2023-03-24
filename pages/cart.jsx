@@ -121,7 +121,7 @@ export default function Cart() {
               Subtotal <span className={styles.float}>{toCurrency(merchandiseTotal + 1100)}</span>
             </div>
           </div>
-          <CheckoutButton style={styles.checkout} />
+          <CheckoutButton />
         </div>
       </div>
     )
