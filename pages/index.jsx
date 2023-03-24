@@ -1,8 +1,11 @@
 import Image from 'next/image'
+
 import { Button } from '../components/UI/button/button.styles'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
-import IngredientsSection from '../components/UI/skincare-routine/skincare-routine'
+// import IngredientsSection from '../components/UI/skincare-routine/skincare-routine'
+import SkinCareSection from '../components/skincare-routine/skincare-routine'
+
 import FruitImage from '../public/img/fruits.png'
 import ProductOne from '../public/img/product1.png'
 import ProductTwo from '../public/img/product2.png'
@@ -10,9 +13,7 @@ import ProductThree from '../public/img/product3.png'
 import CustomerOne from '../public/img/customer1.png'
 import CustomerTwo from '../public/img/customer2.png'
 import FiveStars from '../public/img/FiveStars.png'
-
 import s from '../styles/home.module.scss'
-import SkinCareSection from '../components/UI/skincare-routine/skincare-routine'
 
 export default function Home() {
   return (
