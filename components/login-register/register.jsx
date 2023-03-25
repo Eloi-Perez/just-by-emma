@@ -4,7 +4,7 @@ import { Logo } from '../UI/svg'
 import { Button } from '../UI/button/button.styles'
 import s from './login-register.module.scss'
 
-export default function Register({ toLogin }) {
+export default function Register({ setAlert, toLogin }) {
   const [name, setName] = useState('')
   const [surname, setSurname] = useState('')
   const [email, setEmail] = useState('')
@@ -30,12 +30,12 @@ export default function Register({ toLogin }) {
         setEmail('')
         setPassword('')
         console.log(response)
-        // setAlert('Created!')
+        setAlert('Created!')
         toLogin()
         // TODO add message about having to verify email
       } else {
         console.log(response)
-        // setAlert(response.message)
+        setAlert(response.message ? response.message : 'error')
       }
     } catch (error) {
       console.error('An unexpected error happened:', error)
