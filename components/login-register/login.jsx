@@ -24,17 +24,18 @@ export default function Login({ setAlert, close }) {
       if (call.ok) {
         setEmail('')
         setPassword('')
-        console.log(response)
+        // console.log(response)
         setAlert('logged in!')
         localStorage.setItem('credentials', response.token)
         // Close Dialog
         close()
       } else {
-        console.log(response)
-        setAlert(response.message)
+        // console.log(response)
+        setAlert('error')
       }
     } catch (error) {
-      console.error('An unexpected error happened:', error)
+      // console.error('An unexpected error happened:', error)
+      setAlert('error')
     }
   }
 

@@ -23,22 +23,24 @@ export default function Register({ setAlert, toLogin }) {
         },
         body: JSON.stringify(data),
       })
-      const response = await call.json()
+      // const response = await call.json()
       if (call.ok) {
         setName('')
         setSurname('')
         setEmail('')
         setPassword('')
-        console.log(response)
+        // console.log(response)
         setAlert('Created!')
         toLogin()
         // TODO add message about having to verify email
       } else {
-        console.log(response)
-        setAlert(response.message ? response.message : 'error')
+        // console.log(response)
+        // setAlert(response.message ? response.message : 'error')
+        setAlert('error')
       }
     } catch (error) {
-      console.error('An unexpected error happened:', error)
+      // console.error('An unexpected error happened:', error)
+      setAlert('error')
     }
   }
 

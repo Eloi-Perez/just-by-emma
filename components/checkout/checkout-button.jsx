@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 
 import { CartContext } from '../../contexts/cart-context'
@@ -9,6 +9,7 @@ import { Button } from '../UI/button/button.styles'
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function CheckoutButton() {
   const { cart } = useContext(CartContext)
+  const [alert, setAlert] = useState('')
   // useEffect(() => {
   //   // Check to see if this is a redirect back from Checkout
   //   const query = new URLSearchParams(window.location.search)
@@ -54,13 +55,15 @@ export default function CheckoutButton() {
       })
       const response = await call.json()
       if (call.ok) {
-        console.log(response)
+        // console.log(response)
         window.location.href = response.url // or send to iframe
       } else {
-        console.log(response)
+        // console.log(response)
+        setAlert('error, please try again in a few minutes')
       }
     } catch (error) {
-      console.error('An unexpected error happened:', error)
+      // console.error('An unexpected error happened:', error)
+      setAlert('error, please try again in a few minutes')
     }
   }
 
@@ -70,6 +73,7 @@ export default function CheckoutButton() {
       <Button type="submit" role="link" primaryColor>
         Checkout
       </Button>
+      <h3>{alert}</h3>
     </form>
   )
 }

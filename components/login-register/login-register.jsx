@@ -40,7 +40,7 @@ export default function LoginRegister({ close }) {
           </a>
         </>
       )}
-      {alert && <h4>{alert}</h4>}
+      {alert && <h3>{alert}</h3>}
     </div>
   )
 }
