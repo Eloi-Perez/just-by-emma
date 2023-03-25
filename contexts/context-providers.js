@@ -4,10 +4,12 @@ import { CartProvider } from './cart-context'
 
 export default function ContextProviders({ children }) {
   return (
-    <UserDataProvider>
-      <ProductsProvider>
-        <CartProvider>{children}</CartProvider>
-      </ProductsProvider>
-    </UserDataProvider>
+    // <UserDataProvider>
+    <ProductsProvider>
+      <CartProvider>
+        {children}
+      </CartProvider>
+    </ProductsProvider>
+    // </UserDataProvider>
   )
 }
