@@ -24,12 +24,14 @@ export default function News({ arrayNews }) {
           <div className={s.image} key={nw._id}>
             <Image
               src={`/backend/img/news/${nw.image}`}
-              alt=""
-              fill
-              style={{ objectFit: 'cover' }}
+              alt="news image"              
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
               sizes="(max-width: 900px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
+              fill
+              style={{ objectFit: 'cover' }}
             />
           </div>
         ))}

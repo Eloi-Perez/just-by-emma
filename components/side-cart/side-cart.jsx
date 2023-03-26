@@ -51,13 +51,14 @@ export default function SideCart() {
               <div key={i}>
                 <Image
                   src={`/backend/img/products/${item.product.images[0].filename}`}
-                  alt=""
+                  alt="product image"
                   width={100}
                   height={100}
-                  // fill
-                  style={{ objectFit: 'cover' }}
+                  placeholder="blur"
+                  blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
                   sizes="20vw"
                   priority
+                  style={{ objectFit: 'cover' }}
                 />
                 <h3>{item.product.name}</h3>
                 <p>

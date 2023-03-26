@@ -86,12 +86,14 @@ export default function SearchDialog({ children }) {
                       <Link key={key} className={s.search_results_item} href={`/shop/${item._id}`}>
                         <Image
                           src={`/backend/img/${item.images[0].filename}`}
-                          alt=""
+                          alt="product image"
                           width={100}
                           height={100}
-                          style={{ objectFit: 'cover', borderRadius: '50%' }}
+                          placeholder="blur"
+                          blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
                           sizes="20vw"
                           priority
+                          style={{ objectFit: 'cover', borderRadius: '50%' }}
                         />
                         <div className={s.item_text}>
                           <div>{item.name}</div>

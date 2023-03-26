@@ -66,12 +66,14 @@ export default function Cart() {
                   <Link href={`/shop/${item.id}`}>
                     <Image
                       src={`/backend/img/products/${item.product.images[0].filename}`}
-                      alt=""
+                      alt="product image"
                       width={100}
                       height={100}
-                      style={{ objectFit: 'cover', borderRadius: '50%', marginRight: '50px' }}
+                      placeholder="blur"
+                      blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
                       sizes="20vw"
                       priority
+                      style={{ objectFit: 'cover', borderRadius: '50%', marginRight: '50px' }}
                     />
                   </Link>
                   <div className={styles.lineContainer}>

@@ -25,8 +25,11 @@ export default function Ingredients({ arrayIngredients }) {
             <div className={s.image} >
               <Image
                 src={`/backend/img/ingredients/${e.image}`}
-                alt=""
-                fill
+                alt="ingredient image"
+                height={150}
+                width={150}
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
                 style={{ objectFit: 'cover', borderRadius: '50%' }}
               />
             </div>
