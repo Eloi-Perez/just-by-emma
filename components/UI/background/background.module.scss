@@ -21,14 +21,18 @@
 .root img {
   position: relative;
   opacity: 5%;
+  height: 300px;
+  width: 300px;
 }
 
 .img1_1 {
   left: -40px;
 }
-.img1_2 {
+.root img.img1_2 {
   left: 120px;
   top: -83px;
+  height: 200px;
+  width: 200px;
 }
 .img2 {
   align-self: end;
@@ -40,4 +44,17 @@
 .img4 {
   align-self: end;
   right: -40px;
+}
+
+@media only screen and (min-width: 1500px) {
+  .root img {
+    height: 20vw;
+    width: 20vw;
+  }
+  .root img.img1_2 {
+    left: calc(120px + 4vw);
+    top: calc(-83px - 3vw);
+    height: 15vw;
+    width: 15vw;
+  }
 }
