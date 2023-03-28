@@ -87,8 +87,8 @@ export default function SearchDialog({ children }) {
                         <Image
                           src={`/backend/img/products/${item.images[0].filename}`}
                           alt="product image"
-                          width={100}
-                          height={100}
+                          width={110}
+                          height={110}
                           placeholder="blur"
                           blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
                           sizes="20vw"
