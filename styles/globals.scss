@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Josefin Sans";
-  src: url("../public/fonts/JosefinSans.woff2") format("woff2");
+  font-family: 'Josefin Sans';
+  src: url('../public/fonts/JosefinSans.woff2') format('woff2');
   font-display: swap;
 }
 
@@ -9,7 +9,7 @@
   --primary-color-transparent: rgba(253, 224, 221, 0.2);
   --background-color: #fffcfc;
   --font-color: #4b4b4b;
-  --main-font: "Josefin Sans", sans-serif;
+  --main-font: 'Josefin Sans', sans-serif;
   --border: 1px solid black;
   --white-bg: #fff;
 }
@@ -68,25 +68,26 @@ a {
 }
 
 button,
-[type="button"],
-[type="submit"],
+[type='button'],
+[type='submit'],
 input::file-selector-button {
   cursor: pointer;
 }
 
-.header_content {
+.header_content,
+.story_content {
   display: flex;
   flex-direction: row;
   max-width: 900px;
-  // justify-content: space-around;
-  // width: 85vw;
-  // height: 60vh;
   gap: 3rem;
   margin: 4rem 0;
-  .header_text_container {
+  .header_text_container,
+  .story_text_container {
     display: flex;
     flex-direction: column;
-    .header_title {
+    .header_title,
+    .story_title,
+    .skincare_title {
       font-size: 2rem;
       font-weight: 400;
       margin: 2rem 0 0 0;
@@ -97,6 +98,32 @@ input::file-selector-button {
       // height: 180px;
     }
   }
+}
+
+.story_content {
+  flex-direction: column;
+  margin-top: -3rem;
+}
+
+.story_text_container,
+.story_text {
+  font-size: 1.75rem;
+}
+
+.skincare_title {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 100px;
+}
+
+.about_button_container {
+  margin-top: 20px;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 // @media (prefers-color-scheme: dark) {
