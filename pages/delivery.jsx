@@ -28,13 +28,13 @@ export default function Legal() {
 
         FREE shipping on orders over £100. Orders will be shipped within 24-48 hours by Royal Mail International Tracked & Signed which aims to deliver within 5-6 working days. Orders under £100 - £20 shipping by Royal Mail International Tracked & Signed. You are responsible for any local duties or taxes.<br /><br />
 
-        You will receive an order confirmation email followed by an email confirming dispatch. In the unlikely event of a delay to dispatch, I will contact you. If you have any queries about your order or delivery, please contact me at info@justbyemma.com<br /><br />
+        You will receive an order confirmation email followed by an email confirming dispatch. In the unlikely event of a delay to dispatch, I will contact you. If you have any queries about your order or delivery, please contact me at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a><br /><br />
 
         Please note you are responsible for providing the correct shipping address. Whilst we are happy to ship to an office address, it is at your own risk and we cannot be held responsible for any losses.
         Cancellation and Returns Policy
         You can cancel your order any time before dispatch and up to 14 days from receipt of your order as long as your product is unopened and unused. You do not have to give any reason for cancellation. However, a brief explanation will help us to improve the service we offer to customers in the future.<br /><br />
 
-        If you wish to cancel or return your order contact us to arrange this at info@justbyemma.com You will then need to return the goods within 14 days. Returns will be at your own expense. Ensure that the goods are packaged adequately to protect against damage. We recommend you obtain a free proof of postage.
+        If you wish to cancel or return your order contact us to arrange this at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a> You will then need to return the goods within 14 days. Returns will be at your own expense. Ensure that the goods are packaged adequately to protect against damage. We recommend you obtain a free proof of postage.
         Once we receive the goods in an acceptable condition, we will issue a full refund within 14 days.<br /><br />
 
         This policy does not affect your statutory rights.

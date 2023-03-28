@@ -59,7 +59,7 @@ export default function Contact() {
         </div>
       </div>
       <div className={styles.contactContainer}>
-        <p>Email us at: info@justbyemma.com</p>
+        <p>Email us at: <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a></p>
         <div className={styles.socialsContainer}>
           <p>Social Media:</p>
           <div className={f.social}>
