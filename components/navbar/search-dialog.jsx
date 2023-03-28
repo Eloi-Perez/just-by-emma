@@ -85,7 +85,7 @@ export default function SearchDialog({ children }) {
                     .map((item, key) => (
                       <Link key={key} className={s.search_results_item} href={`/shop/${item._id}`}>
                         <Image
-                          src={`/backend/img/${item.images[0].filename}`}
+                          src={`/backend/img/products/${item.images[0].filename}`}
                           alt="product image"
                           width={100}
                           height={100}
