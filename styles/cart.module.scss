@@ -91,3 +91,11 @@
 .subtotal {
   padding: 20px;
 }
+
+.empty {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
