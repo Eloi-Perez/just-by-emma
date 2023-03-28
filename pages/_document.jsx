@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en-GB">
       <Head>
         {/* title and viewport on head-content.js*/}
-        <meta name="description" content=""></meta>
+        <meta name="description" content="" />
 
         {/* Temp, removes error during development */}
         <link rel="icon" href="data:," />

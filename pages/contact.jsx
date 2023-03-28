@@ -4,7 +4,6 @@ import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
 import { Button } from '../components/UI/button/button.styles'
 import { Facebook, Instagram } from '../components/UI/svg'
-// import s from '../styles/home.module.scss'
 import f from '../components/footer/footer.module.scss'
 import styles from '../styles/contact.module.scss'
 
@@ -35,11 +34,12 @@ export default function Contact() {
         setMessage('')
         setAlert('Sent!')
       } else {
-        console.log(response)
-        setAlert(response.message)
+        // console.log(response)
+        setAlert('error, try again later')
       }
     } catch (error) {
-      console.error('An unexpected error happened:', error)
+      // console.error('An unexpected error happened:', error)
+      setAlert('error, try again later')
     }
   }
 
@@ -59,7 +59,7 @@ export default function Contact() {
         </div>
       </div>
       <div className={styles.contactContainer}>
-        <p>Email us at: info@justbyemma.com</p>
+        <p>Email us at: <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a></p>
         <div className={styles.socialsContainer}>
           <p>Social Media:</p>
           <div className={f.social}>

@@ -12,8 +12,7 @@ export default function Privacy() {
         on-Sea, Essex, United Kingdom. We are also known as the data
         controller. We sell natural skincare products through the internet. The
         www.justbyemma.com website, is owned and operated by us. Any
-        questions relating to data protection should be directed to:
-        info@justbyemma.com<br /><br />
+        questions relating to data protection should be directed to: <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a><br /><br />
 
         THE INFORMATION WE COLLECT AND HOW WE USE IT<br /><br />
 
@@ -35,15 +34,14 @@ export default function Privacy() {
         We would like to contact you to let you know of our new products and
         any offers we may be running. This will usually be the form of our latest
         newsletter via email using mail services such as Mailchimp. If at any
-        time you no longer wish to receive emails or SMS, please email
-        info@justbyemma.com to make your request for removal or write to us
+        time you no longer wish to receive emails or SMS, please email <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a> to make your request for removal or write to us
         at the below address.<br /><br />
 
         We may use product reviews or testimonials on our website or social
         media pages. If at any time you wish this information to be removed,
         erased or not used in any such way please make this clear in your
         communication with us or write to us at the address below or email us
-        at info@justbyemma.com<br /><br />
+        at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a><br /><br />
 
         We may use your data to provide you with targeted advertisements or
         marketing communications we believe may be of interest to you.<br /><br />
@@ -66,7 +64,7 @@ export default function Privacy() {
         and/or on our websites. If at any time you wish this information to be
         removed, erased or not used in any such way please make this clear in
         your communication with us or write to us at the address below or
-        email us at info@justbyemma.com.<br /><br />
+        email us at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a>.<br /><br />
 
         5) Device information<br /><br />
 
@@ -132,19 +130,19 @@ export default function Privacy() {
 
         You have the right to ask us what personal data we hold about you. If at
         any time you wish to exercise this right you can contact us by writing to
-        us at our address below or email us at info@justbyemma.com. To
+        us at our address below or email us at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a>. To
         protect your privacy and security we may need to verify your identity
         before sharing this information.<br /><br />
 
         You have the right to ask us to update or amend any out of date or
         incorrect data. If at any time you wish to amend your data you can
-        contact us by emailing us at info@justbyemma.com. To protect your
+        contact us by emailing us at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a>. To protect your
         privacy and security we may need to verify your identity before making
         amendments.<br /><br />
 
         You have the right to ask us to delete the data we hold about you. If at
         any time you wish to exercise this right you can contact us by emailing
-        us at info@justbyemma.com. If you wish to remove your Just by Emma
+        us at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a>. If you wish to remove your Just by Emma
         account, this can be done via the &apos;My Account, Privacy Tools&apos; function.
         To protect your privacy and security we may need to verify your identity
         before deleting your data.<br /><br />
@@ -247,7 +245,7 @@ export default function Privacy() {
 
         If you wish to do this, please email us at:<br /><br />
 
-        info@justbyemma.com or write to us at:<br /><br />
+        <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a> or write to us at:<br /><br />
 
         Just by Emma<br />
         20 Maple Avenue<br />

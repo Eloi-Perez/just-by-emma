@@ -73,7 +73,7 @@ export default function Legal() {
         FAULTY OR DAMAGED PRODUCT RETURNS<br /><br />
 
         If the products are faulty, damaged in transport or misdescribed,
-        please email us at info@justbyemma.com and we will arrange for the
+        please email us at <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a> and we will arrange for the
         products to be returned to us as soon as possible.<br /><br />
 
         All returns should include a note with an explanation of reason for the
@@ -122,7 +122,7 @@ export default function Legal() {
         COMPLAINTS:<br /><br />
 
         Should you wish to inform us of a complaint please email<br />
-        info@justbyemma.com.<br /><br />
+        <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a>.<br /><br />
 
         GENERAL INFORMATION:<br /><br />
 

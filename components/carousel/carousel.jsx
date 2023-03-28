@@ -28,13 +28,13 @@ export default function Carousel({ images }) {
         <Image
           src={`/backend/img/products/${images[currentImage].filename}`}
           key={images[currentImage].filename}
-          alt=""
+          alt="product image"
           width={250}
           height={250}
-          style={{ objectFit: 'cover' }}
-          sizes="20vw"
           placeholder="blur"
-          blurDataURL={`/backend/img/products/${images[currentImage].filename}`}
+          blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
+          sizes="20vw"
+          style={{ objectFit: 'cover' }}
         />
       )}
       {images[1] &&

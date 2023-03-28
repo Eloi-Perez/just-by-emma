@@ -21,16 +21,28 @@ export default function Admin() {
   const [openAddProduct, setOpenAddProduct] = useState(false)
   const [showNews, setShowNews] = useState(false)
   const [showIngredients, setShowIngredients] = useState(false)
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
-    ; (async function () {
-      if (!(await isAdmin())) {
+    // ; (async function () {
+    //   if (!(await isAdmin())) {
+    //     router.push('/')
+    //   } else {
+    //     fetchProducts()
+    //     fetchIngredients()
+    //     setLoading(false)
+    //   }
+    // })()
+    isAdmin().then(result => {
+      if (!result) {
         router.push('/')
+      } else {
+        setLoading(false)
+        fetchProducts()
+        fetchIngredients()
       }
-    })()
-    fetchProducts()
-    fetchIngredients()
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -61,6 +73,8 @@ export default function Admin() {
       return false
     }
   }
+
+  if (loading) return (<h1>Loading...</h1>)
 
   return (
     <>

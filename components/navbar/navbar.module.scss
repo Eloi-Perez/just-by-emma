@@ -101,7 +101,7 @@ button.dialog_close svg {
   position: fixed;
   top: 0;
   right: 0;
-  width: 500px;
+  width: 400px;
   background: var(--background-color);
   display: flex;
   flex-direction: column;
@@ -136,7 +136,6 @@ button.dialog_close svg {
   }
 
   .search_results {
-    margin-top: 2rem;
     padding: 1rem;
     background: var(--primary-color-transparent);
     display: flex;
@@ -157,6 +156,7 @@ button.dialog_close svg {
         text-align: center;
         width: 100%;
         gap: 1rem;
+        font-weight: 600;
       }
     }
   }
@@ -164,7 +164,7 @@ button.dialog_close svg {
 
 .mobile_menu_dialog_content {
   position: relative;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   // primary color + 0.2 opacity on white bg
   background: rgb(255, 249, 248);
@@ -240,7 +240,7 @@ button.dialog_close svg {
     text-align: unset;
   }
   .search_dialog_content {
-    height: 100vh;
+    height: 100svh;
     width: 100vw;
   }
 }

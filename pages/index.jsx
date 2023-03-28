@@ -11,9 +11,9 @@ import FruitImage from '../public/img/fruits.png'
 import ProductOne from '../public/img/product1.png'
 import ProductTwo from '../public/img/product2.png'
 import ProductThree from '../public/img/product3.png'
-import CustomerOne from '../public/img/customer1.png'
-import CustomerTwo from '../public/img/customer2.png'
-import FiveStars from '../public/img/FiveStars.png'
+import CustomerOne from '../public/img/cu1.png'
+import CustomerTwo from '../public/img/cu2.png'
+import FiveStars from '../public/img/five_star.png'
 import s from '../styles/home.module.scss'
 
 export default function Home() {
@@ -37,6 +37,8 @@ export default function Home() {
             <Image
               src={FruitImage}
               alt="fruits"
+              placeholder="blur"
+              priority
               style={{ width: '1000px', height: 'auto', opacity: '0.5' }}
             />
           </div>
@@ -54,7 +56,7 @@ export default function Home() {
       <h2 className={s.productsHeader}>INCREDIBLE PRODUCTS</h2>
       <div className={s.productsContainer}>
         <div className={s.productContainer}>
-          <Image style={{ margin: '0 auto' }} src={ProductOne} alt="Rejuvenating Facial Oil" />
+          <Image src={ProductOne} alt="Rejuvenating Facial Oil" placeholder="blur" style={{ margin: '0 auto' }} />
           <h2 className={s.productHeader}>Rejuvenating Facial Oil;</h2>
           <p className={s.productParagraph}>
             A light facial oil to help repair damaged skin, including Omega 5 fatty acids and
@@ -64,7 +66,7 @@ export default function Home() {
           </p>
         </div>
         <div className={s.productContainer}>
-          <Image src={ProductTwo} alt="he Full Facial Gift Box" />
+          <Image src={ProductTwo} alt="he Full Facial Gift Box" placeholder="blur" />
           <h2 className={s.productHeader}>The Full Facial Gift Box;</h2>
           <p className={s.productParagraph}>The gift box includes the following:</p>
           <p className={s.productParagraph}>
@@ -75,7 +77,7 @@ export default function Home() {
           </p>
         </div>
         <div className={s.productContainer}>
-          <Image src={ProductThree} alt="The Mini Facial Gift Box" />
+          <Image src={ProductThree} alt="The Mini Facial Gift Box" placeholder="blur" />
           <h2 className={s.productHeader}>The Mini Facial Gift Box;</h2>
           <p className={s.productParagraph}>
             Mini sized facial products. A facial in a box. Sample all four facial products in one
@@ -101,13 +103,13 @@ export default function Home() {
       <div className={s.customersContainer}>
         <div className={s.reviewContainer}>
           <div className={s.infoContainer}>
-            <Image src={CustomerOne} alt="customer profile" />
+            <Image src={CustomerOne} alt="customer profile" placeholder="blur" />
             <div>
               <p className={s.customerName}>Claire</p>
               <p className={s.customerRating}>
                 5.0
                 <span>
-                  <Image src={FiveStars} alt="rating" />
+                  <Image src={FiveStars} alt="rating" placeholder="blur" />
                 </span>
               </p>
             </div>
@@ -119,13 +121,13 @@ export default function Home() {
         </div>
         <div className={s.reviewContainer}>
           <div className={s.infoContainer}>
-            <Image src={CustomerTwo} alt="customer profile" />
+            <Image src={CustomerTwo} alt="customer profile" placeholder="blur" />
             <div>
               <p className={s.customerName}>Claire</p>
               <p className={s.customerRating}>
                 5.0
                 <span>
-                  <Image src={FiveStars} alt="rating" />
+                  <Image src={FiveStars} alt="rating" placeholder="blur" />
                 </span>
               </p>
             </div>

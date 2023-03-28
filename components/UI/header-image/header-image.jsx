@@ -9,9 +9,11 @@ export default function HeaderImage() {
       <Image
         src={header_img}
         alt="Photo Showcase of the range of products on a pink background"
+        placeholder="blur"
+        sizes="100vw"
         fill
-        style={{ objectFit: 'none', objectPosition: 'bottom 0px right 0px' }}
         priority
+        style={{ objectFit: 'none', objectPosition: 'bottom 0px right 0px' }}
       />
     </div>
   )

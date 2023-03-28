@@ -4,7 +4,7 @@ import { Logo } from '../UI/svg'
 import { Button } from '../UI/button/button.styles'
 import s from './login-register.module.scss'
 
-export default function Login({ close }) {
+export default function Login({ setAlert, close }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -24,17 +24,18 @@ export default function Login({ close }) {
       if (call.ok) {
         setEmail('')
         setPassword('')
-        console.log(response)
-        // setAlert('logged in!')
+        // console.log(response)
+        setAlert('logged in!')
         localStorage.setItem('credentials', response.token)
         // Close Dialog
         close()
       } else {
-        console.log(response)
-        // setAlert(response.message)
+        // console.log(response)
+        setAlert('error')
       }
     } catch (error) {
-      console.error('An unexpected error happened:', error)
+      // console.error('An unexpected error happened:', error)
+      setAlert('error')
     }
   }
 

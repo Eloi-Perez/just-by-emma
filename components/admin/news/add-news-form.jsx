@@ -58,10 +58,11 @@ export default function AddNewsForm({update}) {
         console.log(responseRevalidate)
       } else {
         console.log(response)
-        setAlert(response.message)
+        setAlert('error')
       }
     } catch (error) {
       console.error('An unexpected error happened:', error)
+      setAlert('error')
     }
   }
 
