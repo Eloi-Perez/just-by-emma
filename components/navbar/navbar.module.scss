@@ -164,7 +164,7 @@ button.dialog_close svg {
 
 .mobile_menu_dialog_content {
   position: relative;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   // primary color + 0.2 opacity on white bg
   background: rgb(255, 249, 248);
@@ -240,7 +240,7 @@ button.dialog_close svg {
     text-align: unset;
   }
   .search_dialog_content {
-    height: 100vh;
+    height: 100svh;
     width: 100vw;
   }
 }
