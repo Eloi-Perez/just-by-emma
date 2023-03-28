@@ -79,3 +79,16 @@
   display: flex;
   justify-content: center;
 }
+
+/* Mobile */
+@media only screen and (max-width: 800px) {
+  .content {
+    height: 100vh;
+    width: 100vw;
+    min-width: 0;
+  }
+  .button_section {
+    margin: auto 0 2rem 0;
+    padding-top: 1rem;
+  }
+}
