@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { CartContext } from '../../contexts/cart-context'
+import QuantityButton from '../UI/quantity-button/quantity-button'
+import { Button } from '../UI/button/button.styles'
 import SideCartDialog from './side-cart-dialog'
 import s from './side-cart.module.scss'
 
@@ -48,40 +50,45 @@ export default function SideCart() {
         {cart &&
           cart.map((item) =>
             item.quantities.map((variant, i) => (
-              <div key={i}>
+              <div className={s.item} key={i}>
                 <Image
                   src={`/backend/img/products/${item.product.images[0].filename}`}
                   alt="product image"
-                  width={100}
-                  height={100}
+                  width={130}
+                  height={130}
                   placeholder="blur"
                   blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
                   sizes="20vw"
                   priority
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', borderRadius: '50%' }}
                 />
-                <h3>{item.product.name}</h3>
-                <p>
-                  {variant.size}{' '}
-                  {item.product.sizes[0].price ?
-                    toCurrency(item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price) : 'error'
-                  }
-                </p>
-                <button onClick={() => handleSub(item.id, variant.size)}>Subtract</button>
-                <span> {variant.quantity} </span>
-                <button onClick={() => handleAdd(item.id, variant.size)}>Add</button>
-                <div>
-                  {toCurrency(item.product.sizes[0].price && item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price * variant.quantity)}
+                <div className={s.right}>
+                  <p>{item.product.name}<br />
+                    {variant.size}{' '}
+                    {item.product.sizes[0].price ?
+                      toCurrency(item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price) : 'error'
+                    }
+                  </p>
+                  <div className={s.quantity}>
+                    <QuantityButton
+                      variant={variant}
+                      item={item}
+                      handleAdd={handleAdd}
+                      handleSub={handleSub}
+                    />
+                  </div>
                 </div>
-                <hr />
+                {/* <div>
+                  {toCurrency(item.product.sizes[0].price && item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price * variant.quantity)}
+                </div> */}
               </div>
             ))
           )}
-        <div>Subtotal {toCurrency(subtotal)}</div>
+        <div className={s.subtotal}>Subtotal<br />{toCurrency(subtotal)}</div>
       </div>
       <div className={s.button_section}>
         <Link href="/cart">
-          <button autoFocus>View Cart</button>
+          <Button primaryColor autoFocus>View Cart</Button>
         </Link>
       </div>
     </SideCartDialog>

@@ -14,8 +14,8 @@
 
 .close {
   position: absolute;
-  top: 17px;
-  left: 15px;
+  top: 30px;
+  left: 30px;
   // remove button styles
   padding: 0;
   font-size: 1.6rem;
@@ -25,7 +25,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  min-width: 300px;
+  min-width: 400px;
   background: var(--background-color);
   display: flex;
   flex-direction: column;
@@ -35,15 +35,47 @@
 
 .title {
   align-self: center;
+  margin: 2rem;
 }
 
 .item_list {
   background: var(--primary-color-transparent);
-  padding: 0 20px;
+  padding: 1rem 1rem;
+}
+
+.item {
+  display: flex;
+  gap: 0.5rem;
+  // justify-items: center;
+  margin-bottom: 2rem;
+}
+
+.right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  & > p {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    font-weight: 600;
+  }
+}
+
+.quantity {
+  align-self: center;
+}
+
+.subtotal {
+  margin: 4rem 4rem 0 1.5rem;
+  border: 1px solid;
+  padding: 1rem;
+  background-color: #fff;
+  font-size: 1.4rem;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .button_section {
-  padding: 20px 20px;
+  margin: 2rem 0;
   display: flex;
   justify-content: center;
 }
