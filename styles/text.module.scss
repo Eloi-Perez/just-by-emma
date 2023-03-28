@@ -6,3 +6,10 @@
     color: #ff52e3;
   }
 }
+
+/* Mobile */
+@media only screen and (max-width: 800px) {
+  .box {
+    text-align: center;
+  }
+}
