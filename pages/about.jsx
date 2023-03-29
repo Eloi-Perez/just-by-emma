@@ -5,7 +5,7 @@ import Link from 'next/link'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import SkinCareSection from '../components/skincare-routine/skincare-routine'
 import { Button } from '../components/UI/button/button.styles'
-import s from '../styles/home.module.scss'
+import s from '../styles/about.module.scss'
 
 export default function About() {
   return (
@@ -42,10 +42,10 @@ export default function About() {
         </div>
         <EmmaImage />
       </div>
-      <div className={'story_content'}>
-        <div className={'story_text_container'}>
-          <h2 className={'story_title'}>MY STORY</h2>
-          <p className={'story_text'}>
+      <div className={s.story_content}>
+        <div className={s.story_text_container}>
+          <h2 className={s.story_title}>MY STORY</h2>
+          <p className={s.story_text}>
             It all started a few years back when I hit the age of 40 and my skin really started to
             change. Hormonal pimples, dry patches, oily patches... all of those things you thought
             you&apos;d left behind in your teens... All the products I used never seemed to help my
@@ -72,12 +72,12 @@ export default function About() {
           </p>
         </div>
       </div>
-      <h2 className="skincare_title">Skincare Routine in 4 Steps</h2>
+      <h2 className={s.skincare_title}>Skincare Routine in 4 Steps</h2>
       <div>
         <SkinCareSection />
       </div>
-      <div className="about_button_container">
-        <Image src={ByEmma} alt="By emma signature" />
+      <div className={s.about_button_container}>
+        <Image src={ByEmma} alt="By emma signature" placeholder="blur" />
         <Link href="/shop">
           <Button style={{ width: '390px', display: 'block', marginBottom: '20px;' }} primaryColor>
             Shop Now
