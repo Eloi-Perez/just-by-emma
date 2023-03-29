@@ -30,7 +30,7 @@ export default function About() {
             reputable suppliers who have clear ethical policies.
             <br />
             <br />
-            See our Ingredients page for more information....
+            See our <Link href={'/ingredients'}>Ingredients</Link> page for more information....
             <br />
             <br />
             Just by Emma also believes in being completely transparent about each ingredient
