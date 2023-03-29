@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import PictureOne from '../../public/img/skincare1.png'
-import PictureTwo from '../../public/img/skincare2.png'
+import PictureTwo from '../../public/img/skincare2.jpg'
 import PictureThree from '../../public/img/skincare3.png'
 import PictureFour from '../../public/img/skincare4.png'
 import s from './skincare-routine.module.scss'
