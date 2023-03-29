@@ -1,19 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { Button } from '../components/UI/button/button.styles'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
-// import IngredientsSection from '../components/UI/skincare-routine/skincare-routine'
 import SkinCareSection from '../components/skincare-routine/skincare-routine'
-
 import FruitImage from '../public/img/fruits.png'
-import ProductOne from '../public/img/product1.png'
-import ProductTwo from '../public/img/product2.png'
-import ProductThree from '../public/img/product3.png'
+import ProductOne from '../public/img/product1.jpg'
+import ProductTwo from '../public/img/product2.jpg'
+import ProductThree from '../public/img/product3.jpg'
 import CustomerOne from '../public/img/cu1.png'
 import CustomerTwo from '../public/img/cu2.png'
 import FiveStars from '../public/img/five_star.png'
+import ByEmma from '../public/img/ByEmma.png'
 import s from '../styles/home.module.scss'
 
 export default function Home() {
@@ -24,27 +22,31 @@ export default function Home() {
         <div className={'header_text_container'}>
           <h1 className={'header_title'}>THE JUST BY EMMA ETHOS</h1>
           <p className={'header_text'}>
-            The Just by Emma ethos is about formulating products which focus on making your skincare routine natural, simple and including ingredients which contain tremendous benefits for your skin.<br />
-            All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is mainly glass and aluminium which can be fully recycled.<br />
-            Ingredients are sourced from local suppliers wherever possible but always from reputable suppliers who have clear ethical policies.
+            The Just by Emma ethos is about formulating products which focus on making your skincare
+            routine natural, simple and including ingredients which contain tremendous benefits for
+            your skin.
+            <br />
+            All products are handmade locally in small batches, in Leigh-on-Sea and our packaging is
+            mainly glass and aluminium which can be fully recycled.
+            <br />
+            Ingredients are sourced from local suppliers wherever possible but always from reputable
+            suppliers who have clear ethical policies.
           </p>
         </div>
         <EmmaImage />
       </div>
       <div>
-        <div className={s.ingredientsContainer}>
-          <div style={{ width: '850px', overflow: 'hidden' }}>
-            <Image
-              src={FruitImage}
-              alt="fruits"
-              placeholder="blur"
-              priority
-              style={{ width: '1000px', height: 'auto', opacity: '0.5' }}
-            />
-          </div>
-          <div className={s.ingredientsTextContainer}>
-            <h2 className={s.ingredientsHeader}>OUR INGREDIENTS</h2>
-            <p className={s.ingredientsText}>
+        <div className={s.ingredients_container}>
+          <Image
+            src={FruitImage}
+            alt="fruits"
+            placeholder="blur"
+            priority
+            style={{ width: '750px', height: 'auto', opacity: '0.5' }}
+          />
+          <div className={s.ingredients_text_container}>
+            <h2 className={s.ingredients_header}>OUR INGREDIENTS</h2>
+            <p className={s.ingredients_text}>
               Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils.
             </p>
             <Link href="/ingredients">
@@ -53,37 +55,52 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <h2 className={s.productsHeader}>INCREDIBLE PRODUCTS</h2>
-      <div className={s.productsContainer}>
-        <div className={s.productContainer}>
-          <Image src={ProductOne} alt="Rejuvenating Facial Oil" placeholder="blur" style={{ margin: '0 auto' }} />
-          <h2 className={s.productHeader}>Rejuvenating Facial Oil;</h2>
-          <p className={s.productParagraph}>
+      <h2 className={s.products_header}>INCREDIBLE PRODUCTS</h2>
+      <div className={s.products_container}>
+        <div className={s.product_container}>
+          <Image
+            src={ProductOne}
+            className={s.image}
+            alt="Rejuvenating Facial Oil"
+            placeholder="blur"
+          />
+          <h2 className={s.product_header}>Rejuvenating Facial Oil;</h2>
+          <p className={s.product_paragraph}>
             A light facial oil to help repair damaged skin, including Omega 5 fatty acids and
             anti-aging properties to fend of free radicals. Formulated using 100% natural, simple
             ingredients rich in antioxidants to help calm, balance, boost, nourish, rejuvenating and
             revitalising your skin
           </p>
         </div>
-        <div className={s.productContainer}>
-          <Image src={ProductTwo} alt="he Full Facial Gift Box" placeholder="blur" />
-          <h2 className={s.productHeader}>The Full Facial Gift Box;</h2>
-          <p className={s.productParagraph}>The gift box includes the following:</p>
-          <p className={s.productParagraph}>
+        <div className={s.product_container}>
+          <Image
+            src={ProductTwo}
+            className={s.image}
+            alt="Full Facial Gift Box"
+            placeholder="blur"
+          />
+          <h2 className={s.product_header}>The Full Facial Gift Box;</h2>
+          <p className={s.product_paragraph}>The gift box includes the following:</p>
+          <p className={s.product_paragraph}>
             Glass mask mixing bowl So Eco mask brush applicator Bamboo face cloth Wooden spoon (for
             the balm) The 4 Step Skincare Routine full sized products: Nourishing Beauty Balm 50ml
             Detoxifying Face Mask 20g Regenerating Face Cream 50ml Rejuvenating Facial Oil 50ml
             Information insert giving guidance on the &apos;4 step Skincare Routine&apos;
           </p>
         </div>
-        <div className={s.productContainer}>
-          <Image src={ProductThree} alt="The Mini Facial Gift Box" placeholder="blur" />
-          <h2 className={s.productHeader}>The Mini Facial Gift Box;</h2>
-          <p className={s.productParagraph}>
+        <div className={s.product_container}>
+          <Image
+            src={ProductThree}
+            className={s.image}
+            alt="The Mini Facial Gift Box"
+            placeholder="blur"
+          />
+          <h2 className={s.product_header}>The Mini Facial Gift Box;</h2>
+          <p className={s.product_paragraph}>
             Mini sized facial products. A facial in a box. Sample all four facial products in one
             handy gift box. Great for gifts. The gift box includes the following:
           </p>
-          <p className={s.productParagraph}>
+          <p className={s.product_paragraph}>
             Natural mini canvas draw string gift bag, Bamboo face cloth,Wooden spoon (for the balm)
             The 4 Step Skincare Routine mini sized products: Nourishing Beauty Balm 15ml Detoxifying
             Face Mask 5g Regenerating Face Cream 15ml Rejuvenating Facial Oil 10ml Information
@@ -91,22 +108,22 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className={s.buttonContainer}>
+      <div className={s.button_container}>
         <Link href="/shop">
           <Button style={{ width: '390px' }} primaryColor>
             Shop Now
           </Button>
         </Link>
-        <Button style={{ width: '390px' }}>Sing up for 10% Discount</Button>
+        <Button style={{ width: '390px' }}>Sign up for 10% Discount</Button>
       </div>
-      <h2 className={s.customersHeader}>What our Customers Say</h2>
-      <div className={s.customersContainer}>
-        <div className={s.reviewContainer}>
-          <div className={s.infoContainer}>
+      <h2 className={s.customers_header}>What our Customers Say</h2>
+      <div className={s.customers_container}>
+        <div className={s.review_container}>
+          <div className={s.info_container}>
             <Image src={CustomerOne} alt="customer profile" placeholder="blur" />
             <div>
-              <p className={s.customerName}>Claire</p>
-              <p className={s.customerRating}>
+              <p className={s.customer_name}>Claire</p>
+              <p className={s.customer_rating}>
                 5.0
                 <span>
                   <Image src={FiveStars} alt="rating" placeholder="blur" />
@@ -119,12 +136,12 @@ export default function Home() {
             lasts a really long time as the cream is nice and rich. Love it.
           </p>
         </div>
-        <div className={s.reviewContainer}>
-          <div className={s.infoContainer}>
+        <div className={s.review_container}>
+          <div className={s.info_container}>
             <Image src={CustomerTwo} alt="customer profile" placeholder="blur" />
             <div>
-              <p className={s.customerName}>Claire</p>
-              <p className={s.customerRating}>
+              <p className={s.customer_name}>Claire</p>
+              <p className={s.customer_rating}>
                 5.0
                 <span>
                   <Image src={FiveStars} alt="rating" placeholder="blur" />
@@ -138,20 +155,21 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className={s.reviewButton}>
+      <div className={s.review_button}>
         <Button style={{ width: '430px' }} primaryColor>
           More Reviews
         </Button>
       </div>
       <h2 style={{ fontSize: '2.5rem', marginBottom: '100px' }}>Skincare Routine in 4 Steps</h2>
       <SkinCareSection />
-      <div className={s.buttonContainer}>
+      <Image src={ByEmma} alt="Emma signature" style={{ margin: '0 auto' }} />
+      <div className={s.button_container}>
         <Link href="/shop">
           <Button style={{ width: '390px' }} primaryColor>
             Shop Now
           </Button>
         </Link>
-        <Button style={{ width: '390px' }}>Sing up for 10% Discount</Button>
+        <Button style={{ width: '390px' }}>Sign up for 10% Discount</Button>
       </div>
     </>
   )

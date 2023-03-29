@@ -1,25 +1,25 @@
 // OUR INGREDIENTS SECTION
 
-.ingredientsContainer {
+.ingredients_container {
   display: flex;
   width: 100vw;
   // height: 90vh;
   background-color: var(--primary-color);
 }
 
-.ingredientsTextContainer {
+.ingredients_text_container {
   text-align: center;
   margin: 0 auto;
   opacity: none;
   width: 40%;
 }
 
-.ingredientsHeader {
+.ingredients_header {
   margin: 100px 0;
   font-size: 2.5rem;
 }
 
-.ingredientsText {
+.ingredients_text {
   font-size: 1.75rem;
   letter-spacing: 1.2;
   margin: 0 auto;
@@ -28,7 +28,13 @@
 
 // INCREDIBLE PRODUCTS SECTION
 
-.productsContainer {
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.products_container {
   display: flex;
   width: 100vw;
   max-width: 1200px;
@@ -37,22 +43,22 @@
   justify-content: space-evenly;
 }
 
-.productContainer {
+.product_container {
   display: flex;
   flex-direction: column;
   width: 25%;
 }
 
-.productsHeader {
+.products_header {
   text-align: center;
   margin: 100px 0;
   font-size: 2.5rem;
 }
-.productHeader {
+.product_header {
   font-size: 2rem;
 }
 
-.productParagraph {
+.product_paragraph {
   width: 100%;
   font-size: 20px;
   font-family: var(--main-font);
@@ -60,7 +66,7 @@
 
 // BUTTON STYLES
 
-.buttonContainer {
+.button_container {
   display: flex;
   justify-content: flex-end;
   margin: 100px 150px 100px 0px;
@@ -71,12 +77,12 @@
 
 // CUSTOMER REVIEW SECTION
 
-.customersHeader {
+.customers_header {
   text-align: center;
   font-size: 2.5rem;
 }
 
-.customersContainer {
+.customers_container {
   display: flex;
   margin: 50px 0;
   justify-content: space-around;
@@ -85,7 +91,7 @@
   max-width: 1200px;
 }
 
-.reviewContainer {
+.review_container {
   width: 598px;
   height: 364px;
   border-radius: 20px;
@@ -94,24 +100,24 @@
   padding: 20px;
 }
 
-.infoContainer {
+.info_container {
   display: flex;
   font-size: 2rem;
   gap: 40px;
 }
 
-.customerName {
+.customer_name {
   padding: 0;
 }
 
-.customerRating {
+.customer_rating {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: -30px;
 }
 
-.reviewButton {
+.review_button {
   width: 76vw;
   display: flex;
   justify-content: flex-end;
