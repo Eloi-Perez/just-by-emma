@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 
 import { CartContext } from '../contexts/cart-context'
 
-// import s from '../styles/success.module.scss'
+import s from '../styles/cart.module.scss'
 
 export default function Success() {
   const { setCart } = useContext(CartContext)
@@ -13,9 +13,9 @@ export default function Success() {
   }, [])
 
   return (
-    <>
-      <h2>Thank You ! For Shopping With Just By Emma</h2>
+    <div className={s.empty}>
+      <h2>Thank You !<br />For Shopping With Just By Emma</h2>
       <p>Your order is being processed and an email will be sent to you shortly.</p>
-    </>
+    </div>
   )
 }
