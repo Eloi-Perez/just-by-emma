@@ -30,9 +30,8 @@ export default function Register({ setAlert, toLogin }) {
         setEmail('')
         setPassword('')
         // console.log(response)
-        setAlert('Created!')
+        setAlert('Created! Check your email!')
         toLogin()
-        // TODO add message about having to verify email
       } else {
         // console.log(response)
         // setAlert(response.message ? response.message : 'error')
