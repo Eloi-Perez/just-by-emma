@@ -9,6 +9,7 @@ export default function Register({ setAlert, toLogin }) {
   const [surname, setSurname] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -40,6 +41,15 @@ export default function Register({ setAlert, toLogin }) {
     } catch (error) {
       // console.error('An unexpected error happened:', error)
       setAlert('error')
+    }
+  }
+
+  const handleConfirmPassword = async (e) => {
+    setConfirmPassword(e.target.value)
+    if (password !== e.target.value) {
+      e.target.setCustomValidity(`Passwords dont't match`)
+    } else {
+      e.target.setCustomValidity('')
     }
   }
 
@@ -93,6 +103,15 @@ export default function Register({ setAlert, toLogin }) {
               title="The password should be between 6 and 20 characters, include numbers, uppercase, lowercase and one of: @$!%*?&"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <input
+              className={s.input}
+              type="password"
+              placeholder="Confirm Password"
+              name="confirm-password"
+              value={confirmPassword}
+              onChange={(e) => handleConfirmPassword(e)}
               required
             />
             <div className={s.buttonContainer}>
