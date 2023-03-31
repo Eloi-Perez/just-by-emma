@@ -25,23 +25,29 @@
   font-size: 1.1rem;
   font-weight: 700;
   line-height: 30px;
-  letter-spacing: 0em;
   text-align: center;
-  color: #4b4b4b;
 }
 .title {
   text-align: center;
   font-size: 32px;
-  line-height: 32px;
-  letter-spacing: 0em;
-  color: #4b4b4b;
   text-transform: uppercase;
+  margin-bottom: 4rem;
+}
+.login_title {
+  margin-bottom: 0;
+}
+.login_subtitle {
+  margin-bottom: 4rem;
 }
 .form {
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: var(--background-color);
+  & > :nth-child(1) {
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+  }
 }
 .hr {
   width: 386px;

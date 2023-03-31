@@ -50,8 +50,8 @@ export default function Login({ setAlert, close }) {
             A natural skincare range. Just simple natural ingredients, lovingly handmade.
             Keeping your skincare routine simple and natural
           </p>
-          <p className={s.title}>Sign in</p>
-          <p>Welcome again please sign in</p>
+          <p className={[s.title, s.login_title].join(' ')}>Sign in</p>
+          <p className={s.login_subtitle}>Welcome back, please sign in below:</p>
           <form className={s.form} onSubmit={handleSubmit}>
             <input
               className={s.input}
