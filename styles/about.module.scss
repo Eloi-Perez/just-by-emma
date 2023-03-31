@@ -28,11 +28,13 @@
 
 .skincare_title {
   text-align: center;
-  font-size: 2.25rem;
+  font-size: 2rem;
+  font-weight: 400;
   margin-bottom: 100px;
 }
 
-.about_button_container {
+.about_button_container,
+.signature_image_container {
   margin-top: 20px;
   width: 900px;
   display: flex;
@@ -40,4 +42,43 @@
   gap: 30px;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+/* Mobile */
+@media only screen and (max-width: 800px) {
+  .story_content {
+    align-items: center;
+    .story_text_container {
+      text-align: center;
+      .story_text {
+        width: unset;
+      }
+    }
+  }
+  .signature_image_container {
+    width: 100%;
+    .signature_image {
+      width: 225px;
+      height: 100px;
+    }
+  }
+
+  .skincare_title {
+    margin-bottom: 20px;
+  }
+  .about_button_container {
+    width: unset;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .story_content {
+    max-width: 100%;
+    .story_text_container {
+      .story_text {
+        width: unset;
+      }
+    }
+  }
 }

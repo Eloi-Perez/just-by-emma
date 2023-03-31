@@ -76,14 +76,21 @@ export default function About() {
       <div>
         <SkinCareSection />
       </div>
+      <div className={s.signature_image_container}>
+        <Image
+          className={s.signature_image}
+          src={ByEmma}
+          alt="By emma signature"
+          placeholder="blur"
+        />
+      </div>
       <div className={s.about_button_container}>
-        <Image src={ByEmma} alt="By emma signature" placeholder="blur" />
         <Link href="/shop">
-          <Button style={{ width: '390px', display: 'block', marginBottom: '20px;' }} primaryColor>
+          <Button style={{ fontSize: '1.5rem' }} primaryColor>
             Shop Now
           </Button>
         </Link>
-        <Button style={{ width: '390px' }}>Sign up for 10% Discount</Button>
+        <Button>Sign up for 10% Discount</Button>
       </div>
     </>
   )
