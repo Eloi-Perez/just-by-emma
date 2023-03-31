@@ -26,3 +26,12 @@ button.close {
   right: 15px;
   font-size: 1.4rem;
 }
+
+/* Mobile */
+@media only screen and (max-width: 800px) {
+  .content {
+    position: absolute;
+    min-height: 100svh;
+    width: 100vw;
+  }
+}
