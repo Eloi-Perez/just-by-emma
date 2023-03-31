@@ -7,7 +7,7 @@ import { Button } from '../../components/UI/button/button.styles'
 
 import s from '../../styles/my-account.module.scss'
 
-export default function About() {
+export default function Verify() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
