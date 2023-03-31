@@ -20,7 +20,7 @@ export const Button = style.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 250px;
+  width: 390px;
 
   &:active,
   &:hover {
@@ -29,6 +29,16 @@ export const Button = style.button`
 
   &:hover {
     opacity:0.5;
+  }
+
+  @media (max-width: 800px) {
+    width:320px;
+    font-size:1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    width:230px;
+    font-size:1rem;
   }
   
 }
