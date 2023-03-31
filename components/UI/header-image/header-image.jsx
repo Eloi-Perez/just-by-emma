@@ -10,10 +10,10 @@ export default function HeaderImage() {
         src={header_img}
         alt="Photo Showcase of the range of products on a pink background"
         placeholder="blur"
-        sizes="100vw"
+        sizes="(max-width: 800px) 150vw,
+               100vw"
         fill
         priority
-        style={{ objectFit: 'none', objectPosition: 'bottom 0px right 0px' }}
       />
     </div>
   )

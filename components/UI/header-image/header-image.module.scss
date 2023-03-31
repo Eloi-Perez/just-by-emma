@@ -2,4 +2,18 @@
   position: relative;
   width: 100vw;
   height: 30vw;
+  img {
+    object-fit: none;
+    object-position: bottom 0px right 0px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .root {
+    width: 150vw;
+    height: 40vw;
+    img {
+      object-fit: cover;
+    }
+  }
 }
