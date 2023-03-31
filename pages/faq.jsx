@@ -20,7 +20,7 @@ export default function Legal() {
 
         <h3>I&apos;ve forgotten my password, how do I reset it?</h3>
 
-        <del>How will we do this?</del>
+        Click on &quot;Forgotten password ?&quot; on the Sign in page.
 
         <h3>Do you provide free samples?</h3>
 
