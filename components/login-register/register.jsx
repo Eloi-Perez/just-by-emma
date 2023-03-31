@@ -30,6 +30,7 @@ export default function Register({ setAlert, toLogin }) {
         setSurname('')
         setEmail('')
         setPassword('')
+        setConfirmPassword('')
         // console.log(response)
         setAlert('Created! Check your email!')
         toLogin()
@@ -61,7 +62,7 @@ export default function Register({ setAlert, toLogin }) {
             <Logo />
           </div>
           <p className={s.description}>
-            A natural skincare range. Just simple 100% natural ingredients, lovingly handmade.
+            A natural skincare range. Just simple natural ingredients, lovingly handmade.
             Keeping your skincare routine simple and natural
           </p>
           <p className={s.title}>Create Account</p>

@@ -47,7 +47,7 @@ export default function Login({ setAlert, close }) {
             <Logo />
           </div>
           <p className={s.description}>
-            A natural skincare range. Just simple 100% natural ingredients, lovingly handmade.
+            A natural skincare range. Just simple natural ingredients, lovingly handmade.
             Keeping your skincare routine simple and natural
           </p>
           <p className={s.title}>Sign in</p>
@@ -55,7 +55,7 @@ export default function Login({ setAlert, close }) {
           <form className={s.form} onSubmit={handleSubmit}>
             <input
               className={s.input}
-              type="text"
+              type="email"
               placeholder="Email"
               name="email"
               value={email}
