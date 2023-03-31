@@ -2,21 +2,22 @@ import { useState } from 'react'
 
 import Login from './login'
 import Register from './register'
+import Reset from './reset'
 import { Button } from '../UI/button/button.styles'
 import s from './login-register.module.scss'
 
 export default function LoginRegister({ close }) {
-  const [registerActive, setRegisterActive] = useState(false)
+  const [screenSelector, setScreenSelector] = useState('login')
   const [alert, setAlert] = useState('')
 
   return (
     <div className={s.root}>
-      {!registerActive && (
+      {screenSelector === 'login' && (
         <>
-          <Login setAlert={setAlert} close={close} />
+          <Login setAlert={setAlert} close={close} toReset={() => setScreenSelector('reset')} />
           <Button className={s.registerButton}
             onClick={() => {
-              setRegisterActive(true)
+              setScreenSelector('register')
               setAlert('')
             }}
           >
@@ -24,21 +25,26 @@ export default function LoginRegister({ close }) {
           </Button>
         </>
       )}
-      {registerActive && (
+      {screenSelector === 'register' && (
         <>
-          <Register setAlert={setAlert} toLogin={() => setRegisterActive(false)} />
+          <Register setAlert={setAlert} toLogin={() => setScreenSelector('login')} />
           <a
             href="#"
             className={s.back_login}
             onClick={(e) => {
               e.preventDefault()
-              setRegisterActive(false)
+              setScreenSelector('login')
               setAlert('')
             }}
           >
             Already have an account?
           </a>
         </>
+      )}
+      {screenSelector === 'reset' && (
+        // <>
+          <Reset setAlert={setAlert} toLogin={() => setScreenSelector('login')} />
+        // </>
       )}
       {alert && <h3>{alert}</h3>}
     </div>

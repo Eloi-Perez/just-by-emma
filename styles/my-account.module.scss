@@ -1,3 +1,4 @@
+// verify page
 .message {
   height: 40vh;
   display: flex;
@@ -7,6 +8,43 @@
   text-align: center;
 }
 
-.button_container{
+.button_container {
   margin-top: 2rem;
+}
+
+// password reset page
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > :nth-child(1) {
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+  }
+}
+
+.input {
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+}
+.input::placeholder {
+  position: absolute;
+  font-size: 1rem;
+}
+
+.button_container button {
+  width: unset;
 }
