@@ -42,9 +42,20 @@ export default function LoginRegister({ close }) {
         </>
       )}
       {screenSelector === 'reset' && (
-        // <>
+        <>
           <Reset setAlert={setAlert} toLogin={() => setScreenSelector('login')} />
-        // </>
+          <a
+            href="#"
+            className={s.back_login}
+            onClick={(e) => {
+              e.preventDefault()
+              setScreenSelector('login')
+              setAlert('')
+            }}
+          >
+            Back to Log in
+          </a>
+        </>
       )}
       {alert && <h3>{alert}</h3>}
     </div>
