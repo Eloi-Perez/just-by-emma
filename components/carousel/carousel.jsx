@@ -24,19 +24,22 @@ export default function Carousel({ images }) {
 
   return (
     <div className={s.root}>
-      {images[0] && (
-        <Image
-          src={`/backend/img/products/${images[currentImage].filename}`}
-          key={images[currentImage].filename}
-          alt="product image"
-          width={250}
-          height={250}
-          placeholder="blur"
-          blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
-          sizes="20vw"
-          style={{ objectFit: 'cover' }}
-        />
-      )}
+      {images[0] &&
+        images.map((e, i) => {
+          if (i === currentImage)
+            return <Image
+              src={`/backend/img/products/${e.filename}`}
+              key={e.filename}
+              alt="product image"
+              width={250}
+              height={250}
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
+              sizes="20vw"
+              style={{ objectFit: 'cover' }}
+            />
+        })
+      }
       {images[1] &&
         <>
           <button className={[s.arrow_left, 'resetButton'].join(' ')} onClick={() => prevImg()}><Left /></button>
