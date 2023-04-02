@@ -70,7 +70,7 @@ export default function CheckoutButton() {
   return (
     <form onSubmit={checkout}>
       {/* <form action="/api/checkout_sessions" method="POST"> */}
-      <Button type="submit" role="link" primaryColor>
+      <Button style={{ width: '250px', marginTop: '10px' }} type="submit" role="link" primaryColor>
         Checkout
       </Button>
       <h3>{alert}</h3>

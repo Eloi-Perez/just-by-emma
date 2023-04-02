@@ -63,7 +63,7 @@ export default function Cart() {
           {cart &&
             cart.map((item) =>
               item.quantities.map((variant, i) => (
-                <div key={i} className={styles.itemContainer}>
+                <div key={i} className={styles.item_container}>
                   <Link href={`/shop/${item.id}`}>
                     <Image
                       src={`/backend/img/products/${item.product.images[0].filename}`}
@@ -77,15 +77,18 @@ export default function Cart() {
                       style={{ objectFit: 'cover', borderRadius: '50%', marginRight: '50px' }}
                     />
                   </Link>
-                  <div className={styles.lineContainer}>
-                    <div className={styles.descriptionContainer}>
+                  <div className={styles.line_container}>
+                    <div className={styles.description_container}>
                       <h3>{item.product.name}</h3>
                       <p>
                         {variant.size}{' '}
-                        {
-                          item.product.sizes[0].price ? toCurrency(item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)]
-                            .price) : 'error'
-                        }
+                        {item.product.sizes[0].price
+                          ? toCurrency(
+                              item.product.sizes[
+                                item.product.sizes.findIndex((e) => e.name === variant.size)
+                              ].price
+                            )
+                          : 'error'}
                       </p>
                     </div>
                     <QuantityButton
@@ -94,8 +97,12 @@ export default function Cart() {
                       handleAdd={handleAdd}
                       handleSub={handleSub}
                     />
-                    <div>
-                      {toCurrency(item.product.sizes[item.product.sizes.findIndex((e) => e.name === variant.size)].price * variant.quantity)}
+                    <div className={styles.item_cost}>
+                      {toCurrency(
+                        item.product.sizes[
+                          item.product.sizes.findIndex((e) => e.name === variant.size)
+                        ].price * variant.quantity
+                      )}
                     </div>
                     <button
                       className={styles.button}
@@ -108,11 +115,11 @@ export default function Cart() {
               ))
             )}
         </div>
-        <div className={styles.checkoutContainer}>
-          <div className={styles.orderContainer}>
-            <h3 className={styles.orderHeader}>Your Order ({nItems} items)</h3>
+        <div className={styles.checkout_container}>
+          <div className={styles.order_container}>
+            <h3 className={styles.order_header}>Your Order ({nItems} items)</h3>
             <hr className={styles.hr} />
-            <div className={styles.itemizedList}>
+            <div className={styles.itemized_list}>
               <div className={styles.merchandise}>
                 Merchandise <span className={styles.float}>{toCurrency(merchandiseTotal)}</span>
               </div>
@@ -129,11 +136,13 @@ export default function Cart() {
       </div>
     )
   } else {
-    return <div className={styles.empty}>
-      <h2>Cart is empty</h2>
-      <Link href="/shop">
-        <Button primaryColor>Shop Now</Button>
-      </Link>
+    return (
+      <div className={styles.empty}>
+        <h2>Cart is empty</h2>
+        <Link href="/shop">
+          <Button primaryColor>Shop Now</Button>
+        </Link>
       </div>
+    )
   }
 }
