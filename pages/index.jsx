@@ -4,7 +4,7 @@ import { Button } from '../components/UI/button/button.styles'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import HeaderImage from '../components/UI/header-image/header-image'
 import SkinCareSection from '../components/skincare-routine/skincare-routine'
-import FruitImage from '../public/img/fruits.png'
+import FruitImage from '../public/img/fruit.png'
 import ProductOne from '../public/img/product1.jpg'
 import ProductTwo from '../public/img/product2.jpg'
 import ProductThree from '../public/img/product3.jpg'
@@ -35,88 +35,91 @@ export default function Home() {
         </div>
         <EmmaImage />
       </div>
-      <div>
-        <div className={s.ingredients_container}>
-          <Image
-            src={FruitImage}
-            alt="fruits"
-            placeholder="blur"
-            priority
-            style={{ width: '750px', height: 'auto', opacity: '0.5' }}
-          />
+      <div className={s.mobile_element_reorder}>
+        <div className={s.container}>
           <div className={s.ingredients_text_container}>
-            <h2 className={s.ingredients_header}>OUR INGREDIENTS</h2>
+            <h2 className={s.header}>OUR INGREDIENTS</h2>
             <p className={s.ingredients_text}>
               Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils.
             </p>
             <Link href="/ingredients">
-              <Button style={{ margin: '150px auto', width: '410px' }}>Learn More</Button>
+              <Button className={s.ingredients_button}>Learn More</Button>
             </Link>
           </div>
-        </div>
-      </div>
-      <h2 className={s.products_header}>INCREDIBLE PRODUCTS</h2>
-      <div className={s.products_container}>
-        <div className={s.product_container}>
           <Image
-            src={ProductOne}
-            className={s.image}
-            alt="Rejuvenating Facial Oil"
+            className={s.fruits_image}
+            src={FruitImage}
+            alt="fruits"
             placeholder="blur"
+            priority
           />
-          <h2 className={s.product_header}>Rejuvenating Facial Oil;</h2>
-          <p className={s.product_paragraph}>
-            A light facial oil to help repair damaged skin, including Omega 5 fatty acids and
-            anti-aging properties to fend of free radicals. Formulated using 100% natural, simple
-            ingredients rich in antioxidants to help calm, balance, boost, nourish, rejuvenating and
-            revitalising your skin
-          </p>
         </div>
-        <div className={s.product_container}>
-          <Image
-            src={ProductTwo}
-            className={s.image}
-            alt="Full Facial Gift Box"
-            placeholder="blur"
-          />
-          <h2 className={s.product_header}>The Full Facial Gift Box;</h2>
-          <p className={s.product_paragraph}>The gift box includes the following:</p>
-          <p className={s.product_paragraph}>
-            Glass mask mixing bowl So Eco mask brush applicator Bamboo face cloth Wooden spoon (for
-            the balm) The 4 Step Skincare Routine full sized products: Nourishing Beauty Balm 50ml
-            Detoxifying Face Mask 20g Regenerating Face Cream 50ml Rejuvenating Facial Oil 50ml
-            Information insert giving guidance on the &apos;4 step Skincare Routine&apos;
-          </p>
-        </div>
-        <div className={s.product_container}>
-          <Image
-            src={ProductThree}
-            className={s.image}
-            alt="The Mini Facial Gift Box"
-            placeholder="blur"
-          />
-          <h2 className={s.product_header}>The Mini Facial Gift Box;</h2>
-          <p className={s.product_paragraph}>
-            Mini sized facial products. A facial in a box. Sample all four facial products in one
-            handy gift box. Great for gifts. The gift box includes the following:
-          </p>
-          <p className={s.product_paragraph}>
-            Natural mini canvas draw string gift bag, Bamboo face cloth,Wooden spoon (for the balm)
-            The 4 Step Skincare Routine mini sized products: Nourishing Beauty Balm 15ml Detoxifying
-            Face Mask 5g Regenerating Face Cream 15ml Rejuvenating Facial Oil 10ml Information
-            insert giving guidance on the &apos;4 step care Routine&apos;
-          </p>
+        <div style={{ marginBottom: '50px' }}>
+          <h2 className={s.header}>INCREDIBLE PRODUCTS</h2>
+          <div className={s.products_container}>
+            <div className={s.product_container}>
+              <Image
+                src={ProductOne}
+                className={s.image}
+                alt="Rejuvenating Facial Oil"
+                placeholder="blur"
+              />
+              <h2 className={s.product_header}>Rejuvenating Facial Oil;</h2>
+              <p className={s.product_paragraph}>
+                A light facial oil to help repair damaged skin, including Omega 5 fatty acids and
+                anti-aging properties to fend of free radicals. Formulated using 100% natural,
+                simple ingredients rich in antioxidants to help calm, balance, boost, nourish,
+                rejuvenating and revitalising your skin
+              </p>
+            </div>
+            <div className={s.product_container}>
+              <Image
+                src={ProductTwo}
+                className={s.image}
+                alt="Full Facial Gift Box"
+                placeholder="blur"
+              />
+              <h2 className={s.product_header}>The Full Facial Gift Box;</h2>
+              <p className={s.product_paragraph}>The gift box includes the following:</p>
+              <p className={s.product_paragraph}>
+                Glass mask mixing bowl So Eco mask brush applicator Bamboo face cloth Wooden spoon
+                (for the balm) The 4 Step Skincare Routine full sized products: Nourishing Beauty
+                Balm 50ml Detoxifying Face Mask 20g Regenerating Face Cream 50ml Rejuvenating Facial
+                Oil 50ml Information insert giving guidance on the &apos;4 step Skincare
+                Routine&apos;
+              </p>
+            </div>
+            <div className={s.product_container}>
+              <Image
+                src={ProductThree}
+                className={s.image}
+                alt="The Mini Facial Gift Box"
+                placeholder="blur"
+              />
+              <h2 className={s.product_header}>The Mini Facial Gift Box;</h2>
+              <p className={s.product_paragraph}>
+                Mini sized facial products. A facial in a box. Sample all four facial products in
+                one handy gift box. Great for gifts. The gift box includes the following:
+              </p>
+              <p className={s.product_paragraph}>
+                Natural mini canvas draw string gift bag, Bamboo face cloth,Wooden spoon (for the
+                balm) The 4 Step Skincare Routine mini sized products: Nourishing Beauty Balm 15ml
+                Detoxifying Face Mask 5g Regenerating Face Cream 15ml Rejuvenating Facial Oil 10ml
+                Information insert giving guidance on the &apos;4 step care Routine&apos;
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div className={s.button_container}>
         <Link href="/shop">
-          <Button style={{ width: '390px' }} primaryColor>
+          <Button style={{ fontSize: '1.5rem' }} primaryColor>
             Shop Now
           </Button>
         </Link>
-        <Button style={{ width: '390px' }}>Sign up for 10% Discount</Button>
+        <Button>Sign up for 10% Discount</Button>
       </div>
-      <h2 className={s.customers_header}>What our Customers Say</h2>
+      <h2 className={s.customers_header}>WHAT OUR CUSTOMERS SAY</h2>
       <div className={s.customers_container}>
         <div className={s.review_container}>
           <div className={s.info_container}>
@@ -160,16 +163,18 @@ export default function Home() {
           More Reviews
         </Button>
       </div>
-      <h2 style={{ fontSize: '2.5rem', marginBottom: '100px' }}>Skincare Routine in 4 Steps</h2>
+      <h2 className={s.header}>Skincare Routine in 4 Steps</h2>
       <SkinCareSection />
-      <Image src={ByEmma} alt="Emma signature" style={{ margin: '0 auto' }} />
+      <div className={s.signature_image_container}>
+        <Image className={s.signature_image} src={ByEmma} alt="Emma signature" />
+      </div>
       <div className={s.button_container}>
         <Link href="/shop">
-          <Button style={{ width: '390px' }} primaryColor>
+          <Button style={{ fontSize: '1.5rem' }} primaryColor>
             Shop Now
           </Button>
         </Link>
-        <Button style={{ width: '390px' }}>Sign up for 10% Discount</Button>
+        <Button>Sign up for 10% Discount</Button>
       </div>
     </>
   )
