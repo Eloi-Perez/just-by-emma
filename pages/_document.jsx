@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en-GB">
       <Head>
         {/* title and viewport on head-content.js*/}
-        <meta name="description" content="" />
+        <meta name="description" content="Just by Emma, natural and simple skincare products, hand made using fully compliant and tested, unique formulations, with amazing benefits for your skin." />
 
         {/* Temp, removes error during development */}
         <link rel="icon" href="data:," />
@@ -23,8 +23,8 @@ export default function Document() {
         <meta property="og:image:height" content="533" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="" />
-        <meta property="og:title" content="" />
-        <meta property="og:description" content="" /> */}
+        <meta property="og:title" content="" />*/}
+        <meta property="og:description" content="Just by Emma, natural and simple skincare products, hand made using fully compliant and tested, unique formulations, with amazing benefits for your skin." />
       </Head>
       <body>
         <Main />
