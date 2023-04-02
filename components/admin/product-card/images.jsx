@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useContext, useEffect } from 'react'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 import { ProductsContext } from '../../../contexts/products-context'
 
@@ -65,12 +65,12 @@ export default function Images({ product }) {
       {images[0] && images.map((img, i) => (
         <div key={img._id}>
           <div className={s.img_container}>
-            <Image src={`/backend/img/products/${img.filename}`}
+            <img src={`/backend/img/products/${img.filename}`}
               alt="product image"
-              width={100}
-              height={100}              
-              placeholder="blur"
-              blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
+              width='100px'
+              height='100px'
+              // placeholder="blur"
+              // blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
               style={{ objectFit: 'cover' }}
             />
           </div>
