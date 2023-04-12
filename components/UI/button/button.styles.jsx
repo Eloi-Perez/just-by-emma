@@ -37,8 +37,9 @@ export const Button = style.button`
   }
 
   @media (max-width: 600px) {
-    width:230px;
-    font-size:1rem;
+    height:30px;
+    width:185px;
+    font-size:.7rem;
   }
   
 }
