@@ -10,7 +10,6 @@ import s from '../styles/about.module.scss'
 export default function About() {
   return (
     <>
-      <HeaderImage />
       <div className={'header_content'}>
         <div className={'header_text_container'}>
           <h1 className={'header_title'}>ABOUT</h1>
