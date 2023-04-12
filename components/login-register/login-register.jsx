@@ -15,7 +15,8 @@ export default function LoginRegister({ close }) {
       {screenSelector === 'login' && (
         <>
           <Login setAlert={setAlert} close={close} toReset={() => setScreenSelector('reset')} />
-          <Button className={s.registerButton}
+          <Button
+            className={s.registerButton}
             onClick={() => {
               setScreenSelector('register')
               setAlert('')
