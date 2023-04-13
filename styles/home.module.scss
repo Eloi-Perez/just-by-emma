@@ -9,47 +9,57 @@
   text-align: center;
 }
 
+.header {
+  margin-bottom: 75px;
+}
+
 .product_header {
   text-align: none;
 }
 
 .customers_header {
   margin-top: 50px;
+  margin-bottom: 75px;
 }
 // OUR INGREDIENTS SECTION
 
 .container {
   display: flex;
   flex-direction: row-reverse;
-  width: 100vw;
-  margin-bottom: 50px;
-  background-color: var(--primary-color);
+  gap: 50px;
+  margin-bottom: 75px;
+  width: 1350px;
 }
 
 .fruits_image {
-  width: 55%;
+  width: 650px;
   height: auto;
-  opacity: 0.5;
+  border-radius: 20px;
+  opacity: 0.9;
 }
 
 .ingredients_text_container {
   background-color: var(--primary-color);
   text-align: center;
   margin: 0 auto;
-  width: 598px;
+  width: 650px;
   padding: 50px;
   height: auto;
+  border-radius: 20px;
 }
 
 .ingredients_text {
-  font-size: 1.75rem;
+  width: 70%;
+  text-align: center;
+  font-size: 2rem;
   letter-spacing: 1.2;
   margin: 75px auto;
+  letter-spacing: 3px;
 }
 
-.ingredients_button {
-  margin: 150px auto;
-  width: 410px;
+button.ingredients_button {
+  margin: 0 auto;
+  width: 300px;
 }
 
 // INCREDIBLE PRODUCTS SECTION
@@ -63,10 +73,10 @@
 .products_container {
   display: flex;
   width: 100vw;
-  max-width: 1200px;
+  max-width: 1350px;
   margin: 0 auto;
-  gap: 30px;
-  justify-content: space-evenly;
+  gap: 70px;
+  justify-content: space-around;
 }
 
 .product_container {
@@ -85,13 +95,21 @@
 // BUTTON STYLES
 
 .button_container,
-.signature_image_container {
+.signature_image_container,
+.signature_button_container {
   margin-top: 20px;
-  width: 80%;
+  width: 95%;
   display: flex;
   gap: 30px;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-bottom: 75px;
+}
+
+.signature_image_container,
+.signature_button_container {
+  width: 80%;
+  max-width: 1200px;
 }
 
 // CUSTOMER REVIEW SECTION
@@ -112,6 +130,7 @@
   background-color: var(--primary-color);
   font-size: 1.75rem;
   padding: 20px;
+  margin-bottom: 50px;
 }
 
 .info_container {
@@ -136,7 +155,7 @@
   display: flex;
   justify-content: flex-end;
   max-width: 1200px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 800px) {

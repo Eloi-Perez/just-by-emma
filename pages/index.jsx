@@ -36,24 +36,6 @@ export default function Home() {
         <EmmaImage />
       </div>
       <div className={s.mobile_element_reorder}>
-        <div className={s.container}>
-          <div className={s.ingredients_text_container}>
-            <h2 className={s.header}>OUR INGREDIENTS</h2>
-            <p className={s.ingredients_text}>
-              Simple & Natural Oils, Butters, Botanical Extracts & Essential Oils.
-            </p>
-            <Link href="/ingredients">
-              <Button className={s.ingredients_button}>Learn More</Button>
-            </Link>
-          </div>
-          <Image
-            className={s.fruits_image}
-            src={FruitImage}
-            alt="fruits"
-            placeholder="blur"
-            priority
-          />
-        </div>
         <div style={{ marginBottom: '50px' }}>
           <h2 className={s.header}>INCREDIBLE PRODUCTS</h2>
           <div className={s.products_container}>
@@ -110,14 +92,33 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div className={s.button_container}>
-        <Link href="/shop">
-          <Button style={{ fontSize: '1.5rem' }} primaryColor>
-            Shop Now
-          </Button>
-        </Link>
-        <Button>Sign up for 10% Discount</Button>
+        <div className={s.button_container}>
+          <Link href="/shop">
+            <Button style={{ fontSize: '1.5rem' }} primaryColor>
+              Shop Now
+            </Button>
+          </Link>
+          <Button>Sign up for 10% Discount</Button>
+        </div>
+        <div className={s.container}>
+          <div className={s.ingredients_text_container}>
+            <h2 className={s.header}>OUR INGREDIENTS</h2>
+            <p className={s.ingredients_text}>
+              Our Ingredients Are a Selection of Simple & Natural Oils, Butters, Botanical Extracts
+              & Essential Oils. Tailored To Each individual Product
+            </p>
+            <Link href="/ingredients">
+              <Button className={s.ingredients_button}>Learn More</Button>
+            </Link>
+          </div>
+          <Image
+            className={s.fruits_image}
+            src={FruitImage}
+            alt="fruits"
+            placeholder="blur"
+            priority
+          />
+        </div>
       </div>
       <h2 className={s.customers_header}>WHAT OUR CUSTOMERS SAY</h2>
       <div className={s.customers_container}>
@@ -168,7 +169,7 @@ export default function Home() {
       <div className={s.signature_image_container}>
         <Image className={s.signature_image} src={ByEmma} alt="Emma signature" />
       </div>
-      <div className={s.button_container}>
+      <div className={s.signature_button_container}>
         <Link href="/shop">
           <Button style={{ fontSize: '1.5rem' }} primaryColor>
             Shop Now

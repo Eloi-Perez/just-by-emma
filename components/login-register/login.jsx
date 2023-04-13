@@ -47,8 +47,8 @@ export default function Login({ setAlert, close, toReset }) {
             <Logo />
           </div>
           <p className={s.description}>
-            A natural skincare range. Just simple natural ingredients, lovingly handmade.
-            Keeping your skincare routine simple and natural
+            A natural skincare range. Just simple natural ingredients, lovingly handmade. Keeping
+            your skincare routine simple and natural
           </p>
           <p className={[s.title, s.login_title].join(' ')}>Sign in</p>
           <p className={s.login_subtitle}>Welcome back, please sign in below:</p>

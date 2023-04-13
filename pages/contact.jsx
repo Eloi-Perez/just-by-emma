@@ -45,7 +45,6 @@ export default function Contact() {
 
   return (
     <>
-      <HeaderImage />
       <div className={'header_content'}>
         <div className={'header_text_container'}>
           <h1 className={'header_title'}>CONTACT</h1>
@@ -59,7 +58,9 @@ export default function Contact() {
         </div>
       </div>
       <div className={styles.contactContainer}>
-        <p>Email us at: <a href='mailto:Emma<info@justbyemma.com>'>info@justbyemma.com</a></p>
+        <p>
+          Email us at: <a href="mailto:Emma<info@justbyemma.com>">info@justbyemma.com</a>
+        </p>
         <div className={styles.socialsContainer}>
           <p>Social Media:</p>
           <div className={f.social}>
@@ -72,8 +73,7 @@ export default function Contact() {
           </div>
         </div>
         <p className={styles.text}>
-          For direct message please put your details
-          and questions in the lines below.
+          For direct message please put your details and questions in the lines below.
         </p>
 
         <form className={styles.form} onSubmit={handleSubmit}>

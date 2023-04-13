@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Josefin Sans";
-  src: url("../public/fonts/JosefinSans.woff2") format("woff2");
+  font-family: 'Josefin Sans';
+  src: url('../public/fonts/JosefinSans.woff2') format('woff2');
   font-display: swap;
 }
 
@@ -10,7 +10,7 @@
   --background-color: #fffcfc;
   --link-color: #ff52e3;
   --font-color: #4b4b4b;
-  --main-font: "Josefin Sans", sans-serif;
+  --main-font: 'Josefin Sans', sans-serif;
   --border: 1px solid black;
   --white-bg: #fff;
 }
@@ -69,8 +69,8 @@ a {
 }
 
 button,
-[type="button"],
-[type="submit"],
+[type='button'],
+[type='submit'],
 input::file-selector-button {
   cursor: pointer;
 }
