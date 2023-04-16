@@ -94,9 +94,7 @@ export default function Home() {
         </div>
         <div className={s.button_container}>
           <Link href="/shop">
-            <Button style={{ fontSize: '1.5rem' }} primaryColor>
-              Shop Now
-            </Button>
+            <Button primaryColor>Shop Now</Button>
           </Link>
           <Button>Sign up for 10% Discount</Button>
         </div>
@@ -108,7 +106,9 @@ export default function Home() {
               & Essential Oils. Tailored To Each individual Product
             </p>
             <Link href="/ingredients">
-              <Button className={s.ingredients_button}>Learn More</Button>
+              <Button className={s.ingredients_button} style={{ fontSize: '1.5rem' }}>
+                Learn More
+              </Button>
             </Link>
           </div>
           <Image
@@ -160,9 +160,7 @@ export default function Home() {
         </div>
       </div>
       <div className={s.review_button}>
-        <Button style={{ width: '430px' }} primaryColor>
-          More Reviews
-        </Button>
+        <Button primaryColor>More Reviews</Button>
       </div>
       <h2 className={s.header}>Skincare Routine in 4 Steps</h2>
       <SkinCareSection />

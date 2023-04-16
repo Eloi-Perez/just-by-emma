@@ -11,7 +11,7 @@ export const Button = style.button`
   cursor: pointer;
   display: flex;
   font-family: var(--main-font);
-  font-size:  ${(props) => (props.md ? '1rem' : '1.75rem')};
+  font-size:  ${(props) => (props.primaryColor ? '1.5rem' : '1rem')};
   justify-content: center;
   line-height: 28px;
   padding: 14px 22px;
@@ -20,7 +20,7 @@ export const Button = style.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 390px;
+  width: 250px;
 
   &:active,
   &:hover {
@@ -31,15 +31,10 @@ export const Button = style.button`
     opacity:0.5;
   }
 
-  @media (max-width: 800px) {
-    width:320px;
-    font-size:1.5rem;
-  }
-
   @media (max-width: 600px) {
-    height:30px;
-    width:185px;
-    font-size:.7rem;
+    width:200px;
+    font-size: ${(props) => (props.primaryColor ? '1.5rem' : '.7rem')};
+    
   }
   
 }
