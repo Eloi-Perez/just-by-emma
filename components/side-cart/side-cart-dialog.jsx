@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import { CartContext } from '../../contexts/cart-context'
-import { Right } from '../UI/svg'
+import { ArrowRight } from '../UI/svg'
 import s from './side-cart.module.scss'
 
 export default function SideCartDialog({ trigger, children }) {
@@ -37,7 +37,7 @@ export default function SideCartDialog({ trigger, children }) {
       <D.Portal>
         <D.Overlay className={s.overlay}>
           <D.Content className={s.content}>
-            <D.Close className={['resetButton', s.close].join(' ')}><Right /></D.Close>
+            <D.Close className={['resetButton', s.close].join(' ')}><ArrowRight /></D.Close>
             <D.Title className={s.title}>Cart</D.Title>
             {children}
           </D.Content>
