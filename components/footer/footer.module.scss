@@ -66,11 +66,13 @@
     border-width: 1px 0;
     border-style: solid;
     border-color: black;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
     padding: none;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
 
@@ -102,5 +104,13 @@
     justify-content: center;
     margin: 10px auto;
     gap: 10px;
+  }
+
+  .social {
+    align-items: center;
+  }
+
+  .copyright {
+    align-items: center;
   }
 }

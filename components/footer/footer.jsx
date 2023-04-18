@@ -41,12 +41,12 @@ export default function Footer() {
     <footer>
       <div className={s.root}>
         <div className={s.support}>
-          <div className={s.category_name} onClick={toggleSupport}>
+          <button className={`${s.category_name} resetButton`} onClick={toggleSupport}>
             SUPPORT
             {/* <span>
               <Image className={s.arrow} src={UpArrow} />
             </span> */}
-          </div>
+          </button>
           <div className={`${s.links} ${supportVisible ? s.visible : ''}`}>
             <Link href="/contact">Contact</Link>
             <Link href="/faq">FAQ&apos;s</Link>
@@ -57,12 +57,12 @@ export default function Footer() {
           </div>
         </div>
         <div className={s.discover}>
-          <div className={s.category_name} onClick={toggleDiscover}>
+          <button className={`${s.category_name} resetButton`} onClick={toggleDiscover}>
             DISCOVER
             {/* <span>
               <Image className={s.arrow} src={UpArrow} />
             </span> */}
-          </div>
+          </button>
           <div className={`${s.links} ${discoverVisible ? s.visible : ''}`}>
             <Link href="/reviews">Our Reviews</Link>
             <Link href="/recycling">Recycling & Packaging</Link>
@@ -71,12 +71,12 @@ export default function Footer() {
           </div>
         </div>
         <div className={s.info}>
-          <div className={s.category_name} onClick={toggleInfo}>
+          <button className={`${s.category_name} resetButton`}onClick={toggleInfo}>
             INFO
             {/* <span>
               <Image className={s.arrow} src={UpArrow} />
             </span> */}
-          </div>
+          </button>
           <div className={`${s.links} ${infoVisible ? s.visible : ''}`}>
             <Link href="/stockist">Stockist</Link>
             <Link href="/news">News</Link>
