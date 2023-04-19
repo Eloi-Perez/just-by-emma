@@ -54,7 +54,6 @@
   font-size: 2rem;
   letter-spacing: 1.2;
   margin: 75px auto;
-  letter-spacing: 3px;
 }
 
 button.ingredients_button {
@@ -159,9 +158,18 @@ button.ingredients_button {
 }
 
 @media only screen and (max-width: 800px) {
+  .header {
+    margin: 20px auto;
+  }
+
+  .customers_header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   .fruits_image {
     margin: 0 auto;
-    width: 598px;
+    width: 450px;
     height: auto;
     border-radius: 20px;
   }
@@ -178,17 +186,76 @@ button.ingredients_button {
   .ingredients_text_container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    width: 598px;
+    gap: 10px;
+    width: 450px;
     height: auto;
     border-radius: 20px;
     background-color: var(--primary-color);
     font-size: 1.75rem;
     padding: 25px;
+    .header {
+      margin-bottom: 10px;
+    }
   }
 
   .ingredients_text {
-    margin: 20px auto;
+    width: 90%;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 1.2;
+    margin: 25px auto;
+  }
+
+  .image {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+  }
+
+  .products_container {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+    gap: 70px;
+    justify-content: space-around;
+  }
+
+  .product_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+  }
+
+  .review_container {
+    width: 450px;
+    height: 364px;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    font-size: 1.75rem;
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+
+  .button_container,
+  .signature_image_container,
+  .signature_button_container,
+  .more_reviews,
+  .customers_container,
+  .review_container,
+  .review_button,
+  .container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .review_button {
+    width: 450px;
+    justify-content: flex-end;
+  }
+
+  .product_header {
+    font-size: 1.25rem;
   }
 
   .ingredients_button {
@@ -208,10 +275,6 @@ button.ingredients_button {
   .customers_container {
     width: unset;
     flex-direction: column;
-  }
-
-  .review_button {
-    width: 600px;
   }
 
   .mobile_element_reorder {
