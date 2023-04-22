@@ -1,4 +1,3 @@
-import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import ProductCard from '../components/product-card/product-card'
 import s from '../styles/shop.module.scss'
@@ -6,10 +5,10 @@ import s from '../styles/shop.module.scss'
 export default function Shop({ arrayProducts }) {
   return (
     <>
-      <div className={s.header_content}>
-        <div className={s.header_text_container}>
-          <h1 className={s.header_title}>THE JUST BY EMMA SHOP</h1>
-          <p className={s.header_text}>
+      <div className={'header_content'}>
+        <div className={'header_text_container'}>
+          <h1 className={'header_title'}>THE JUST BY EMMA SHOP</h1>
+          <p className={'header_text'}>
             Our ethos is about producing naturally formulated products which focus on keeping your
             skincare routine natural and simple (with minimal wastage.)
             <br />
