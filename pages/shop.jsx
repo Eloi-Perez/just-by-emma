@@ -1,12 +1,10 @@
-import HeaderImage from '../components/UI/header-image/header-image'
 import EmmaImage from '../components/UI/emma-image/emma-image'
 import ProductCard from '../components/product-card/product-card'
-// import s from '../styles/shop.module.scss'
+import s from '../styles/shop.module.scss'
 
 export default function Shop({ arrayProducts }) {
   return (
     <>
-      {/* <HeaderImage /> */}
       <div className={'header_content'}>
         <div className={'header_text_container'}>
           <h1 className={'header_title'}>THE JUST BY EMMA SHOP</h1>
@@ -22,6 +20,7 @@ export default function Shop({ arrayProducts }) {
         </div>
         <EmmaImage />
       </div>
+
       {arrayProducts.map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}

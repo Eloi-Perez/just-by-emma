@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { CartContext } from '../../contexts/cart-context'
 import Carousel from '../../components/carousel/carousel'
 
-// import s from '../../styles/shop.module.scss'
+import s from '../../styles/shop.module.scss'
 
 const toCurrency = (number) => {
   return new Intl.NumberFormat('en-uk', {
@@ -39,7 +39,10 @@ export default function Product({ product }) {
       <h3>{product.name}</h3>
       {product.images[0] && <Carousel images={product.images} />}
       <p>{product.description}</p>
-      <h3>{product.sizes[1] && 'From: '}{toCurrency(product.sizes[0].price)}</h3>
+      <h3>
+        {product.sizes[1] && 'From: '}
+        {toCurrency(product.sizes[0].price)}
+      </h3>
       {product.sizes.length > 1 && (
         <div>
           <div>Size</div>
@@ -66,7 +69,7 @@ export default function Product({ product }) {
       <div>
         <h3>Key Ingredients</h3>
         {/* delete next 2 lines */}
-        <p>list...</p>        
+        <p>list...</p>
         <p>{JSON.stringify(product)}</p>
       </div>
     </>

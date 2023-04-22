@@ -40,3 +40,9 @@
     width: 50%;
   }
 }
+
+@media (max-width: 600px) {
+  .root {
+    width: 450px;
+  }
+}
