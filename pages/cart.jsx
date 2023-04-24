@@ -60,6 +60,7 @@ export default function Cart() {
     return (
       <div className={styles.container}>
         <div>
+          <h2 className={styles.visible}>CHECKOUT</h2>
           {cart &&
             cart.map((item) =>
               item.quantities.map((variant, i) => (
@@ -91,12 +92,14 @@ export default function Cart() {
                           : 'error'}
                       </p>
                     </div>
-                    <QuantityButton
-                      variant={variant}
-                      item={item}
-                      handleAdd={handleAdd}
-                      handleSub={handleSub}
-                    />
+                    <div className={styles.quantity_button_container}>
+                      <QuantityButton
+                        variant={variant}
+                        item={item}
+                        handleAdd={handleAdd}
+                        handleSub={handleSub}
+                      />
+                    </div>
                     <div className={styles.item_cost}>
                       {toCurrency(
                         item.product.sizes[
@@ -104,12 +107,14 @@ export default function Cart() {
                         ].price * variant.quantity
                       )}
                     </div>
-                    <button
-                      className={styles.button}
-                      onClick={() => handleRemove(item.id, variant.size)}
-                    >
-                      <Bin />
-                    </button>
+                    <div>
+                      <button
+                        className={styles.button}
+                        onClick={() => handleRemove(item.id, variant.size)}
+                      >
+                        <Bin />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))
@@ -131,7 +136,17 @@ export default function Cart() {
               Subtotal <span className={styles.float}>{toCurrency(merchandiseTotal + 1100)}</span>
             </div>
           </div>
-          <CheckoutButton />
+          <div className={styles.checkout_button_container}>
+            <CheckoutButton />
+          </div>
+          <div className={styles.button_container}>
+            <Link href="/shop">
+              <Button style={{ fontSize: '1.5rem' }} primaryColor>
+                Shop Now
+              </Button>
+            </Link>
+            <Button>Sign up for 10% Discount</Button>
+          </div>
         </div>
       </div>
     )
