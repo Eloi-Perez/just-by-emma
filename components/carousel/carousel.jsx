@@ -31,19 +31,17 @@ export default function Carousel({ images }) {
               src={`/backend/img/products/${e.filename}`}
               key={e.filename}
               alt="product image"
-              width={250}
-              height={250}
+              fill
               placeholder="blur"
               blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP3g3f///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=="
-              sizes="20vw"
-              style={{ objectFit: 'cover' }}
+              // sizes="20vw"
             />
         })
       }
       {images[1] &&
         <>
           <button className={[s.arrow_left, 'resetButton'].join(' ')} onClick={() => prevImg()}><ArrowLeft /></button>
-        <button className={[s.arrow_right, 'resetButton'].join(' ')} onClick={() => nextImg()}><ArrowRight /></button>
+          <button className={[s.arrow_right, 'resetButton'].join(' ')} onClick={() => nextImg()}><ArrowRight /></button>
         </>
       }
     </div>
