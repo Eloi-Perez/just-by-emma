@@ -1,3 +1,7 @@
+.visible {
+  display: none;
+}
+
 .container {
   background-color: var(--primary-transparent-color);
   display: flex;
@@ -29,7 +33,7 @@
 .item_container {
   height: 100px;
   align-items: center;
-  margin-right: 50px;
+  margin: 0 50px 1rem 0;
 }
 
 .item_cost {
@@ -67,7 +71,15 @@
 .checkout_container {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 450px;
+}
+
+.checkout_button_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
 }
 
 .order_header {
@@ -105,4 +117,66 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.button_container {
+  display: none;
+}
+@media only screen and (max-width: 960px) {
+  .visible {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: var(--main-font);
+    color: var(--font-color);
+    text-align: center;
+  }
+
+  .container {
+    flex-direction: column;
+    max-width: 600px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .checkout_container {
+    width: 60%;
+    height: 750px;
+  }
+
+  .line_container {
+    flex-direction: column;
+    height: auto;
+    margin: 0;
+  }
+
+  .item_container {
+    height: 100%;
+    margin: 0;
+  }
+
+  .button,
+  .item_cost {
+    display: none;
+  }
+
+  .quantity_button_container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .button_container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -130,7 +130,7 @@ export default function Home() {
               <p className={s.customer_rating}>
                 5.0
                 <span>
-                  <Image src={FiveStars} alt="rating" placeholder="blur" />
+                  <Image className={s.five_stars} src={FiveStars} alt="rating" placeholder="blur" />
                 </span>
               </p>
             </div>
@@ -148,7 +148,7 @@ export default function Home() {
               <p className={s.customer_rating}>
                 5.0
                 <span>
-                  <Image src={FiveStars} alt="rating" placeholder="blur" />
+                  <Image className={s.five_stars} src={FiveStars} alt="rating" placeholder="blur" />
                 </span>
               </p>
             </div>
@@ -169,9 +169,7 @@ export default function Home() {
       </div>
       <div className={s.signature_button_container}>
         <Link href="/shop">
-          <Button style={{ fontSize: '1.5rem' }} primaryColor>
-            Shop Now
-          </Button>
+          <Button primaryColor>Shop Now</Button>
         </Link>
         <Button>Sign up for 10% Discount</Button>
       </div>

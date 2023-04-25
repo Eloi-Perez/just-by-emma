@@ -1,9 +1,14 @@
 .root {
   position: relative;
+  height: 250px;
+  min-height: 250px;
+  width: 250px;
+  min-width: 250px;
 }
 
 .root img {
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .arrow_left {
@@ -27,4 +32,13 @@
   text-align: end;
   font-size: 1.5rem;
   font-weight: 900;
+}
+
+@media (max-width: 600px) {
+  .root {
+    height: 125px;
+    min-height: 125px;
+    width: 125px;
+    min-width: 125px;
+  }
 }

@@ -14,7 +14,12 @@ const toCurrency = (number) => {
 export default function ProductCard({ product }) {
   return (
     <div className={s.root}>
-      {product.images[0] && <Carousel images={product.images} />}
+      <div className={s.left_side}>
+        {product.images[0] && <Carousel images={product.images} />}
+        <Link className={s.title_mobile} href={`/shop/${product._id}`}>
+          <h3>{product.name};</h3>
+        </Link>
+      </div>
       <Link className={s.info} href={`/shop/${product._id}`}>
         <h3 className={s.title}>{product.name};</h3>
         <p className={s.description}>{product.description}</p>
