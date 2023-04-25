@@ -141,9 +141,7 @@ export default function Cart() {
           </div>
           <div className={styles.button_container}>
             <Link href="/shop">
-              <Button style={{ fontSize: '1.5rem' }} primaryColor>
-                Shop Now
-              </Button>
+              <Button primaryColor>Shop Now</Button>
             </Link>
             <Button>Sign up for 10% Discount</Button>
           </div>

@@ -123,7 +123,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   .visible {
     display: block;
     text-align: center;
@@ -144,12 +144,17 @@
   }
 
   .checkout_container {
+    width: 60%;
     height: 750px;
   }
 
   .line_container {
     flex-direction: column;
     height: auto;
+  }
+
+  .item_container {
+    margin: 50px auto;
   }
 
   .button,
@@ -171,6 +176,5 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 75px;
   }
 }

@@ -158,8 +158,10 @@ button.ingredients_button {
 }
 
 @media only screen and (max-width: 800px) {
-  .header {
+  .header,
+  .customers_header {
     margin: 20px auto;
+    font-size: 1.5rem;
   }
 
   .customers_header {
@@ -169,7 +171,7 @@ button.ingredients_button {
 
   .fruits_image {
     margin: 0 auto;
-    width: 450px;
+    width: 95%;
     height: auto;
     border-radius: 20px;
   }
@@ -187,7 +189,7 @@ button.ingredients_button {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 450px;
+    width: 95%;
     height: auto;
     border-radius: 20px;
     background-color: var(--primary-color);
@@ -207,16 +209,16 @@ button.ingredients_button {
   }
 
   .image {
-    width: 125px;
-    height: 125px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
   }
 
   .products_container {
     display: flex;
-    width: 600px;
+    width: 95%;
     margin: 0 auto;
-    gap: 70px;
+    gap: 5px;
     justify-content: space-around;
   }
 
@@ -228,13 +230,14 @@ button.ingredients_button {
   }
 
   .review_container {
-    width: 450px;
-    height: 364px;
+    width: 95%;
+    height: auto;
     border-radius: 20px;
     background-color: var(--primary-color);
     font-size: 1.75rem;
     padding: 20px;
     margin-bottom: 50px;
+    margin: 50px auto;
   }
 
   .button_container,
@@ -249,13 +252,17 @@ button.ingredients_button {
     margin-bottom: 20px;
   }
 
+  .review_container {
+    font-size: 1.5rem;
+  }
+
   .review_button {
-    width: 450px;
+    width: 95%;
     justify-content: flex-end;
   }
 
   .product_header {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .ingredients_button {
@@ -287,5 +294,20 @@ button.ingredients_button {
   .signature_image {
     width: 35%;
     height: auto;
+  }
+  .signature_button_container {
+    width: unset;
+  }
+
+  .five_stars {
+    width: 100px;
+    height: auto;
+  }
+
+  .customer_name,
+  .customer_rating {
+    font-size: 1.75rem;
+    margin-right: 20px;
+    padding: 0;
   }
 }

@@ -32,8 +32,8 @@ export const Button = style.button`
   }
 
   @media (max-width: 600px) {
-    width:200px;
-    font-size: ${(props) => (props.primaryColor ? '1.5rem' : '.7rem')};
+    width:150px;
+    font-size: ${(props) => (props.primaryColor ? '1rem' : '.5rem')};
     
   }
   
