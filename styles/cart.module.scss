@@ -33,7 +33,7 @@
 .item_container {
   height: 100px;
   align-items: center;
-  margin-right: 50px;
+  margin: 0 50px 1rem 0;
 }
 
 .item_cost {
@@ -122,8 +122,7 @@
 .button_container {
   display: none;
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 960px) {
   .visible {
     display: block;
     text-align: center;
@@ -142,7 +141,8 @@
     align-items: center;
     gap: 50px;
   }
-
+}
+@media only screen and (max-width: 600px) {
   .checkout_container {
     width: 60%;
     height: 750px;
@@ -151,10 +151,12 @@
   .line_container {
     flex-direction: column;
     height: auto;
+    margin: 0;
   }
 
   .item_container {
-    margin: 50px auto;
+    height: 100%;
+    margin: 0;
   }
 
   .button,
