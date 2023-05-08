@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 
-export default function AddNewsForm({update}) {
+export default function AddNewsForm({ update }) {
   const [image, setImage] = useState(null)
   const [alert, setAlert] = useState('')
   const inputFileRef = useRef(null)
@@ -8,6 +8,14 @@ export default function AddNewsForm({update}) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const credentials = localStorage.getItem('credentials')
+
+    const fileSize = image[0].size
+    if (fileSize > (11 * 1000000)) {
+      setImage(null)
+      inputFileRef.current.value = null
+      setAlert('file size limit is 10 MB')
+      return null
+    }
 
     const imageMeta = {
       ext: image[0].name.split('.').pop(),
@@ -73,7 +81,7 @@ export default function AddNewsForm({update}) {
         <input
           ref={inputFileRef}
           type="file"
-          accept="image/*"
+          accept=".png, .jpg, .jpeg, .webp, .gif"
           onChange={(e) => {
             setImage(e.target.files)
           }}

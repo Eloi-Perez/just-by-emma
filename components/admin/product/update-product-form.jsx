@@ -36,6 +36,16 @@ export default function UpdateProductForm({ id, old }) {
     e.preventDefault()
     const credentials = localStorage.getItem('credentials')
 
+    for (let x = 0; x < images.length; x++) {
+      const fileSize = images[x].size
+      if (fileSize > (11 * 1000000)) {
+        setImages(null)
+        inputFileRef.current.value = null
+        setAlert('file size limit is 10 MB')
+        return null
+      }
+    }
+
     async function resetFetchRevalidate() {
       //reset values
       setImages(null)
@@ -162,7 +172,7 @@ export default function UpdateProductForm({ id, old }) {
         <input
           ref={inputFileRef}
           type="file"
-          accept="image/*"
+          accept=".png, .jpg, .jpeg, .webp"
           multiple
           onChange={(e) => {
             setImages(e.target.files)

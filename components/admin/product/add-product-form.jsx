@@ -16,6 +16,18 @@ export default function AddProductForm() {
     e.preventDefault()
     const credentials = localStorage.getItem('credentials')
 
+    for (let x = 0; x < images.length; x++) {
+      const fileSize = images[x].size
+      console.log(fileSize)
+      if (fileSize > (11 * 1000000)) {
+        setImages(null)
+        inputFileRef.current.value = null
+        setAlert('file size limit is 10 MB')
+        return null
+      }
+    }
+
+
     const priorities = Array.from(Array(images.length).keys())
     let imagesMeta = Array.apply(null, Array(images.length))
     imagesMeta.forEach(
@@ -130,7 +142,7 @@ export default function AddProductForm() {
         <input
           ref={inputFileRef}
           type="file"
-          accept="image/*"
+          accept=".png, .jpg, .jpeg, .webp"
           multiple
           onChange={(e) => {
             setImages(e.target.files)
