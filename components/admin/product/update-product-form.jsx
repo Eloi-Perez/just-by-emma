@@ -36,13 +36,15 @@ export default function UpdateProductForm({ id, old }) {
     e.preventDefault()
     const credentials = localStorage.getItem('credentials')
 
-    for (let x = 0; x < images.length; x++) {
-      const fileSize = images[x].size
-      if (fileSize > (11 * 1000000)) {
-        setImages(null)
-        inputFileRef.current.value = null
-        setAlert('file size limit is 10 MB')
-        return null
+    if (images) {
+      for (let x = 0; x < images.length; x++) {
+        const fileSize = images[x].size
+        if (fileSize > (11 * 1000000)) {
+          setImages(null)
+          inputFileRef.current.value = null
+          setAlert('file size limit is 10 MB')
+          return null
+        }
       }
     }
 
