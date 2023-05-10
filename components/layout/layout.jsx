@@ -1,6 +1,13 @@
+import dynamic from 'next/dynamic'
+
+const Background = dynamic(() => import('../UI/background/background'),
+  // {
+  //   loading: () => <p>Loading...</p>,
+  // }
+)
+
 import HeadContent from './head-content'
 import Navbar from '../navbar/navbar'
-import Background from '../UI/background/background'
 import SideCart from '../side-cart/side-cart'
 import Footer from '../footer/footer'
 import s from './layout.module.scss'
