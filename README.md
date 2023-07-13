@@ -5,6 +5,9 @@ Create the file `.env.local` and copy the content of `.env.local.example` (chang
 ### There are two ways of calling the backend API
  - For Next.js server code use: `${process.env.BACKEND}/`
  - For frontend code use: `/backend/` -> this will be a proxy to the backend URL
+
+### Backend Repository
+https://github.com/Eloi-Perez/ecommerce-node-backend
  
  ## Running the development server
 
